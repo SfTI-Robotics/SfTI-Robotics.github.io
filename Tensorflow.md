@@ -1,7 +1,13 @@
 # Tensorflow
 
+## What is TensorFlow?
+TensorFlow is a open source library developed by Google to run large numerical computations. We use it in machine learning to create and operation neural networks. Tensorflow runs on both CPU and GPU. As neural network is not the primary focus of this project, we will mainly be using Keras, a high level API that runs on top of TensorFlow which helps simplify coding with TensorFlow. 
+
+## Why use TensorFlow?
+We don't want to worry about the nitty-gritties of how to create a neural network from scratch. TensorFlow also offers a wide range of commands and tools for manipulating the neural network.
+
 ## Tensor
-Tensorflow uses tensor (data structure) to represent all data. Tensors are the only inputs passed into a tensorflow computational graph. It can be thought of as a n-dimensional array or list. A tensor has a rank, a shape and a static type, so a tensor can be represented as a multidimensional array of numbers.
+Tensor is what TensorFlow processes. You can think of it as a set of values that is used to represent something mathematical. It can be thought of as a n-dimensional array. Take a 2D vector as an example. We can represent this vector by recording it's x and y axis values. This set of values, ie (3, 4) is a tensor of rank 1. A tensor has a rank, a shape and a static type, so a tensor can be represented as a multidimensional array of numbers.
 
 - Rank: number of dimensions in a tensor. 
   - Scalar: rank 0
@@ -14,6 +20,8 @@ Tensorflow uses tensor (data structure) to represent all data. Tensors are the o
   - Tf.float32
   - Tf.int64
   - etc...
+
+[Helpful video (12 mins)](https://www.youtube.com/watch?v=f5liqUk0ZTw)
 
 ## Variables
 in-memory buffers containing tensors. They can hold and update parameters when training models. Variables maintain state across executions of the graph.
