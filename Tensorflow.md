@@ -46,6 +46,6 @@ variable_scope(): created variables can be contained within a specified scope in
 ```
 with tf.variable_scope('q_target'):
      # update q-target
-     q_target = self.r + self.gamma * tf.reduce_max(self.q_next, axis=1,                  name='Qmax_s_')    
+     q_target = self.r + self.gamma * tf.reduce_max(self.q_next, axis=1, name='Qmax_s_')    
 ```
 Assign(): This operation outputs a Tensor that holds the new value of 'ref' after the value has been assigned. This makes it easier to chain operations that need to use the reset value.
