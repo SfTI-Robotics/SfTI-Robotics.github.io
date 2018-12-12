@@ -57,3 +57,32 @@ with tf.variable_scope('q_target'):
      q_target = self.r + self.gamma * tf.reduce_max(self.q_next, axis=1, name='Qmax_s_')    
 ```
 Assign(): This operation outputs a Tensor that holds the new value of 'ref' after the value has been assigned. This makes it easier to chain operations that need to use the reset value.
+
+
+reshape(): returns the tensor in the shape specified
+```
+# tensor 't' is [1, 2, 3, 4, 5, 6, 7, 8, 9]
+# tensor 't' has shape [9]
+reshape(t, [3, 3]) ==> [[1, 2, 3],
+                        [4, 5, 6],
+                        [7, 8, 9]]
+
+# tensor 't' is [[[1, 1], [2, 2]],
+#                [[3, 3], [4, 4]]]
+# tensor 't' has shape [2, 2, 2]
+reshape(t, [2, 4]) ==> [[1, 1, 2, 2],
+                        [3, 3, 4, 4]]
+
+# pass '[-1]' to flatten 't'
+reshape(t, [-1]) ==> [1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6]
+
+# -1 can also be used to infer the shape
+
+# -1 is inferred to be 9:
+reshape(t, [2, -1]) ==> [[1, 1, 1, 2, 2, 2, 3, 3, 3],
+                         [4, 4, 4, 5, 5, 5, 6, 6, 6]]
+                         
+# tensor 't' is [7]
+# shape `[]` reshapes to a scalar
+reshape(t, []) ==> 7
+```
