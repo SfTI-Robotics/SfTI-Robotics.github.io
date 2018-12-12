@@ -7,22 +7,31 @@ TensorFlow is a open source library developed by Google to run large numerical c
 We don't want to worry about the nitty-gritties of how to create a neural network from scratch. TensorFlow also offers a wide range of commands and tools for manipulating the neural network.
 
 ## Tensor
-Tensor is what TensorFlow processes. You can think of it as a set of values that is used to represent something mathematical. It can be thought of as a n-dimensional array. Take a 2D vector as an example. We can represent this vector by recording it's x and y axis values. This set of values, ie (3, 4) is a tensor of rank 1. A tensor has a rank, a shape and a static type, so a tensor can be represented as a multidimensional array of numbers.
+Tensor is what TensorFlow processes. You can think of it as a set of values that is used to represent something mathematical. It can be thought of as a n-dimensional array. Take a 2D vector as an example. We can represent this vector by recording it's x and y axis values. This set of values, ie [3, 4] is a tensor of rank 1. A tensor has a rank, a shape and a static type, so a tensor can be represented as a multidimensional array of numbers.
 
 - Rank: number of dimensions in a tensor. 
   - Scalar: rank 0
   - Vector: rank 1 
   - matrix : rank 2
+  
 - Shape: dimension lengths in a tensor 
   - 2D matrix shape returns: [rows, columns]
-  - 3D tensor shape returns [rows, columns, width]
+  - 3D tensor shape returns [depth, rows, columns]
+  
 - Data type: 
-  - Tf.float32
-  - Tf.int64
+  - tf.float32
+  - tf.int64
   - etc...
 
 [Helpful video (12 mins)](https://www.youtube.com/watch?v=f5liqUk0ZTw)
 
+# Low Level API
+## Dataflow Graphs
+TensorFlow uses dataflow graphs to represent computation. It is very useful to visualize relation between operations.
+![](https://cdn-images-1.medium.com/max/1600/1*zeXlzGhBoCl8clrpwtVbRQ.png)
+
+## Using TensorFlow
+There are 2 steps when programming with TensorFlow. We need to first build our computational graph, then run it. A computational graph is a series of TensorFlow operations arranged into a graph. 
 ## Variables
 in-memory buffers containing tensors. They can hold and update parameters when training models. Variables maintain state across executions of the graph.
 
@@ -57,32 +66,3 @@ with tf.variable_scope('q_target'):
      q_target = self.r + self.gamma * tf.reduce_max(self.q_next, axis=1, name='Qmax_s_')    
 ```
 Assign(): This operation outputs a Tensor that holds the new value of 'ref' after the value has been assigned. This makes it easier to chain operations that need to use the reset value.
-
-
-reshape(): returns the tensor in the shape specified
-```
-# tensor 't' is [1, 2, 3, 4, 5, 6, 7, 8, 9]
-# tensor 't' has shape [9]
-reshape(t, [3, 3]) ==> [[1, 2, 3],
-                        [4, 5, 6],
-                        [7, 8, 9]]
-
-# tensor 't' is [[[1, 1], [2, 2]],
-#                [[3, 3], [4, 4]]]
-# tensor 't' has shape [2, 2, 2]
-reshape(t, [2, 4]) ==> [[1, 1, 2, 2],
-                        [3, 3, 4, 4]]
-
-# pass '[-1]' to flatten 't'
-reshape(t, [-1]) ==> [1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6]
-
-# -1 can also be used to infer the shape
-
-# -1 is inferred to be 9:
-reshape(t, [2, -1]) ==> [[1, 1, 1, 2, 2, 2, 3, 3, 3],
-                         [4, 4, 4, 5, 5, 5, 6, 6, 6]]
-                         
-# tensor 't' is [7]
-# shape `[]` reshapes to a scalar
-reshape(t, []) ==> 7
-```
