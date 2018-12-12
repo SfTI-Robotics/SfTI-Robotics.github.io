@@ -18,7 +18,7 @@ First I would reccomend installing the following program(use google- they normal
    ```
    pip install tensorflow #(CPU-Only)
    pip install tensorflow-gpu#(GPU)
-      ```
+   ```
    
 5) Keras 
    ```
