@@ -62,8 +62,6 @@ Select by both:
 ```
 df.ix[ ]
 ```
-
-...and Replace
 Replace selected index:
 ```
 df.iloc[] = 1
@@ -80,44 +78,60 @@ df[‘A’] = 1		// col titled A with 1s
 
 Manage NaN
 Remove rows or cols with NaN in data frame:
+```
 df.dropna()
+```
 
 Replace NaN in data frame:
+```
 df.fillna(value)
+```
 
 Check NaN:
+```
 df.isnull()		// returns boolean
 np.any(df.isnull()) == True	// return if any value in data frame contains NaN
-  
-Input and Output
+```
+
+## Input and Output
 Read data:
+```
 data = pd.read_’format’(‘file’)
+```
 
 Convert and output data to different formats:
+```
 data.to_’format’(‘new_file’)
+```
 
 Concatenate
+```
 pd.concat([df1. df2. df3], axis, ignore_index, join, axis, join_axes)		
 // ignore_index: redo index for whole data frame
 					// join: determine how data is joined {outer, inner} {fill, cut}
 					// join_axes: determines if join reacts to row or col
-
+```
 Append data frame to the bottom of another one:
+```
 df.append()
 Merge
 Merge based on a key:
 pd.merge(df1, df2, on = key)		
 // on: merge based on properties of which key
 // will discard non-matching keys
+```
 
 Merge based on keys:
+```
 pd.merge(df1, df2, left_index, right_index, on = ['key1', 'key2'], suffixes, how, indicator)
 // how = {'outer', 'inner', 'left', 'right'} 
 // indicator: indicates which df data is taken from
 // left_index, right_index: which df to consider
 // suffixes: merge with suffixes names
+```
 
 Plotting
+```
 import matplotlib.pyplot as plt
 
 data .plot()			# all can be used with DataFrame
@@ -126,6 +140,7 @@ plt.show()
 
 plt.scatter()
 data.plot.scatter()
+```
 
 // There is also other plot types: bar, histo, box, kde, area, hexbin, pie
 
