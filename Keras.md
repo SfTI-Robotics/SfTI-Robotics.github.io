@@ -26,4 +26,55 @@ keras.layers.Lambda(function, output_shape=None,mask=None,arguments=None)
 ```
 
 ### `init()`
+Initializations define the way to set the initial random weights of Keras layers.
+The keyword arguments used for passing initializers to layers will depend on the layer. Usually it is simply `kernel_initializer` and `bias_initializer`:
+```
+model.add(Dense(64,kernel_initializer='random_uniform',bias_initializer='zeros'))
+```
+Types:
+`keras.initializers.Initializer() `
+Initializer base class: all initializers inherit from this class.
+
+`keras.initializers.Zeros()`
+Initializer that generates tensors initialized to 0.
+
+`Ones()`
+Initializer that generates tensors initialized to 1.
+
+`keras.initializers.Constant(value=0)`
+Initializer that generates tensors initialized to a constant value.
+
+
+`keras.initializers.RandomNormal(mean=0.0, stddev=0.05, seed=None)`
+Initializer that generates tensors with a uniform distribution.
+
+### `Activation()`
+Restricts data to a rangeeg:softmax, tanh, abs, sigmoid
+Graphs of those functions
+How to implement
+
+## Models
+Is a class
+
+### `Sequential()`
+Inherits with model creates a linear stack of layers.
+```
+unbound_model = Sequential([l1, l2])
+```
+## Math
+### `reduce_mean()`
+Computes the mean of elements across dimensions of a tensor. Axis input is the dimensions given
+```
+loss = reduce_mean(square(model - q_target), axis=0)
+```
+## Optimizers
+Keras has a library to call different optimisers on a network
+Importation from keras import optimizers
+Implementaion example: stochastic gradient descent
+``` 
+learner = sgd(model.parameters,lr,gradient_clipping_threshold_per_sample=10)
+```
+
+
+
 
