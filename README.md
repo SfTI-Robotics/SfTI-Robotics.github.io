@@ -24,11 +24,14 @@ First I would reccomend installing the following program(use google- they normal
    ```
    pip(3) install keras
    ```
+  
   Environment simulation packages: 
 1) OpenAI Gym
    https://gym.openai.com/docs/#installation
    
 2) OpenAI Retro
+
+3) Gazebo 9
 
 
 ### What now?
