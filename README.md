@@ -40,8 +40,8 @@ Once you're alright with the theory start going into Openai Gym and look at what
 
 ## Syntax Page
 
-[Nupmy](./Numpy.md)
-[Pandas](./Pandas.md)
-[TensorFlow](./Tensorflow.md)
-[Keras](./Keras.md)
-[Openai Gym](./Gym.md)
+[Nupmy](./Numpy.md).
+[Pandas](./Pandas.md).
+[TensorFlow](./Tensorflow.md).
+[Keras](./Keras.md).
+[Openai Gym](./Gym.md).
