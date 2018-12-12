@@ -38,6 +38,6 @@ You're going to need to learn alot of information about RL this may take you a f
 
 Once you're alright with the theory start going into Openai Gym and look at what code other people have done.
 
+## Syntax Page
 
-
-[pages](./pageone.md)
+[syntax](./Syntax.md)
