@@ -23,6 +23,6 @@ include:
   - PULL_REQUEST_TEMPLATE.md
   - ABOUT.md
 
-theme: jekyll-theme-minimal
+theme: jekyll-theme-cayman
 
 
