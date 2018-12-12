@@ -6,7 +6,7 @@ TensorFlow is a open source library developed by Google to run large numerical c
 ## Why use TensorFlow?
 We don't want to worry about the nitty-gritties of how to create a neural network from scratch. TensorFlow also offers a wide range of commands and tools for manipulating the neural network.
 
-## Impoting TensorFlow
+## Importing TensorFlow
 ```
 import tensorflow as tf
 ```
@@ -33,12 +33,49 @@ Tensor is what TensorFlow processes. You can think of it as a set of values that
 
 Create a Tensor
 ```
-tf.get_variable()
-tf.constant()
+tf.get_variable() 
+tf.constant() # value does not change
 ```
 Create a Tensor placeholder
 ```
 tf.placeholder()
+```
+Create a Tensor with all zeros
+```
+tf.zeros()
+```
+Create a Tensor with all ones
+```
+tf.ones()
+```
+Create a Tensor with random values from a normal distribution
+```
+tf.random_normal()
+```
+Create a Tensor with random values with a uniform distribution
+```
+tf.random_uniform()
+```
+
+## Session
+Run a session
+```
+with tf.Session() as sess:
+  sess.run()
+  
+or
+
+sess = tf.Session()
+sess.run()
+```
+## Matrix Manipulation
+Return shape of tensor
+```
+tensor.get_shape()
+```
+Multiply matrix
+```
+tf.matmul(matrix1, matrix2)
 ```
 
 
