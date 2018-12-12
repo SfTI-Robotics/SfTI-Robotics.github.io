@@ -6,6 +6,11 @@ TensorFlow is a open source library developed by Google to run large numerical c
 ## Why use TensorFlow?
 We don't want to worry about the nitty-gritties of how to create a neural network from scratch. TensorFlow also offers a wide range of commands and tools for manipulating the neural network.
 
+## Impoting TensorFlow
+```
+import tensorflow as tf
+```
+
 ## Tensor
 Tensor is what TensorFlow processes. You can think of it as a set of values that is used to represent something mathematical. It can be thought of as a n-dimensional array. Take a 2D vector as an example. We can represent this vector by recording it's x and y axis values. This set of values, ie [3, 4] is a tensor of rank 1. A tensor has a rank, a shape and a static type, so a tensor can be represented as a multidimensional array of numbers.
 
@@ -23,15 +28,20 @@ Tensor is what TensorFlow processes. You can think of it as a set of values that
   - tf.int64
   - etc...
 
-[Helpful video (12 mins)](https://www.youtube.com/watch?v=f5liqUk0ZTw)
+[Helpful Video on Tensor(12 mins)](https://www.youtube.com/watch?v=f5liqUk0ZTw)
 
-# Low Level API
-## Dataflow Graphs
-TensorFlow uses dataflow graphs to represent computation. It is very useful to visualize relation between operations.
-![](https://cdn-images-1.medium.com/max/1600/1*zeXlzGhBoCl8clrpwtVbRQ.png)
 
-## Using TensorFlow
-There are 2 steps when programming with TensorFlow. We need to first build our computational graph, then run it. A computational graph is a series of TensorFlow operations arranged into a graph. 
+Create a Tensor
+```
+tf.get_variable()
+tf.constant()
+```
+Create a Tensor placeholder
+```
+tf.placeholder()
+```
+
+
 ## Variables
 in-memory buffers containing tensors. They can hold and update parameters when training models. Variables maintain state across executions of the graph.
 
