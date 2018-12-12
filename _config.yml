@@ -6,12 +6,12 @@ relative_links:
   collections: true
 output_dir: "."
 navbar:
-  title: "Nicks Website"
+  title: "Quick Menu"
   left:
     - text: "Home"
-      href: index.html
-    - text: "About Me"
-      href: about.html
+      href: README.html
+    - text: "Syntax"
+      href: syntax.html
 include:
   - CONTRIBUTING.md
   - README.md
