@@ -4,6 +4,14 @@ plugins:
 relative_links:
   enabled: true
   collections: true
+output_dir: "."
+navbar:
+  title: "Nicks Website"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "About Me"
+      href: about.html
 include:
   - CONTRIBUTING.md
   - README.md
