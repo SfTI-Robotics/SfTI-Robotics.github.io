@@ -1,7 +1,8 @@
-Pandas
+# Pandas
 Addition package based off of numpy; Mainly used for table manipulation. i.e matrix with strings
 Pandas can input and output data to other formats
 
+```
 pd. = function of pandas
 df. = function of generated data frame
 Importing Pandas
@@ -9,52 +10,73 @@ import pandas as pd
 Create a table
 Create a 1D array:
 pd.Series()
+```
 
 Create a list of dates:
+```
 pd.date_range()
+```
 
 Create a data frame:
+```
 pd.DataFrame([data], index, col, dtype)
 Data Frame Properties
 df.index
 df.columns
 df.value
 df.describe		// only describes numbers
+```
 
-Basic Manipulation
+## Basic Manipulation
 Sort a data frame:
+```
 df.sort_index()
 df.sort_value()
+```
 
 Transpose the data frame:
+```
 df.T
 Search….
 List data by row or col name:
 pd.row
 pd.col
+```
 
 List data of selected rows:
+```
 df[1, 3]
+```
 
 Select by label:
+```
 df.loc[rows, cols]
+```
 
 Select by position:
+```
 df.iloc[ ]
+```
 
 Select by both:
+```
 df.ix[ ]
+```
 
 ...and Replace
 Replace selected index:
+```
 df.iloc[] = 1
 df.loc[] = 1
 df[df.A>4] = 0 		// example
 //e.g: replace all rows to 0 if the column value in that row is greater than 4
 np.nan 		// if you want NaN instead
+```
 
 Add col to data frame:
+```
 df[‘A’] = 1		// col titled A with 1s
+```
 
 Manage NaN
 Remove rows or cols with NaN in data frame:
