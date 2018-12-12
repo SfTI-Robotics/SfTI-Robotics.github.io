@@ -4,14 +4,6 @@ plugins:
 relative_links:
   enabled: true
   collections: true
-output_dir: "."
-navbar:
-  title: "Quick Menu"
-  left:
-    - text: "Home"
-      href: README.html
-    - text: "Syntax"
-      href: syntax.html
 include:
   - CONTRIBUTING.md
   - README.md
