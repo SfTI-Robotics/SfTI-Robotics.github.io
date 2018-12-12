@@ -4,11 +4,11 @@ Code used:
 
 ### Mountain Car
 
-Yash (medium): Article|Code
+Yash (medium): [Article](https://towardsdatascience.com/reinforcement-learning-w-keras-openai-dqns-1eed3a5338c)|[Code](https://gist.github.com/yashpatel5400/049fe6f4372b16bab5d3dab36854f262)
 
 ### Retro
 
-Free code camp: [Article](|Code
+Free code camp: [Article](https://medium.freecodecamp.org/an-introduction-to-deep-q-learning-lets-play-doom-54d02d8017d8)|[Code](https://gist.github.com/simoninithomas/7611db5d8a6f3edde269e18b97fa4d0c#file-deep-q-learning-with-doom-ipynb)
 
 ### Cart Pole
 
