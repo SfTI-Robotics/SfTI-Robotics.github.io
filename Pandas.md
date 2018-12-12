@@ -130,7 +130,7 @@ pd.merge(df1, df2, left_index, right_index, on = ['key1', 'key2'], suffixes, how
 // suffixes: merge with suffixes names
 ```
 
-Plotting
+## Plotting
 ```
 import matplotlib.pyplot as plt
 
@@ -142,6 +142,6 @@ plt.scatter()
 data.plot.scatter()
 ```
 
-// There is also other plot types: bar, histo, box, kde, area, hexbin, pie
+There is also other plot types: bar, histo, box, kde, area, hexbin, pie
 
 
