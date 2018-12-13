@@ -147,3 +147,7 @@ reshape(t, [2, -1]) ==> [[1, 1, 1, 2, 2, 2, 3, 3, 3],
 # shape `[]` reshapes to a scalar
 reshape(t, []) ==> 7
 ```
+
+## What is a Kernel
+
+In machine learning, a “kernel” is usually used to refer to the kernel trick, a method of using a linear classifier to solve a non-linear problem. 
