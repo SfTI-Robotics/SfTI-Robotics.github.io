@@ -104,7 +104,7 @@ returns the output of operations by executing the graph with a sess.run() call.
 ## Feeds  
 this mechanism patches tensors directly into any operation in the graph. It temporarily replaces the output of an operation with a tensor value. When the run() function is called, the feed supplies input data as an argument. Common feeds are the tf.placeholder() function
 
-##tf.__ functions
+## tf.__ functions
 
 shape(): Returns the the dimensions of a single tensor
 shape_n(): Returns the dimensions of tensors
