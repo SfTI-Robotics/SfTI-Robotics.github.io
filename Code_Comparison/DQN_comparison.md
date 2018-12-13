@@ -15,6 +15,7 @@ Free code camp: [Article](https://medium.freecodecamp.org/an-introduction-to-dee
 Greg (medium): [Article](https://towardsdatascience.com/cartpole-introduction-to-reinforcement-learning-ed0eb5b58288)|[Code](https://github.com/gsurma/cartpole)
 
 Matt (medium): [Article](https://medium.com/@tuzzer/follow-up-cart-pole-balancing-with-q-network-976d13f88d2f)|[Code](https://github.com/MattChanTK/ai-gym/blob/master/cart_pole/cart_pole_dqn_cntk.py)
+Omar : [Code](https://github.com/OmarAflak/CartPole-DQN/blob/master/dqn.py)
 
 ### Frozen lake 
 [Code](https://gist.github.com/awjuliani/9024166ca08c489a60994e529484f7fe#file-q-table-learning-clean-ipynb)
