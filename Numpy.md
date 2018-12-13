@@ -37,7 +37,7 @@ array.reshape([row,col])
 
 Create random matrix:
 ```
-np.random.random((X, Y))
+np.random.random((X, Y)) 
 Matrix Properties
 Check matrix dimensions:
 array.ndim
@@ -129,4 +129,20 @@ Split a matrix into multiple matrices:
 np.split()		// split into even pieces
 np.array_split()	// for uneven splits. Uneven part goes to left-most matrix
 np.vsplit()
+```
+## Random Functions
+DISCLAMER: There are two random packages , one with numpy.random which creates a random matrix and you have a standard random package which creates a random value
+
+Picking random numbers based of a random distribution where each value has a random chance of being selected between a minimal and a maximum: 
+```
+tradeoff = random.random(0,1)
+```
+Picking random numbers based of a uniform distribution where each value has an equal chance of selection between your minimal and maximum value
+```
+tradeoff = random.uniform(0,1)
+```
+
+Picking random numbers based on a normal distribution of chances for values between minimal and maximum values
+```
+np.random.randn(1, env.action_space.n)
 ```
