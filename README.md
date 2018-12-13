@@ -13,7 +13,6 @@ First I would reccomend installing the following program(use google- they normal
   https://www.python.org/downloads/
   
 3) ROS melodic
-ffhgf
   
 4) Tensorflow 
    ```
