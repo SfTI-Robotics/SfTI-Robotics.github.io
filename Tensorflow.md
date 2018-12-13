@@ -111,6 +111,7 @@ shape_n(): Returns the dimensions of tensors
 ```
 t = tf.constant([[[1, 1, 1], [2, 2, 2]], [[3, 3, 3], [4, 4, 4]]])
 tf.shape(t)  # [2, 2, 3] 
+# shape() need to fully explain example
 ```
 
 stack(): packs the list of tensors into one tensor and also increases the rank by one. It is stacked along the axis dimension. 
