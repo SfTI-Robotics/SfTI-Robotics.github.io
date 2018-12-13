@@ -1,5 +1,15 @@
 # Tensorflow
 
+## What is a Tensor 
+vector = 1 rank tensor 
+scalar= rank 0 
+matrix =
+
+represent a mathematical unit in a space -> is also used outside of computing
+
+Tensors often offer more natural representations of data, e.g., consider video, which consists of obviously correlated images over time. You can turn this into a matrix, but it's just not natural or intuitive 
+
+
 ## What is TensorFlow?
 TensorFlow is a open source library developed by Google to run large numerical computations. We use it in machine learning to create and operation neural networks. Tensorflow runs on both CPU and GPU. As neural network is not the primary focus of this project, we will mainly be using Keras, a high level API that runs on top of TensorFlow which helps simplify coding with TensorFlow. 
 
