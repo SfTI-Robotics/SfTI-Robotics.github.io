@@ -68,7 +68,7 @@ tf.random_uniform()
 ```
 
 ## Session
-Run a session
+Run a session (using build model)
 ```
 with tf.Session() as sess:
   sess.run()
@@ -91,6 +91,12 @@ tf.matmul(matrix1, matrix2)
 
 ## Variables
 in-memory buffers containing tensors. They can hold and update parameters when training models. Variables maintain state across executions of the graph.
+
+## Variable scopes
+
+## Name scopes
+
+## VS vs NS
 
 ## Fetches
 returns the output of operations by executing the graph with a sess.run() call. 
