@@ -1,4 +1,4 @@
-# UoA-RL.github.io
+# Reinforcement Learning|National Science challenge
 ## Welcome to the club
 
 This project aim for a robot arm to use reinforcement learning to complete different tasks you will be supervised by Tony and Henry if you have any questions ask them.
