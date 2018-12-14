@@ -16,6 +16,6 @@ include:
   - PULL_REQUEST_TEMPLATE.md
   - ABOUT.md
 
-theme: jekyll-theme-cayman
+theme: jekyll-theme-leap-day
 
 
