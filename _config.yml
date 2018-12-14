@@ -4,7 +4,6 @@ plugins:
 relative_links:
   enabled: true
   collections: true
-  show_downloads: true
 include:
   - CONTRIBUTING.md
   - README.md
@@ -18,4 +17,4 @@ include:
 
 theme: jekyll-theme-leap-day
 
-
+show_downloads: true
