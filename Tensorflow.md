@@ -23,6 +23,7 @@ Tensor is what TensorFlow processes. It is a generalization of vectors and matri
 - Shape: dimension lengths in a tensor 
   - 2D matrix shape returns: [rows, columns]
   - 3D tensor shape returns [depth, rows, columns]
+Tensors have both an inferred (static) shape and a true (dynamic) shape. 
   
 - Data type: 
   - tf.float32  # This is the most common data type when using tensorflow.
@@ -59,28 +60,6 @@ Create a Tensor with random values with a uniform distribution
 tf.random_uniform()
 ```
 
-## Session
-Run a session (using build model)
-```
-with tf.Session() as sess:
-  sess.run()
-  
-or
-
-sess = tf.Session()
-sess.run()
-```
-## Matrix Manipulation
-Return shape of tensor
-```
-tensor.get_shape()
-```
-Multiply matrix
-```
-tf.matmul(matrix1, matrix2)
-```
-
-
 ## Variables
 in-memory buffers containing tensors. They can hold and update parameters when training models. Variables maintain state across executions of the graph.
 
@@ -97,6 +76,31 @@ returns the output of operations by executing the graph with a sess.run() call.
 this mechanism patches tensors directly into any operation in the graph. It temporarily replaces the output of an operation with a tensor value. When the run() function is called, the feed supplies input data as an argument. Common feeds are the tf.placeholder() function
 
 ## Shapes
+http://www.heyuhang.com/blog/2018/07/14/tensorflow-get-shape-vs-tf-dot-shape/
+
+Return shape of tensor
+```
+tensor.get_shape() # static shape
+tensor.shape() # dynamic shape
+```
+
+## Session
+Run a session (using build model)
+```
+with tf.Session() as sess:
+  sess.run()
+  
+or
+
+sess = tf.Session()
+sess.run()
+```
+## Matrix Manipulation
+
+Multiply matrix
+```
+tf.matmul(matrix1, matrix2)
+```
 
 ## tf.__ functions
 
