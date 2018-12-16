@@ -24,6 +24,11 @@ Tensor is what TensorFlow processes. It is a generalization of vectors and matri
   - 2D matrix shape returns: [rows, columns]
   - 3D tensor shape returns [depth, rows, columns]
 Tensors have both an inferred (static) shape and a true (dynamic) shape. 
+Return shape of tensor
+```
+tensor.get_shape() # static shape
+tensor.shape() # dynamic shape
+```
   
 - Data type: 
   - tf.float32  # This is the most common data type when using tensorflow.
@@ -74,15 +79,6 @@ returns the output of operations by executing the graph with a sess.run() call.
 
 ## Feeds  
 this mechanism patches tensors directly into any operation in the graph. It temporarily replaces the output of an operation with a tensor value. When the run() function is called, the feed supplies input data as an argument. Common feeds are the tf.placeholder() function
-
-## Shapes
-http://www.heyuhang.com/blog/2018/07/14/tensorflow-get-shape-vs-tf-dot-shape/
-
-Return shape of tensor
-```
-tensor.get_shape() # static shape
-tensor.shape() # dynamic shape
-```
 
 ## Session
 Run a session (using build model)
