@@ -1,15 +1,5 @@
 # Tensorflow
 
-## What is a Tensor 
-vector = 1 rank tensor 
-scalar= rank 0 
-matrix =
-
-represent a mathematical unit in a space -> is also used outside of computing
-
-Tensors often offer more natural representations of data, e.g., consider video, which consists of obviously correlated images over time. You can turn this into a matrix, but it's just not natural or intuitive 
-
-
 ## What is TensorFlow?
 TensorFlow is a open source library developed by Google to run large numerical computations. We use it in machine learning to create and operation neural networks. Tensorflow runs on both CPU and GPU. As neural network is not the primary focus of this project, we will mainly be using Keras, a high level API that runs on top of TensorFlow which helps simplify coding with TensorFlow. 
 
@@ -22,24 +12,23 @@ import tensorflow as tf
 ```
 
 ## Tensor
-Tensor is what TensorFlow processes. You can think of it as a set of values that is used to represent something mathematical. It can be thought of as a n-dimensional array. Take a 2D vector as an example. We can represent this vector by recording it's x and y axis values. This set of values, ie [3, 4] is a tensor of rank 1. A tensor has a rank, a shape and a static type, so a tensor can be represented as a multidimensional array of numbers.
+Tensor is what TensorFlow processes. It is a generalization of vectors and matrices to any dimension. It can be thought of as a n-dimensional array. Take a 2D vector as an example. We can represent this vector by recording it's x and y axis values. This set of values, ie [3, 4] is a tensor of rank 1. We use tensors because they offer a more natural representations of data.
 
 - Rank: number of dimensions in a tensor. 
-  - Scalar: rank 0
-  - Vector: rank 1 
-  - matrix : rank 2
+  - Scalar: rank 0. Has magnitude but no direction.
+  - Vector: rank 1. Has both magnitude and direction. May represent a vector in 2,3 or n dimensions
+  - matrix : rank 2. Can be thoought of as the possible combination of two vectors. 
   
 - Shape: dimension lengths in a tensor 
   - 2D matrix shape returns: [rows, columns]
   - 3D tensor shape returns [depth, rows, columns]
   
 - Data type: 
-  - tf.float32
+  - tf.float32  # This is the most common data type when using tensorflow.
   - tf.int64
   - etc...
 
-[Helpful Video on Tensor(12 mins)](https://www.youtube.com/watch?v=f5liqUk0ZTw)
-
+[Helpful Video on Tensor (12 mins)](https://www.youtube.com/watch?v=f5liqUk0ZTw)
 
 Create a Tensor
 ```
