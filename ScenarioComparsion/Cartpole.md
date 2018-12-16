@@ -4,7 +4,7 @@ The code resources used in this comparison can be found [in this repo](https://g
 
 # Q networks
 - initialise Q-values in a table matrix using Numpy
-- 
+- state and observation (what is the difference)
 
 
 # DQN networks
