@@ -4,8 +4,9 @@ The code resources used in this comparison can be found [in this repo](https://g
 
 # Q networks
 - initialise Q-values in a table matrix using Numpy
-- 
+- from observation, find state using angle to buckets (what is the difference)
 
 
 # DQN networks
-
+- use the reshaped vector from `env.reset()` as state 
+- uses neural networks to calculate Q-values 
