@@ -3,7 +3,8 @@ The code resources used in this comparison can be found [in this repo](https://g
 
 
 # Q networks
-
+- initialise Q-values in a table matrix using Numpy
+- 
 
 
 # DQN networks
