@@ -7,11 +7,12 @@ TensorFlow is a open source library developed by Google to run large numerical c
 We don't want to worry about the nitty-gritties of how to create a neural network from scratch. TensorFlow also offers a wide range of commands and tools for manipulating the neural network.
 
 ## Importing TensorFlow
+You can download tensorflow from their offical website. After installing either the GPU or CPU version for python 2.7/3, import it with:
 ```
 import tensorflow as tf
 ```
 
-## Tensor
+# Tensor
 Tensor is what TensorFlow processes. It is a generalization of vectors and matrices to any dimension. It can be thought of as a n-dimensional array. Take a 2D vector as an example. We can represent this vector by recording it's x and y axis values. This set of values, ie [3, 4] is a tensor of rank 1. We use tensors because they offer a more natural representations of data.
 
 - Rank: number of dimensions in a tensor. 
@@ -28,9 +29,11 @@ Tensor is what TensorFlow processes. It is a generalization of vectors and matri
   - tf.int64
   - etc...
 
-[Helpful Video on Tensor (12 mins)](https://www.youtube.com/watch?v=f5liqUk0ZTw)
+[Helpful Video that Explain Tensors (12 mins)](https://www.youtube.com/watch?v=f5liqUk0ZTw)
 
-Create a Tensor
+The main objective of a TensorFlow programme is to manipulate and pass around tensors through mathematical operations. Tensors are represented with tf.Tensor objects. It represents a partially defined computation that will eventually produce a value. TensorFlow programs work by first building a graph of tf.Tensor objects, detailing how each tensor is computed based on the other available tensors and then by running parts of this graph to achieve the desired results.
+
+# Creating a Tensor
 ```
 tf.get_variable() 
 tf.constant() # value does not change
