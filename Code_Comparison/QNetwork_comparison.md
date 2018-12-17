@@ -8,3 +8,7 @@ Matt [Article](https://medium.com/@tuzzer/cart-pole-balancing-with-q-learning-b5
 
 ### Taxi 
 Thomas [Article](https://medium.freecodecamp.org/diving-deeper-into-reinforcement-learning-with-q-learning-c18d0db58efe) | [Code](https://github.com/simoninithomas/Deep_reinforcement_learning_Course/blob/master/Q%20learning/Taxi-v2/Q%20Learning%20with%20OpenAI%20Taxi-v2%20video%20version.ipynb)
+
+## Comparison
+
+Frozen Lake used 
