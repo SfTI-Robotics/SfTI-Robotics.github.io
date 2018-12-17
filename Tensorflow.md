@@ -42,6 +42,13 @@ The main objective of a TensorFlow programme is to manipulate and pass around te
 
 ![](http://adventuresinmachinelearning.com/wp-content/uploads/2017/03/TensorFlow-data-flow-graph.gif)
 
+# Core
+TensorFlow programme consist of two discrete sections:
+  1. Building the computational graph
+  2. Running the computational graph
+
+## Building the graph (tf.Graph)
+A series of TensorFlow operations are arranged into a graph. The graph is composed of both operations (nodes) and tensors (edges). Reminder that the tensor objects do not hold values, they are just handles to elements in the computation graph
 ## Creating a Tensor
 ```
 tf.constant() # value does not change
