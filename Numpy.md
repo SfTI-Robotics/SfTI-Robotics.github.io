@@ -1,6 +1,5 @@
 # Numpy
-Package for matrix creation and manipulation. It uses C over python; using low level language improves processing speed by many folds. 
-
+Numpy is a package for matrix creation and manipulation. It executes in C instead of python; using low level language improves processing speed by many folds. 
 ```
 np. = function of numpy
 array. = function the generated array/matrix 
