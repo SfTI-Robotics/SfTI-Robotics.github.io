@@ -38,8 +38,10 @@ array.reshape([row,col])
 Create random matrix:
 ```
 np.random.random((X, Y)) 
-Matrix Properties
+```
+## Matrix Properties
 Check matrix dimensions:
+```
 array.ndim
 array.shape
 ```
@@ -57,7 +59,7 @@ array.dtype
 Sum of (default all) elements:
 ```
 np.sum()
-np.cumsum()
+np.cumsum() # cumulative sum
 ```
 
 Min/Max values:
@@ -66,7 +68,7 @@ np.min()
 np.max()
 ```
 
-Min/Max value indices:
+Min/Max value argument/indices:
 ```
 np.argmin()
 np.argmax()
@@ -85,6 +87,7 @@ np.median()
 ```
 
 Difference between neighbouring elements:
+The resulting matrix is one column smaller
 ```
 np.diff()
 ```
