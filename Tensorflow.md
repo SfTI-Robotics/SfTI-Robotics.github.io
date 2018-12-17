@@ -47,8 +47,35 @@ TensorFlow programme consist of two discrete sections:
   1. Building the computational graph
   2. Running the computational graph
 
-## Building the graph (tf.Graph)
-A series of TensorFlow operations are arranged into a graph. The graph is composed of both operations (nodes) and tensors (edges). Reminder that the tensor objects do not hold values, they are just handles to elements in the computation graph
+## Building the computation graph (tf.Graph)
+A series of TensorFlow operations are arranged into a graph. The graph is composed of both operations (nodes) and tensors (edges). Reminder that the tensor objects do not hold values, they are just handles to elements in the computation graph.
+
+## Running the computation graph (tf.Session)
+We create a Session() object to evaluate the graph. Each session.run is a separate execution, so take note on what you run. 
+
+Run a session (using built model)
+```
+with tf.Session() as sess:
+  sess.run()
+  
+or
+
+sess = tf.Session()
+sess.run()
+```
+
+## Feeding 
+Placeholders are how we parameterise the computation graph to accept external inputs
+```
+x = tf.placeholder(tf.float32, shape=(1024, 1024))
+y = tf.matmul(x, x)
+
+with tf.Session() as sess:
+  print(sess.run(y))  # ERROR: will fail because x was not fed.
+
+  rand_array = np.random.rand(1024, 1024)
+  print(sess.run(y, feed_dict={x: rand_array}))  # Will succeed.
+```
 ## Creating a Tensor
 ```
 tf.constant() # value does not change
@@ -132,17 +159,7 @@ with tf.variable_scope('q_target'):
 In machine learning, a “kernel” is usually used to refer to the kernel trick, a method of using a linear classifier to solve a non-linear problem. 
 
 
-## Session
-Run a session (using build model)
-```
-with tf.Session() as sess:
-  sess.run()
-  
-or
 
-sess = tf.Session()
-sess.run()
-```
 ## Matrix Manipulation
 
 Multiply matrix
