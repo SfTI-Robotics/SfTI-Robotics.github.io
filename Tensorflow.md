@@ -1,4 +1,4 @@
-# Tensorflow
+# _Tensorflow_
 
 ##    What is TensorFlow?
 TensorFlow is a open source library developed by Google to run large numerical computations. We use it in machine learning to create and operation neural networks. Tensorflow can perform parallel calculations with either CPU or GPU, allowing for significant reduction in computation time. As neural network is not the primary focus of this project, you may want to also look into Keras, a high level API that runs on top of TensorFlow which helps simplify coding with TensorFlow. 
