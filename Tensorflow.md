@@ -18,7 +18,7 @@ Tensor is what TensorFlow processes. It is a generalization of vectors and matri
 - Rank: number of dimensions in a tensor. 
   - Scalar: rank 0. Has magnitude but no direction.
   - Vector: rank 1. Has both magnitude and direction. May represent a vector in 2,3 or n dimensions
-  - matrix : rank 2. Can be thoought of as the possible combination of two vectors. 
+  - matrix : rank 2. Can be thought of as the possible combination of two vectors. 
   
 - Shape: dimension lengths in a tensor 
   - 2D matrix shape returns: [rows, columns]
@@ -252,8 +252,6 @@ gradients = optimizer.compute_gradients(loss)
 train_op = optimizer.apply_gradients(gradients)
 ```
 
-
-
 gather_nd(): 
 
 reduce_mean(
@@ -274,6 +272,7 @@ dense():
             self.q_eval = tf.layers.dense(e1, self.n_actions, kernel_initializer=w_initializer,
                                           bias_initializer=b_initializer, name='q')
 ```
+<<<<<<< Updated upstream
 
 
 **
@@ -282,3 +281,5 @@ sdkfhk
 dsfj
 
 **
+=======
+>>>>>>> Stashed changes
