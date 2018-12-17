@@ -42,6 +42,31 @@ The main objective of a TensorFlow programme is to manipulate and pass around te
 
 ![](http://adventuresinmachinelearning.com/wp-content/uploads/2017/03/TensorFlow-data-flow-graph.gif)
 
+## Creating a Tensor
+```
+tf.constant() # value does not change
+```
+Create a Tensor placeholder
+```
+tf.placeholder()
+```
+Create a Tensor with all zeros
+```
+tf.zeros()
+```
+Create a Tensor with all ones
+```
+tf.ones()
+```
+Create a Tensor with random values from a normal distribution
+```
+tf.random_normal()
+```
+Create a Tensor with random values with a uniform distribution
+```
+tf.random_uniform()
+```
+
 # Core
 TensorFlow programme consist of two discrete sections:
   1. Building the computational graph
@@ -97,31 +122,7 @@ sess.run(init)
 sess.run(y, {x: [[1, 2, 3], [4, 5, 6]]})
 ```
 
-# Syntax
-## Creating a Tensor
-```
-tf.constant() # value does not change
-```
-Create a Tensor placeholder
-```
-tf.placeholder()
-```
-Create a Tensor with all zeros
-```
-tf.zeros()
-```
-Create a Tensor with all ones
-```
-tf.ones()
-```
-Create a Tensor with random values from a normal distribution
-```
-tf.random_normal()
-```
-Create a Tensor with random values with a uniform distribution
-```
-tf.random_uniform()
-```
+
 
 ## Variables
 A `tf.Variable` represents a tensor whose value can be changed by running operations (ops) on it. They can hold and update parameters when training models. Variables maintain state across executions of the graph. Unlike tf.Tensor objects, a tf.Variable exists outside the context of a single session.run call.
