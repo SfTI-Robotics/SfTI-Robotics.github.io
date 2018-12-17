@@ -106,6 +106,11 @@ print(v1.name)  # var1:0
 print(v2.name)  # my_scope/var2:0
 print(a.name)   # my_scope/Add:0
 ```
+```
+with tf.variable_scope('q_target'):
+     # update q-target
+     q_target = self.r + self.gamma * tf.reduce_max(self.q_next, axis=1, name='Qmax_s_')    
+```
 
 ### tf.variable_scope vs tf.name_scope
 `tf.variable_scope` is more comprehensive since it can access all variables in the graph. 
@@ -146,13 +151,6 @@ y = tf.constant([2, 5])
 z = tf.constant([3, 6])
 tf.stack([x, y, z])  # [[1, 4], [2, 5], [3, 6]] (Pack along first dim.)
 tf.stack([x, y, z], axis=1)  # [[1, 2, 3], [4, 5, 6]]
-```
-
-variable_scope(): created variables can be contained within a specified scope in the computational program. It allows for variable sharing, which avoids passing references to the variable itself. 
-```
-with tf.variable_scope('q_target'):
-     # update q-target
-     q_target = self.r + self.gamma * tf.reduce_max(self.q_next, axis=1, name='Qmax_s_')    
 ```
 Assign(): This operation outputs a Tensor that holds the new value of 'ref' after the value has been assigned. This makes it easier to chain operations that need to use the reset value.
 
