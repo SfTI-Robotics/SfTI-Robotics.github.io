@@ -95,7 +95,7 @@ print(v2.name)  # my_scope/var2:0
 print(a.name)   # my_scope/Add:0
 ```
 
-## Name scope
+### Name scope
 Creates namespace for operators in the default graph.
 `tf.name_scope` ignores variables created by the `tf.get_variable` operation
 ```
@@ -109,7 +109,7 @@ print(v2.name)  # my_scope/var2:0
 print(a.name)   # my_scope/Add:0
 ```
 
-## `tf.variable_scope` vs `tf.name_scope`
+### tf.variable_scope vs tf.name_scope
 `tf.variable_scope` is more comprehensive since it can access all variables in the graph. 
 `tf.name_scope` can only access variables created by `tf.Variable`.
 
