@@ -116,6 +116,12 @@ with tf.variable_scope('q_target'):
 `tf.variable_scope` is more comprehensive since it can access all variables in the graph. 
 `tf.name_scope` can only access variables created by `tf.Variable`.
 
+
+## What is a Kernel
+
+In machine learning, a “kernel” is usually used to refer to the kernel trick, a method of using a linear classifier to solve a non-linear problem. 
+
+
 ## Session
 Run a session (using build model)
 ```
@@ -172,7 +178,3 @@ reshape(t, [2, 4]) ==> [[1, 1, 2, 2],
 # shape `[]` reshapes to a scalar
 reshape(t, []) ==> 7
 ```
-
-## What is a Kernel
-
-In machine learning, a “kernel” is usually used to refer to the kernel trick, a method of using a linear classifier to solve a non-linear problem. 
