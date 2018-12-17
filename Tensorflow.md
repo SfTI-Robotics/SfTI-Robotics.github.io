@@ -1,4 +1,4 @@
-**# Tensorflow **
+# *Tensorflow*
 
 ## What is TensorFlow?
 TensorFlow is a open source library developed by Google to run large numerical computations. We use it in machine learning to create and operation neural networks. Tensorflow can perform parallel calculations with either CPU or GPU, allowing for significant reduction in computation time. As neural network is not the primary focus of this project, you may want to also look into Keras, a high level API that runs on top of TensorFlow which helps simplify coding with TensorFlow. 
@@ -12,7 +12,7 @@ You can download tensorflow from their offical website. After installing either 
 import tensorflow as tf
 ```
 
-# __Tensor__
+# *Tensor*
 Tensor is what TensorFlow processes. It is a generalization of vectors and matrices to any dimension. It can be thought of as a n-dimensional array. Take a 2D vector as an example. We can represent this vector by recording it's x and y axis values. This set of values, ie [3, 4] is a tensor of rank 1. We use tensors because they offer a more natural representations of data.
 
 - Rank: number of dimensions in a tensor. 
@@ -79,7 +79,7 @@ tf.Variable()
 tf.get_variable() 
 ```
 
-# __Core__
+# *Core*
 TensorFlow programme consist of two discrete sections:
   1. Building the computational graph
   2. Running the computational graph
