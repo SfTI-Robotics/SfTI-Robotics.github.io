@@ -12,7 +12,7 @@ array. = function the generated array/matrix
 ```
 import numpy as np
 ```
-## Create Matrix or Array
+# Create Matrix or Array
 Create an array:
 ```
 np.array(value1, value2, ...) 
@@ -39,7 +39,7 @@ Create random matrix:
 ```
 np.random.random((X, Y)) 
 ```
-## Matrix Properties
+# Matrix Properties
 Check matrix dimensions:
 ```
 array.ndim
@@ -55,7 +55,7 @@ Check matrix data type:
 array.dtype
 ```
 
-### Matrix Evaluation
+# Matrix Evaluation
 Sum of (default all) elements:
 ```
 np.sum()
@@ -97,7 +97,7 @@ Find positions of non-zero elements:
 np.nonzero()
 ```
 
-## Standard Manipulation
+# Standard Manipulation
 Dot matrices:
 ```
 np.dot()
@@ -133,7 +133,7 @@ np.split()		// split into even pieces
 np.array_split()	// for uneven splits. Uneven part goes to left-most matrix
 np.vsplit()
 ```
-## Random Functions
+# Random Functions
 DISCLAMER: There are two random packages , one with numpy.random which creates a random matrix and you have a standard random package which creates a random value
 
 Picking random numbers based of a random distribution where each value has a random chance of being selected between a minimal and a maximum: 
