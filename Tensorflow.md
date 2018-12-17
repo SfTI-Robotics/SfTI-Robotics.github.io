@@ -1,12 +1,12 @@
 # Tensorflow
 
-  ## What is TensorFlow?
+##    What is TensorFlow?
 TensorFlow is a open source library developed by Google to run large numerical computations. We use it in machine learning to create and operation neural networks. Tensorflow can perform parallel calculations with either CPU or GPU, allowing for significant reduction in computation time. As neural network is not the primary focus of this project, you may want to also look into Keras, a high level API that runs on top of TensorFlow which helps simplify coding with TensorFlow. 
 
-## Why use TensorFlow?
+##    Why use TensorFlow?
 We don't want to worry about the nitty-gritties of how to create a neural network from scratch. TensorFlow also offers a wide range of commands and tools for manipulating the neural network.
 
-## Importing TensorFlow
+##    Importing TensorFlow
 You can download tensorflow from their offical website. After installing either the GPU or CPU version for python 2.7/3, import it with:
 ```
 import tensorflow as tf
@@ -42,7 +42,7 @@ The main objective of a TensorFlow programme is to manipulate and pass around te
 
 ![](http://adventuresinmachinelearning.com/wp-content/uploads/2017/03/TensorFlow-data-flow-graph.gif)
 
-## Creating a Tensor
+##    Creating a Tensor
 ```
 tf.constant() # value does not change
 ```
@@ -66,16 +66,28 @@ Create a Tensor with random values with a uniform distribution
 ```
 tf.random_uniform()
 ```
+##     Variables
+A `tf.Variable` represents a tensor whose value can be changed by running operations (ops) on it. They can hold and update parameters when training models. Variables maintain state across executions of the graph. Unlike tf.Tensor objects, a tf.Variable exists outside the context of a single session.run call.
+
+Creating a variable
+```
+# constructor which will create a new variable every time it is called (and potentially add a 
+# suffix to the variable name if a variable with such name already exists).
+tf.Variable() 
+
+# create a new variable with such name or retrieve the one that was created before
+tf.get_variable() 
+```
 
 # Core
 TensorFlow programme consist of two discrete sections:
   1. Building the computational graph
   2. Running the computational graph
 
-## Building the computation graph (tf.Graph)
+##    Building the computation graph (tf.Graph)
 A series of TensorFlow operations are arranged into a graph. The graph is composed of both operations (nodes) and tensors (edges). Reminder that the tensor objects do not hold values, they are just handles to elements in the computation graph.
 
-## Running the computation graph (tf.Session)
+##    Running the computation graph (tf.Session)
 We create a Session() object to evaluate the graph. Each session.run is a separate execution, so take note on what you run. 
 
 Run a session (using built model)
@@ -89,7 +101,7 @@ sess = tf.Session()
 sess.run()
 ```
 
-## Feeding 
+##    Feeding 
 Placeholders are how we parameterise the computation graph to accept external inputs
 ```
 x = tf.placeholder(tf.float32, shape=(1024, 1024))
@@ -102,7 +114,7 @@ with tf.Session() as sess:
   print(sess.run(y, feed_dict={x: rand_array}))  # Will succeed.
 ```
 
-# Layers
+##     Layers
 A trainable model modify the values in the graph to get new outputs with the same input. tf.layer add tranable parameters to a graph. 
 Layer package together both the variables and the operations that act on them. The densely-connected layer performs a weihte sum across all inputs for each output and applies an activation function. The weight and biases are managed by te layer object.
 
@@ -122,7 +134,7 @@ sess.run(init)
 sess.run(y, {x: [[1, 2, 3], [4, 5, 6]]})
 ```
 
-# Training
+##    Training
 After building our neural network, we need to train the model to improve the estimated outputs.  We will need to create a loss function. This is an indicator of the error between our model's output and its actual value. Optimizers are provided by TensorFlow to incrementally adjust weights and biases in order to minimise the loss function.  
 
 ```
@@ -147,18 +159,7 @@ for i in range(100):
 
 print(sess.run(y_pred))
 ```
-## Variables
-A `tf.Variable` represents a tensor whose value can be changed by running operations (ops) on it. They can hold and update parameters when training models. Variables maintain state across executions of the graph. Unlike tf.Tensor objects, a tf.Variable exists outside the context of a single session.run call.
 
-Creating a variable
-```
-# constructor which will create a new variable every time it is called (and potentially add a 
-# suffix to the variable name if a variable with such name already exists).
-tf.Variable() 
-
-# create a new variable with such name or retrieve the one that was created before
-tf.get_variable() 
-```
 
 ## Namespace
 A way to organise names for variables and operators in a hierachical manner. Variables can be accessed in different parts of the code without passing references to the variable, through the mechanism of variable sharing. Scope for the variable are added as a prefix to the operation or variable name.
