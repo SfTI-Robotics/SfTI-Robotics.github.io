@@ -122,8 +122,31 @@ sess.run(init)
 sess.run(y, {x: [[1, 2, 3], [4, 5, 6]]})
 ```
 
+# Training
+After building our neural network, we need to train the model to improve the estimated outputs.  We will need to create a loss function. This is an indicator of the error between our model's output and its actual value. Optimizers are provided by TensorFlow to incrementally adjust weights and biases in order to minimise the loss function.  
 
+```
+x = tf.constant([[1], [2], [3], [4]], dtype=tf.float32)
+y_true = tf.constant([[0], [-1], [-2], [-3]], dtype=tf.float32)
 
+linear_model = tf.layers.Dense(units=1)
+
+y_pred = linear_model(x)
+loss = tf.losses.mean_squared_error(labels=y_true, predictions=y_pred)
+
+optimizer = tf.train.GradientDescentOptimizer(0.01)
+train = optimizer.minimize(loss)
+
+init = tf.global_variables_initializer()
+
+sess = tf.Session()
+sess.run(init)
+for i in range(100):
+  _, loss_value = sess.run((train, loss))
+  print(loss_value)
+
+print(sess.run(y_pred))
+```
 ## Variables
 A `tf.Variable` represents a tensor whose value can be changed by running operations (ops) on it. They can hold and update parameters when training models. Variables maintain state across executions of the graph. Unlike tf.Tensor objects, a tf.Variable exists outside the context of a single session.run call.
 
