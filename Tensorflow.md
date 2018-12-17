@@ -76,6 +76,26 @@ with tf.Session() as sess:
   rand_array = np.random.rand(1024, 1024)
   print(sess.run(y, feed_dict={x: rand_array}))  # Will succeed.
 ```
+
+# Layers
+A trainable model modify the values in the graph to get new outputs with the same input. tf.layer add tranable parameters to a graph. 
+Layer package together both the variables and the operations that act on them. The densely-connected layer performs a weihte sum across all inputs for each output and applies an activation function. The weight and biases are managed by te layer object.
+
+Process to create a dense layer are as below:
+  1. Create layers
+```
+x = tf.placeholder(tf.float32, shape=[None, 3])
+y = tf.layers.dense(x, units=1)
+```
+  2. Initialize layers
+```
+init = tf.global_variables_initializer()
+sess.run(init)
+```
+  3. Execute layers
+```
+sess.run(y, {x: [[1, 2, 3], [4, 5, 6]]})
+```
 ## Creating a Tensor
 ```
 tf.constant() # value does not change
