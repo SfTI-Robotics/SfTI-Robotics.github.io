@@ -113,12 +113,6 @@ print(a.name)   # my_scope/Add:0
 `tf.variable_scope` is more comprehensive since it can access all variables in the graph. 
 `tf.name_scope` can only access variables created by `tf.Variable`.
 
-## Fetches
-returns the output of operations by executing the graph with a sess.run() call. 
-
-## Feeds  
-this mechanism patches tensors directly into any operation in the graph. It temporarily replaces the output of an operation with a tensor value. When the run() function is called, the feed supplies input data as an argument. Common feeds are the tf.placeholder() function
-
 ## Session
 Run a session (using build model)
 ```
