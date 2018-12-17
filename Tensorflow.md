@@ -40,7 +40,7 @@ tensor.shape() # dynamic shape
 
 The main objective of a TensorFlow programme is to manipulate and pass around tensors through mathematical operations. Tensors are represented with tf.Tensor objects. It represents a partially defined computation that will eventually produce a value. TensorFlow programs work by first building a graph of tf.Tensor objects, detailing how each tensor is computed based on the other available tensors and then by running parts of this graph to achieve the desired results.
 
-# Creating a Tensor
+## Creating a Tensor
 ```
 tf.constant() # value does not change
 ```
@@ -70,7 +70,8 @@ A `tf.Variable` represents a tensor whose value can be changed by running operat
 
 ### Creating a variable
 ```
-# constructor which will create a new variable every time it is called (and potentially add a suffix to the variable name if a variable with such name already exists).
+# constructor which will create a new variable every time it is called (and potentially add a 
+# suffix to the variable name if a variable with such name already exists).
 tf.Variable() 
 
 # create a new variable with such name or retrieve the one that was created before
@@ -159,7 +160,11 @@ tf.stack([x, y, z])  # [[1, 4], [2, 5], [3, 6]] (Pack along first dim.)
 tf.stack([x, y, z], axis=1)  # [[1, 2, 3], [4, 5, 6]]
 ```
 
-Assign(): This operation outputs a Tensor that holds the new value of 'ref' after the value has been assigned. This makes it easier to chain operations that need to use the reset value.
+assign(): This operation outputs a Tensor that holds the new value of 'ref' after the value has been assigned. This makes it easier to chain operations that need to use the reset value.
+```
+# t is assigned the value of the current e variable
+tf.assign(t, e)
+```
 
 reshape(): returns the tensor in the shape specified
 ```
@@ -169,7 +174,7 @@ reshape(t, [3, 3]) ==> [[1, 2, 3],
                         [7, 8, 9]]
 
 # tensor 't' = [[[1, 1], [2, 2]],
-#                [[3, 3], [4, 4]]]
+#              [[3, 3], [4, 4]]]
 # shape = [2, 2, 2]
 reshape(t, [2, 4]) ==> [[1, 1, 2, 2],
                         [3, 3, 4, 4]]
