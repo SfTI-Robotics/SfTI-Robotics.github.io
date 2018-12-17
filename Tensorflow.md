@@ -23,6 +23,7 @@ Tensor is what TensorFlow processes. It is a generalization of vectors and matri
 - Shape: dimension lengths in a tensor 
   - 2D matrix shape returns: [rows, columns]
   - 3D tensor shape returns [depth, rows, columns]
+
 Tensors have both an inferred (static) shape and a true (dynamic) shape. 
 Return shape of tensor
 ```
@@ -41,7 +42,6 @@ The main objective of a TensorFlow programme is to manipulate and pass around te
 
 # Creating a Tensor
 ```
-tf.get_variable() 
 tf.constant() # value does not change
 ```
 Create a Tensor placeholder
@@ -66,11 +66,44 @@ tf.random_uniform()
 ```
 
 ## Variables
-in-memory buffers containing tensors. They can hold and update parameters when training models. Variables maintain state across executions of the graph.
+A `tf.Variable` represents a tensor whose value can be changed by running operations (ops) on it. They can hold and update parameters when training models. Variables maintain state across executions of the graph.
 
-## Variable scopes
+### Creating a variable
+```
+# constructor which will create a new variable every time it is called (and potentially add a suffix to the variable name if a variable with such name already exists).
+tf.Variable() 
+
+# create a new variable with such name or retrieve the one that was created before
+tf.get_variable() 
+```
+## Variable sharing 
+Variables can be accessed in different parts of the code without passing references to the variable. Scope for the variable are added as a prefix to the operation or variable name.
+
+## Variable scopes 
+`tf.variable_scope`
+```
+with tf.variable_scope("my_scope"):
+    v1 = tf.get_variable("var1", [1], dtype=tf.float32)
+    v2 = tf.Variable(1, name="var2", dtype=tf.float32)
+    a = tf.add(v1, v2)
+
+print(v1.name)  # my_scope/var1:0
+print(v2.name)  # my_scope/var2:0
+print(a.name)   # my_scope/Add:0
+```
 
 ## Name scopes
+`tf.name_scope` is ignored by the `tf.get_variable` operation
+```
+with tf.name_scope("my_scope"):
+    v1 = tf.get_variable("var1", [1], dtype=tf.float32)
+    v2 = tf.Variable(1, name="var2", dtype=tf.float32)
+    a = tf.add(v1, v2)
+
+print(v1.name)  # var1:0
+print(v2.name)  # my_scope/var2:0
+print(a.name)   # my_scope/Add:0
+```
 
 ## VS vs NS
 
