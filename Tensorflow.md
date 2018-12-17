@@ -76,11 +76,9 @@ tf.Variable()
 # create a new variable with such name or retrieve the one that was created before
 tf.get_variable() 
 ```
-## Variable sharing 
-Variables can be accessed in different parts of the code without passing references to the variable. Scope for the variable are added as a prefix to the operation or variable name.
 
 ## Namespace
-A way to organise names for variables and operators in a hierachical manner
+A way to organise names for variables and operators in a hierachical manner. Variables can be accessed in different parts of the code without passing references to the variable, through the mechanism of variable sharing. Scope for the variable are added as a prefix to the operation or variable name.
 
 ### Variable scope
 `tf.variable_scope` creates namespace for both variables and operators in the default graph.
