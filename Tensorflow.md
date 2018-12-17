@@ -79,8 +79,11 @@ tf.get_variable()
 ## Variable sharing 
 Variables can be accessed in different parts of the code without passing references to the variable. Scope for the variable are added as a prefix to the operation or variable name.
 
-## Variable scopes 
-`tf.variable_scope`
+## Namespace
+A way to organise names for variables and operators in a hierachical manner
+
+### Variable scope
+`tf.variable_scope` creates namespace for both variables and operators in the default graph.
 ```
 with tf.variable_scope("my_scope"):
     v1 = tf.get_variable("var1", [1], dtype=tf.float32)
@@ -92,8 +95,9 @@ print(v2.name)  # my_scope/var2:0
 print(a.name)   # my_scope/Add:0
 ```
 
-## Name scopes
-`tf.name_scope` is ignored by the `tf.get_variable` operation
+## Name scope
+Creates namespace for operators in the default graph.
+`tf.name_scope` ignores variables created by the `tf.get_variable` operation
 ```
 with tf.name_scope("my_scope"):
     v1 = tf.get_variable("var1", [1], dtype=tf.float32)
@@ -105,7 +109,9 @@ print(v2.name)  # my_scope/var2:0
 print(a.name)   # my_scope/Add:0
 ```
 
-## VS vs NS
+## `tf.variable_scope` vs `tf.name_scope`
+`tf.variable_scope` is more comprehensive since it can access all variables in the graph. 
+`tf.name_scope` can only access variables created by `tf.Variable`.
 
 ## Fetches
 returns the output of operations by executing the graph with a sess.run() call. 
