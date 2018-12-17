@@ -184,4 +184,55 @@ reshape(t, [2, 4]) ==> [[1, 1, 2, 2],
 reshape(t, []) ==> 7
 ```
 
+stop_gradient(): this operation provides a way to not compute gradient with respect to some variables during back-propagation.It acts as the identity function in the forward direction, but stops the accumulated gradient from flowing through that operator in the backward direction. It does not prevent backpropagation altogether, but instead prevents an individual tensor from contributing to the gradients that are computed for an expression. 
+
+Example: we have three variables, w1, w2, w3 and input x. 
+The loss is square((x1.dot(w1) - x.dot(w2 * w3))). We want to minimize this loss wrt to w1 but want to keep w2 and w3 fixed. To achieve this we can just put tf.stop_gradient(tf.matmul(x, w2*w3)).
+
+```
+w1 = tf.get_variable("w1", shape=[5, 1], initializer=tf.truncated_normal_initializer())
+w2 = tf.get_variable("w2", shape=[5, 1], initializer=tf.truncated_normal_initializer())
+w3 = tf.get_variable("w3", shape=[5, 1], initializer=tf.truncated_normal_initializer())
+x = tf.placeholder(tf.float32, shape=[None, 5], name="x")
+
+
+a1 = tf.matmul(x, w1)
+a2 = tf.matmul(x, w2*w3)
+a2 = tf.stop_gradient(a2)
+
+loss = tf.reduce_mean(tf.square(a1 - a2))
+optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.1)
+gradients = optimizer.compute_gradients(loss)
+train_op = optimizer.apply_gradients(gradients)
+```
+
+
+
+gather_nd(): 
+
+reduce_mean(
+
+hasattr()
+
+# tf.layers.__
+
+
 dense(): 
+
+`tf.layers.dense` 
+```
+# layer 1: input = s
+            e1 = tf.layers.dense(self.s, 20, tf.nn.relu, kernel_initializer=w_initializer,
+                                 bias_initializer=b_initializer, name='e1')
+            # layer 2: input = e1
+            self.q_eval = tf.layers.dense(e1, self.n_actions, kernel_initializer=w_initializer,
+                                          bias_initializer=b_initializer, name='q')
+```
+
+
+**
+
+sdkfhk
+dsfj
+
+**
