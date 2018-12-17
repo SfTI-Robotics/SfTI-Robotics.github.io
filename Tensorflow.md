@@ -230,10 +230,10 @@ reshape(t, [2, 4]) ==> [[1, 1, 2, 2],
 reshape(t, []) ==> 7
 ```
 
-stop_gradient(): this operation provides a way to not compute gradient with respect to some variables during back-propagation.It acts as the identity function in the forward direction, but stops the accumulated gradient from flowing through that operator in the backward direction. It does not prevent backpropagation altogether, but instead prevents an individual tensor from contributing to the gradients that are computed for an expression. 
+stop_gradient(): this operation provides a way to not compute gradient with respect to some variables during back-propagation. It acts as the identity function in the forward direction, but stops the accumulated gradient from flowing through that operator in the backward direction. It does not prevent backpropagation altogether, but instead prevents an individual tensor from contributing to the gradients that are computed for an expression. 
 
-Example: we have three variables, w1, w2, w3 and input x. 
-The loss is square((x1.dot(w1) - x.dot(w2 * w3))). We want to minimize this loss wrt to w1 but want to keep w2 and w3 fixed. To achieve this we can just put tf.stop_gradient(tf.matmul(x, w2*w3)).
+Example: we have three variables, `w1, w2, w3` and input x. 
+The loss is `square((x1.dot(w1) - x.dot(w2 * w3)))`. We want to minimize this loss wrt to w1 but want to keep w2 and w3 fixed. To achieve this we can just put `tf.stop_gradient(tf.matmul(x, w2*w3))`.
 
 ```
 w1 = tf.get_variable("w1", shape=[5, 1], initializer=tf.truncated_normal_initializer())
@@ -272,14 +272,3 @@ dense():
             self.q_eval = tf.layers.dense(e1, self.n_actions, kernel_initializer=w_initializer,
                                           bias_initializer=b_initializer, name='q')
 ```
-<<<<<<< Updated upstream
-
-
-**
-
-sdkfhk
-dsfj
-
-**
-=======
->>>>>>> Stashed changes
