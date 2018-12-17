@@ -40,6 +40,8 @@ tensor.shape() # dynamic shape
 
 The main objective of a TensorFlow programme is to manipulate and pass around tensors through mathematical operations. Tensors are represented with tf.Tensor objects. It represents a partially defined computation that will eventually produce a value. TensorFlow programs work by first building a graph of tf.Tensor objects, detailing how each tensor is computed based on the other available tensors and then by running parts of this graph to achieve the desired results.
 
+![](http://adventuresinmachinelearning.com/wp-content/uploads/2017/03/TensorFlow-data-flow-graph.gif)
+
 ## Creating a Tensor
 ```
 tf.constant() # value does not change
