@@ -96,6 +96,8 @@ sess.run(init)
 ```
 sess.run(y, {x: [[1, 2, 3], [4, 5, 6]]})
 ```
+
+# Syntax
 ## Creating a Tensor
 ```
 tf.constant() # value does not change
@@ -122,9 +124,9 @@ tf.random_uniform()
 ```
 
 ## Variables
-A `tf.Variable` represents a tensor whose value can be changed by running operations (ops) on it. They can hold and update parameters when training models. Variables maintain state across executions of the graph.
+A `tf.Variable` represents a tensor whose value can be changed by running operations (ops) on it. They can hold and update parameters when training models. Variables maintain state across executions of the graph. Unlike tf.Tensor objects, a tf.Variable exists outside the context of a single session.run call.
 
-### Creating a variable
+Creating a variable
 ```
 # constructor which will create a new variable every time it is called (and potentially add a 
 # suffix to the variable name if a variable with such name already exists).
