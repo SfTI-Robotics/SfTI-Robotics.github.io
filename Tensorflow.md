@@ -181,7 +181,6 @@ print(a.name)   # my_scope/Add:0
 ### Name scope
 Creates namespace for operators in the default graph.
 `tf.name_scope` ignores variables created by the `tf.get_variable` operation
-The tf.name_scope function makes it possible to add a name scope prefix to all operations created in a particular context.
 ```
 with tf.name_scope("my_scope"):
     v1 = tf.get_variable("var1", [1], dtype=tf.float32)
@@ -199,8 +198,12 @@ with tf.variable_scope('q_target'):
 ```
 
 ### tf.variable_scope vs tf.name_scope
-`tf.variable_scope` is more comprehensive since it can access all variables in the graph. 
-`tf.name_scope` can only access variables created by `tf.Variable`.
+Both scopes have the same effect on all operations as well as variables created using tf.Variable. However, name scope is ignored by tf.get_variable. 
+
+The reason both scopes exist is that variable scope can define separate scopes for re-usable variables that are not affected by the current name scope, which is used to define operations.
+
+~~`tf.variable_scope` is more comprehensive since it can access all variables in the graph. 
+`tf.name_scope` can only access variables created by `tf.Variable`.~~
 
 
 ## What is a Kernel
