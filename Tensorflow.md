@@ -42,30 +42,6 @@ The main objective of a TensorFlow programme is to manipulate and pass around te
 
 ![](http://adventuresinmachinelearning.com/wp-content/uploads/2017/03/TensorFlow-data-flow-graph.gif)
 
-## Creating a Tensor
-```
-tf.constant() # value does not change
-```
-Create a Tensor placeholder
-```
-tf.placeholder()
-```
-Create a Tensor with all zeros
-```
-tf.zeros()
-```
-Create a Tensor with all ones
-```
-tf.ones()
-```
-Create a Tensor with random values from a normal distribution
-```
-tf.random_normal()
-```
-Create a Tensor with random values with a uniform distribution
-```
-tf.random_uniform()
-```
 ## Variables
 A `tf.Variable` represents a tensor whose value can be changed by running operations (ops) on it. They can hold and update parameters when training models. Variables maintain state across executions of the graph. Unlike tf.Tensor objects, a tf.Variable exists outside the context of a single session.run call.
 
@@ -88,7 +64,7 @@ TensorFlow programme consist of two discrete sections:
 A series of TensorFlow operations are arranged into a graph. The graph is composed of both operations (nodes) and tensors (edges). Reminder that the tensor objects do not hold values, they are just handles to elements in the computation graph.
 
 ## Running the computation graph (tf.Session)
-We create a Session() object to evaluate the graph. Each session.run is a separate execution, so take note on what you run. 
+We create a Session() object to evaluate the graph. `sess.run()` executes a specified line of tensorflow code. Each session.run is a separate execution, so take note on what you run. 
 
 Run a session (using built model)
 ```
@@ -202,36 +178,46 @@ Both scopes have the same effect on all operations as well as variables created 
 
 The reason both scopes exist is that variable scope can define separate scopes for re-usable variables that are not affected by the current name scope, which is used to define operations.
 
-~~`tf.variable_scope` is more comprehensive since it can access all variables in the graph. 
-`tf.name_scope` can only access variables created by `tf.Variable`.~~
-
-
-## What is a Kernel
-
-In machine learning, a “kernel” is usually used to refer to the kernel trick, a method of using a linear classifier to solve a non-linear problem. 
-
-
-
-## Matrix Manipulation
-
-Multiply matrix
+# TensorFlow Functions
+## tf.__
+```
+tf.constant() # value does not change
+```
+Create a Tensor placeholder
+```
+tf.placeholder()
+```
+Create a Tensor with all zeros
+```
+tf.zeros()
+```
+Create a Tensor with all ones
+```
+tf.ones()
+```
+Create a Tensor with random values from a normal distribution
+```
+tf.random_normal()
+```
+Create a Tensor with random values with a uniform distribution
+```
+tf.random_uniform()
+```
+Multiple matrices
 ```
 tf.matmul(matrix1, matrix2)
 ```
-
-## tf.__ functions
-
 shape(): Returns the the dimensions of a single tensor
 shape_n(): Returns the dimensions of tensors
 ```
 t = tf.constant([[[1, 1, 1], [2, 2, 2]], [[3, 3, 3], [4, 4, 4]]])
 tf.shape(t)  # [2, 2, 3] 
-# shape() need to fully explain example
+tf.shape_n([t]) # [array([2, 2, 3], dtype=int32)]
 ```
 
 stack(): packs the list of tensors into one tensor and also increases the rank by one. It is stacked along the axis dimension. 
 ```
-x = tf.constant([1, 4])
+x = tf.constant([1, 4]) # These arrays have a dimension of 1
 y = tf.constant([2, 5])
 z = tf.constant([3, 6])
 tf.stack([x, y, z])  # [[1, 4], [2, 5], [3, 6]] (Pack along first dim.)
@@ -262,7 +248,7 @@ reshape(t, [2, 4]) ==> [[1, 1, 2, 2],
 reshape(t, []) ==> 7
 ```
 
-stop_gradient(): this operation provides a way to not compute gradient with respect to some variables during back-propagation. It acts as the identity function in the forward direction, but stops the accumulated gradient from flowing through that operator in the backward direction. It does not prevent backpropagation altogether, but instead prevents an individual tensor from contributing to the gradients that are computed for an expression. 
+stop_gradient(): this operation provides a way to not compute gradient with respect to some variables during back-propagation. It acts as the identity function in the forward direction, but stops the accumulated gradient from flowing through that operator in the backward direction. It does not prevent backpropagation altogether, but instead prevents an individual tensor from contributing to the gradients that are computed for an expression. ie. it restrict the flow of gradients through certain parts of the network
 
 Example: we have three variables, `w1, w2, w3` and input x. 
 The loss is `square((x1.dot(w1) - x.dot(w2 * w3)))`. We want to minimize this loss wrt to w1 but want to keep w2 and w3 fixed. To achieve this we can just put `tf.stop_gradient(tf.matmul(x, w2*w3))`.
@@ -284,18 +270,25 @@ gradients = optimizer.compute_gradients(loss)
 train_op = optimizer.apply_gradients(gradients)
 ```
 
-gather_nd(): 
-
-reduce_mean(
-
-hasattr()
+gather_nd(): Gather slices from params into a Tensor with shape specified by indices.
+```
+ indices = [[1], [0]]
+ params = [['a', 'b'], ['c', 'd']]
+ 
+ output = tf.gather_nd(params,indices) # output: [['c', 'd'], ['a', 'b']]
+```
+reduce_mean(): Computes the mean of elements across dimensions of a tensor
+```
+x = tf.constant([[1., 1.], [2., 2.]])
+tf.reduce_mean(x)  # 1.5
+tf.reduce_mean(x, 0)  # [1.5, 1.5]
+tf.reduce_mean(x, 1)  # [1.,  2.]
+```
 
 # tf.layers.__
+dense(): adds an addition layer to your network. 
 
-
-dense(): 
-
-`tf.layers.dense` 
+tf.layers.dense 
 ```
 # layer 1: input = s
             e1 = tf.layers.dense(self.s, 20, tf.nn.relu, kernel_initializer=w_initializer,
@@ -304,3 +297,6 @@ dense():
             self.q_eval = tf.layers.dense(e1, self.n_actions, kernel_initializer=w_initializer,
                                           bias_initializer=b_initializer, name='q')
 ```
+Each layer adjusts the output by altering its own weights (kernel) and biases. The formula for output is
+```
+output = activation_function((input * weight) + bias)
