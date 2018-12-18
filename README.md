@@ -6,7 +6,7 @@
 This project aim for a robot arm to use reinforcement learning to complete different tasks you will be supervised by Tony and Henry if you have any questions ask them.
 This website is mainly to help you get started and then focuses heavily on coding syntax.
 
-First I would reccomend installing the following program(use google- they normally have instructions):
+First I would recommend installing the following program(use google- they normally have instructions):
 
 1) Ubuntu 18.04:
   This can be install by first splitting up your drive(disk mangement) into two partitions and the part you will use needs to     be atleast 30gb and shrink volume-> get free space make sure not more than 4.Then boot up in BIOS change boot order with       ubuntu first.And use tony's usb with burnt ubuntu copy and boot into it.
