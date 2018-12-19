@@ -56,3 +56,13 @@ Once you're alright with the theory start going into Openai Gym and look at what
 
 [Openai Gym](./Gym.md)
 
+## Scenario Comparison 
+
+[Cart Pole]
+
+[Frozen Lake]
+
+[Mountain Car]
+
+[Pendulum]
+
