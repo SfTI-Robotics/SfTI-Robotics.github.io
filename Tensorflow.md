@@ -300,3 +300,11 @@ tf.layers.dense
 Each layer adjusts the output by altering its own weights (kernel) and biases. The formula for output is
 ```
 output = activation_function((input * weight) + bias)
+```
+Another way to add layers is by using tf.nn. In the case below, we are using the relu activation function.
+```
+with tf.variable_scope('l1'):
+  w1 = tf.get_variable('w1', [self.n_features, n_l1], initializer=w_initializer, collections=c_names)
+  b1 = tf.get_variable('b1', [1, n_l1], initializer=b_initializer, collections=c_names)
+  l1 = tf.nn.relu(tf.matmul(self.s, w1) + b1)
+```
