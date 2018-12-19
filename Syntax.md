@@ -16,6 +16,7 @@ list()
 
 
 hasattr()
+https://www.programiz.com/python-programming/methods/built-in/hasattr
 
 zip()
 
