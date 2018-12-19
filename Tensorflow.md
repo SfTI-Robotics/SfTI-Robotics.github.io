@@ -303,8 +303,15 @@ output = activation_function((input * weight) + bias)
 ```
 Another way to add layers is by using tf.nn. In the case below, we are using the relu activation function.
 ```
+# first layer. collections is used later when assign to target net
 with tf.variable_scope('l1'):
   w1 = tf.get_variable('w1', [self.n_features, n_l1], initializer=w_initializer, collections=c_names)
   b1 = tf.get_variable('b1', [1, n_l1], initializer=b_initializer, collections=c_names)
   l1 = tf.nn.relu(tf.matmul(self.s, w1) + b1)
+
+# second layer. collections is used later when assign to target net
+with tf.variable_scope('l2'):
+  w2 = tf.get_variable('w2', [n_l1, self.n_actions], initializer=w_initializer, collections=c_names)
+  b2 = tf.get_variable('b2', [1, self.n_actions], initializer=b_initializer, collections=c_names)
+  self.q_eval = tf.matmul(l1, w2) + b2
 ```
