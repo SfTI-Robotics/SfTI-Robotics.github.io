@@ -1,7 +1,4 @@
-# Syntax
-
-
-## Python
+# Python
 
 ### Lists 
 
