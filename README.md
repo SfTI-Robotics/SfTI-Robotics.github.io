@@ -1,8 +1,6 @@
 # Reinforcement Learning|National Science challenge
 ## Welcome to the club
 
-[![button](http://www.presentationpro.com/images/product/medium/slide/PPP_CGENE_LT3_Presentation-PowerPoint-Slide-Graphic_Push_Button_Up.jpg)](https://mattermost.com)
-
 This project aim for a robot arm to use reinforcement learning to complete different tasks you will be supervised by Tony and Henry if you have any questions ask them.
 This website is mainly to help you get started and then focuses heavily on coding syntax.
 
