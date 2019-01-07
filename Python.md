@@ -29,3 +29,5 @@ Short for double-ended queue. They are sequence (list-like) containers with dyna
 ### Other peculiar sightings 
 
 \ = code continued next line
+
+### SumTree
