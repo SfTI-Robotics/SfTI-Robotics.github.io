@@ -57,6 +57,8 @@ model.add(Dense(12, input_dim=8, init='uniform',activation='relu'))
 
   `keras.initializers.RandomNormal(mean=0.0, stddev=0.05, seed=None)`
   Initializer that generates tensors with a uniform distribution.
+  
+  
 </p>
 </details>
 
@@ -185,6 +187,10 @@ This will generate a prediction for each input and output pair and collect score
 ```
 scores = model.evaluate(X, Y)
 ```
+
+If you wanted to print out your model to get an idea of what it looks like you could use `model.summary()` this is what it will look like ![alt text][logo]
+
+[logo]: https://i.stack.imgur.com/YbmUe.png "Logo Title Text 2"
 
 ## Make Predictions
 
