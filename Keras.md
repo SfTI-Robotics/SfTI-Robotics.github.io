@@ -87,7 +87,7 @@ model.add(Dense(1, activation='sigmoid'))
 ```
 
 #### `Sequential()`
-<details><summary> Definition (dense)</summary>
+<details><summary></summary>
 <p>
   
 Inherits with model creates a linear stack of layers.
