@@ -67,7 +67,7 @@ Once you're alright with the theory start going into Openai Gym and look at what
 [Maze]
 
 
-## Further Useful Pakages (Optional)
+## Further Useful Packages (Optional)
 
 - pygame
 - Cuda
