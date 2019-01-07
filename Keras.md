@@ -17,15 +17,18 @@ numpy.random.seed(7)
 ```
 This isn't keras specific but is always a good idea to set the random number seed when working with algorithms that use a stochastic procces. This is so that you can run the same code again and again and get the same result. This is useful if you need to demonstrate a result, compare algorithms using the same source of randomness or to debug a part of your code.
 
-## Layers
+## Define Model
+Models in Keras are defined as a sequence of layers.We create a Sequential model and add layers one at a time. 
 
-## NN vs Layers(dense)
-Tensorflow proposes on the one hand a low level API (`tf.`, `tf.nn.`...), and on the other hand, a higher level API (`tf.layers.`, `tf.losses.`,...).
-The goal of the higher level API is to provide functions that greatly simplify the design of the most common neural nets. The lower level API is there for people with special needs, or who wishes to keep a finer control of what is going on.
+_How do we know the number of layers and their types?_
 
+This is a very hard question. Often the best network structure is found through a process of trial and error. Generally, you need a network large enough to capture the structure of the problem if that helps at all.
+
+The first thing to get right is to ensure the input layer has the right number of inputs.This can be specified when creating the first layer with the input_dim argument and setting it to 8 for the 8 input variables.
+
+*************
 ### `Dense()`
-Is a class that inherits from layers
-Just your regular densely-connected NN layer.Eg:
+Fully connected layers are defined using the Dense class. 
 ```
 model.add(Dense(12, input_dim=8, init='uniform',activation='relu'))
 
@@ -33,6 +36,14 @@ model.add(Dense(12, input_dim=8, init='uniform',activation='relu'))
 Relu stands for Rectified Linear Unit.
 Activation is also another function that can be called in dense or by it self(more below)
 Same with init
+*************
+## Layers
+
+## NN vs Layers(dense)
+Tensorflow proposes on the one hand a low level API (`tf.`, `tf.nn.`...), and on the other hand, a higher level API (`tf.layers.`, `tf.losses.`,...).
+The goal of the higher level API is to provide functions that greatly simplify the design of the most common neural nets. The lower level API is there for people with special needs, or who wishes to keep a finer control of what is going on.
+
+
 
 ### `Lambda()`
 In Python anonymous functions are defined using the lambda keyword.
