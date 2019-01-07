@@ -37,27 +37,26 @@ model.add(Dense(12, input_dim=8, init='uniform',activation='relu'))
 <details><summary> See here </summary>
 <p>
 
-Initializations define the way to set the initial random weights of Keras layers.
-The keyword arguments used for passing initializers to layers will depend on the layer. Usually it is simply `kernel_initializer` and `bias_initializer`:
-```
-model.add(Dense(64,kernel_initializer='random_uniform',bias_initializer='zeros'))
-```
-Types:
-`keras.initializers.Initializer() `
-Initializer base class: all initializers inherit from this class.
+  Initializations define the way to set the initial random weights of Keras layers.
+  The keyword arguments used for passing initializers to layers will depend on the layer. Usually it is simply  `kernel_initializer` and `bias_initializer`:
+  ```
+  model.add(Dense(64,kernel_initializer='random_uniform',bias_initializer='zeros'))
+  ```
+  Types:
+ `keras.initializers.Initializer() `
+  Initializer base class: all initializers inherit from this class.
 
-`keras.initializers.Zeros()`
-Initializer that generates tensors initialized to 0.
+  `keras.initializers.Zeros()`
+  Initializer that generates tensors initialized to 0.
 
-`Ones()`
-Initializer that generates tensors initialized to 1.
+  `Ones()`
+  Initializer that generates tensors initialized to 1.
 
-`keras.initializers.Constant(value=0)`
-Initializer that generates tensors initialized to a constant value.
+  `keras.initializers.Constant(value=0)`
+  Initializer that generates tensors initialized to a constant value.
 
-
-`keras.initializers.RandomNormal(mean=0.0, stddev=0.05, seed=None)`
-Initializer that generates tensors with a uniform distribution.
+  `keras.initializers.RandomNormal(mean=0.0, stddev=0.05, seed=None)`
+  Initializer that generates tensors with a uniform distribution.
 </p>
 </details>
 
@@ -67,13 +66,15 @@ Relu stands for Rectified Linear Unit.
 <details><summary> See here </summary>
 <p>
 
-Restricts data to a rangeeg:softmax, tanh, abs, sigmoid
-Graphs of those functions
-Activation is also another function that can be called in dense or by it self
+  Restricts data to a rangeeg:softmax, tanh, abs, sigmoid
+
+  Graphs of those functions
+
+  Activation is also another function that can be called in dense or by it self
 </p>
 </details>
 
-Same with init
+
 *************
 
 
