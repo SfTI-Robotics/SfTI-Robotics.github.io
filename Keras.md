@@ -188,7 +188,8 @@ This will generate a prediction for each input and output pair and collect score
 scores = model.evaluate(X, Y)
 ```
 
-If you wanted to print out your model to get an idea of what it looks like you could use `model.summary()` this is what it will look like ![alt text][logo]
+If you wanted to print out your model to get an idea of what it looks like you could use `model.summary()` this is what it will look like:
+![alt text][logo]
 
 [logo]: https://i.stack.imgur.com/YbmUe.png "Logo Title Text 2"
 
