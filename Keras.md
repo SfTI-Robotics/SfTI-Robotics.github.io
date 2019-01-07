@@ -24,7 +24,7 @@ _How do we know the number of layers and their types?_
 
 This is a very hard question. Often the best network structure is found through a process of trial and error. Generally, you need a network large enough to capture the structure of the problem if that helps at all.
 
-The first thing to get right is to ensure the input layer has the right number of inputs.This can be specified when creating the first layer with the input_dim argument and setting it to 8 for the 8 input variables.
+
 
 ****************************************************************************
 ### `Dense()`
@@ -33,6 +33,9 @@ Fully connected layers are defined using the Dense class.
 model.add(Dense(12, input_dim=8, init='uniform',activation='relu'))
 
 ```
+The first thing to get right is to ensure the input layer has the right number of inputs.This can be specified when creating the first layer with the input_dim argument and setting it to 8 for the 8 input variables.
+
+The input before that _12_ is actually the number of nodes in the second layer (see diagram below for illustration)
 #### `init()`
 <details><summary> See here </summary>
 <p>
@@ -98,6 +101,8 @@ unbound_model = Sequential([l1, l2])
 ```
 </p>
 </details>
+
+![alt text]( https://cloud.githubusercontent.com/assets/1584365/26314676/4f8eb83c-3f41-11e7-9183-2406c7a8759e.png "Logo Title Text 2")
 
 ### Types of Layers
 
