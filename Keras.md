@@ -17,6 +17,7 @@ numpy.random.seed(7)
 ```
 This isn't keras specific but is always a good idea to set the random number seed when working with algorithms that use a stochastic procces. This is so that you can run the same code again and again and get the same result. This is useful if you need to demonstrate a result, compare algorithms using the same source of randomness or to debug a part of your code.
 
+
 ## Define Model
 Models in Keras are defined as a sequence of layers.We create a Sequential model and add layers one at a time. 
 
@@ -81,6 +82,8 @@ Relu stands for Rectified Linear Unit.
 </details>
 
 ****************************************************************************
+
+If you wanted to see the weights set for each layer use `layer.get_weights()`to return a list of numpy arrays.
 
 ### Creating Model
 
