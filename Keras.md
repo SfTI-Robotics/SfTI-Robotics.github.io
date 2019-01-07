@@ -1,5 +1,8 @@
 # Keras
 
+# Making a  Model
+keras is a simplfied version of tensorflow, although you'll need to us mainly tensorflow its a good idea to start building Neural Networks(NN) with keras as it quite readable and easy to programme. Below I'll give you a quick tutorial on how to start building you NN along with the syntax you'll need to know.
+
 ## Layers
 
 ## NN vs Layers(dense)
@@ -74,6 +77,7 @@ Implementaion example: stochastic gradient descent
 ``` 
 learner = sgd(model.parameters,lr,gradient_clipping_threshold_per_sample=10)
 ```
+
 
 
 
