@@ -9,7 +9,7 @@ keras is a simplfied version of tensorflow, although you'll need to us mainly te
 3) Compile Model.
 4) Fit Model.
 5) Evaluate Model.
-6) Tie It All Together.
+6) Make Predictions
 
 ## Load Data 
 ```
@@ -185,6 +185,25 @@ This will generate a prediction for each input and output pair and collect score
 ```
 scores = model.evaluate(X, Y)
 ```
+
+## Make Predictions
+
+This is a simple function that can use your trained model to make predictions on new data.
+
+Making predictions is as easy as calling model.predict().
+
+```
+predictions = model.predict(X)
+```
+
+We are using a sigmoid activation function on the output layer(see layers above) so the predictions will be in the range between 0 and 1. We can easily convert them into a crisp binary prediction for this classification task by rounding them.
+
+
+
+_*Congrats you have graduated from the school of keras*_
+
+
+
 
 
 
