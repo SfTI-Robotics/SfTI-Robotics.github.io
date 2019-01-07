@@ -143,7 +143,7 @@ loss = reduce_mean(square(model - q_target), axis=0)
 </p>
 </details>
 
-## Optimizers
+### Optimizers
 <details><summary> </summary>
 <p>
 Keras has a library to call different optimisers on a network
