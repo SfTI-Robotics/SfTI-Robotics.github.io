@@ -65,3 +65,18 @@ Once you're alright with the theory start going into Openai Gym and look at what
 [Pendulum]
 
 [Maze]
+
+
+## Further Useful Pakages (Optional)
+
+- pygame
+- Cuda
+- Anaconda
+- opencv3 
+- Cudnn
+- OpenAI Retro
+- MuJoCo
+- 
+
+
+
