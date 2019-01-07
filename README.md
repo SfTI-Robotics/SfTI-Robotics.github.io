@@ -59,15 +59,15 @@ Once you're alright with the theory start going into Openai Gym and look at what
 
 ## Scenario Comparison 
 
-[Cart Pole]
+[Cart Pole](./Cartpole.md)
 
-[Frozen Lake]
+[Frozen Lake](./FrozenLake.md)
 
-[Mountain Car]
+[Mountain Car](./MountainCar.md)
 
-[Pendulum]
+[Pendulum](./Pendulum.md)
 
-[Maze]
+[Maze](./Maze.md)
 
 
 ## Further Useful Packages (Optional)
