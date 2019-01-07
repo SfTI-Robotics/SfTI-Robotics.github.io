@@ -53,6 +53,10 @@ Once you're alright with the theory start going into Openai Gym and look at what
 
 [Openai Gym](./Gym.md)
 
+[Gazebo](./Gazebo.md)
+
+[ROS](./ROS.md)
+
 ## Scenario Comparison 
 
 [Cart Pole]
