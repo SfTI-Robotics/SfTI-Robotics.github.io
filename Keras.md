@@ -189,9 +189,7 @@ scores = model.evaluate(X, Y)
 ```
 
 If you wanted to print out your model to get an idea of what it looks like you could use `model.summary()` this is what it will look like:
-![alt text][logo]
-
-[logo]: https://i.stack.imgur.com/YbmUe.png "Logo Title Text 2"
+![alt text]( https://i.stack.imgur.com/YbmUe.png "Logo Title Text 2")
 
 ## Make Predictions
 
