@@ -147,8 +147,11 @@ loss = reduce_mean(square(model - q_target), axis=0)
 <details><summary> </summary>
 <p>
 Keras has a library to call different optimisers on a network
+  
 Importation from keras import optimizers
+
 Implementaion example: stochastic gradient descent
+
 ``` 
 learner = sgd(model.parameters,lr,gradient_clipping_threshold_per_sample=10)
 ```
