@@ -60,6 +60,7 @@ model.add(Dense(12, input_dim=8, init='uniform',activation='relu'))
 </p>
 </details>
 
+
 Relu stands for Rectified Linear Unit.
 
 ### `Activation()`
