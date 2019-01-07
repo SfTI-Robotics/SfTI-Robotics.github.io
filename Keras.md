@@ -3,6 +3,20 @@
 # Making a  Model
 keras is a simplfied version of tensorflow, although you'll need to us mainly tensorflow its a good idea to start building Neural Networks(NN) with keras as it quite readable and easy to programme. Below I'll give you a quick tutorial on how to start building you NN along with the syntax you'll need to know.
 
+## Steps
+1) Load Data.
+2) Define Model.
+3) Compile Model.
+4) Fit Model.
+5) Evaluate Model.
+6) Tie It All Together.
+
+## Load Data 
+```
+numpy.random.seed(7)
+```
+This isn't keras specific but is always a good idea to set the random number seed when working with algorithms that use a stochastic procces. This is so that you can run the same code again and again and get the same result. This is useful if you need to demonstrate a result, compare algorithms using the same source of randomness or to debug a part of your code.
+
 ## Layers
 
 ## NN vs Layers(dense)
