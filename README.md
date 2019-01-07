@@ -69,16 +69,17 @@ Once you're alright with the theory start going into Openai Gym and look at what
 
 ## Further Useful Packages (Optional)
 
-- pygame
 - Cuda
 - Anaconda
 - opencv3 
 - Cudnn
-- OpenAI Retro
-- MuJoCo
 - LinuxBrew/HomeBrew
 - pyTorch
+- TKinter
 
+## Additional Environments (Optional)
 
-
-
+- OpenAI Retro
+- MuJoCo
+- pygame
+- VizDoom
