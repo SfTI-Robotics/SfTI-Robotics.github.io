@@ -117,20 +117,43 @@ keras.layers.Lambda(function, output_shape=None,mask=None,arguments=None)
 </p>
 </details>
 
-## Math
-### `reduce_mean()`
+## Compile Model
+
+Now that the model is defined, we can compile it.
+
+Compiling the model uses the efficient numerical libraries under the covers (the so-called backend) such as TensorFlow. The backend automatically chooses the best way to represent the network for training and making predictions to run on your hardware, such as CPU or GPU or even distributed.
+
+When compiling, we must specify some additional properties required when training the network. **Remember training a network means finding the best set of weights to make predictions for this problem.**
+
+We must specify the loss function to use to evaluate a set of weights, the optimizer used to search through different weights for the network and any optional metrics we would like to collect and report during training.
+
+```
+
+model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
+```
+
+<details><summary> Another more likely loss function that you can use </summary>
+<p>
+
+#### `reduce_mean()`
 Computes the mean of elements across dimensions of a tensor. Axis input is the dimensions given
 ```
 loss = reduce_mean(square(model - q_target), axis=0)
 ```
+</p>
+</details>
+
 ## Optimizers
+<details><summary> </summary>
+<p>
 Keras has a library to call different optimisers on a network
 Importation from keras import optimizers
 Implementaion example: stochastic gradient descent
 ``` 
 learner = sgd(model.parameters,lr,gradient_clipping_threshold_per_sample=10)
 ```
-
+</p>
+</details>
 
 
 
