@@ -33,29 +33,10 @@ Fully connected layers are defined using the Dense class.
 model.add(Dense(12, input_dim=8, init='uniform',activation='relu'))
 
 ```
-Relu stands for Rectified Linear Unit.
-Activation is also another function that can be called in dense or by it self(more below)
-Same with init
-*************
-## Layers
-
-<details><summary> ## NN vs Layers(dense)</summary>
-<p>
-Tensorflow proposes on the one hand a low level API (`tf.`, `tf.nn.`...), and on the other hand, a higher level API (`tf.layers.`, `tf.losses.`,...).
-The goal of the higher level API is to provide functions that greatly simplify the design of the most common neural nets. The lower level API is there for people with special needs, or who wishes to keep a finer control of what is going on.
-
-</p>
-</details>
-
-### `Lambda()`
-In Python anonymous functions are defined using the lambda keyword.
-Keras employs a similar naming scheme to define anonymous/custom layers. Lambda layers in Keras help you to implement layers or functionality that is not prebuilt and which do not require trainable weights.
-```
-hidden_layer = lambda: Dense(num_hidden_neurons, activation=cntk.ops.relu)
-keras.layers.Lambda(function, output_shape=None,mask=None,arguments=None)
-```
-
 ### `init()`
+<details><summary> See here </summary>
+<p>
+
 Initializations define the way to set the initial random weights of Keras layers.
 The keyword arguments used for passing initializers to layers will depend on the layer. Usually it is simply `kernel_initializer` and `bias_initializer`:
 ```
@@ -77,11 +58,42 @@ Initializer that generates tensors initialized to a constant value.
 
 `keras.initializers.RandomNormal(mean=0.0, stddev=0.05, seed=None)`
 Initializer that generates tensors with a uniform distribution.
+</p>
+</details>
+
+Relu stands for Rectified Linear Unit.
 
 ### `Activation()`
+<details><summary> See here </summary>
+<p>
+
 Restricts data to a rangeeg:softmax, tanh, abs, sigmoid
 Graphs of those functions
-How to implement
+Activation is also another function that can be called in dense or by it self
+</p>
+</details>
+
+Same with init
+*************
+
+
+### Layers
+
+<details><summary> ## NN vs Layers(dense)</summary>
+<p>
+Tensorflow proposes on the one hand a low level API (`tf.`, `tf.nn.`...), and on the other hand, a higher level API (`tf.layers.`, `tf.losses.`,...).
+The goal of the higher level API is to provide functions that greatly simplify the design of the most common neural nets. The lower level API is there for people with special needs, or who wishes to keep a finer control of what is going on.
+
+</p>
+</details>
+
+### `Lambda()`
+In Python anonymous functions are defined using the lambda keyword.
+Keras employs a similar naming scheme to define anonymous/custom layers. Lambda layers in Keras help you to implement layers or functionality that is not prebuilt and which do not require trainable weights.
+```
+hidden_layer = lambda: Dense(num_hidden_neurons, activation=cntk.ops.relu)
+keras.layers.Lambda(function, output_shape=None,mask=None,arguments=None)
+```
 
 ## Models
 Is a class
