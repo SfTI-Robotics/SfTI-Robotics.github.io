@@ -33,7 +33,7 @@ Fully connected layers are defined using the Dense class.
 model.add(Dense(12, input_dim=8, init='uniform',activation='relu'))
 
 ```
-### `init()`
+#### `init()`
 <details><summary> See here </summary>
 <p>
 
@@ -63,7 +63,7 @@ model.add(Dense(12, input_dim=8, init='uniform',activation='relu'))
 
 Relu stands for Rectified Linear Unit.
 
-### `Activation()`
+#### `Activation()`
 <details><summary> See here </summary>
 <p>
 
@@ -77,6 +77,25 @@ Relu stands for Rectified Linear Unit.
 
 ****************************************************************************
 
+### Creating Model
+
+```
+model = Sequential()
+model.add(Dense(12, input_dim=8, activation='relu'))
+model.add(Dense(8, activation='relu'))
+model.add(Dense(1, activation='sigmoid'))
+```
+
+#### `Sequential()`
+<details><summary> Definition (dense)</summary>
+<p>
+  
+Inherits with model creates a linear stack of layers.
+```
+unbound_model = Sequential([l1, l2])
+```
+</p>
+</details>
 
 ### Types of Layers
 
@@ -97,28 +116,6 @@ keras.layers.Lambda(function, output_shape=None,mask=None,arguments=None)
 ```
 </p>
 </details>
-
-### Creating Model
-
-```
-model = Sequential()
-model.add(Dense(12, input_dim=8, activation='relu'))
-model.add(Dense(8, activation='relu'))
-model.add(Dense(1, activation='sigmoid'))
-```
-
-#### `Sequential()`
-<details><summary> Definition (dense)</summary>
-<p>
-  
-Inherits with model creates a linear stack of layers.
-```
-unbound_model = Sequential([l1, l2])
-```
-
-</p>
-</details>
-
 
 ## Math
 ### `reduce_mean()`
