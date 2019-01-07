@@ -158,6 +158,38 @@ learner = sgd(model.parameters,lr,gradient_clipping_threshold_per_sample=10)
 </p>
 </details>
 
+## Fit Model
+
+We have defined our model and compiled it ready for efficient computation.
+
+Now it is time to execute the model on some data.
+
+We can train or fit our model on our loaded data by calling the fit() function on the model.
+
+The training process will run for a fixed number of iterations through the dataset called epochs, that we must specify using the nepochs argument. We can also set the number of instances that are evaluated before a weight update in the network is performed, called the batch size and set using the batch_size argument.
+
+```
+model.fit(X, Y, epochs=150, batch_size=10)
+```
+
+## Evaluate Model
+
+We have trained our neural network on the entire dataset and we can evaluate the performance of the network on the same dataset.
+
+This will only give us an idea of how well we have modeled the dataset (e.g. train accuracy), and how well the algorithm might perform on new data. If you separate your data into train and test datasets for training and evaluation of your model.
+
+You can evaluate your model on your training dataset using the evaluate() function on your model and pass it the same input and output used to train the model.
+
+This will generate a prediction for each input and output pair and collect scores, including the average loss and any metrics you have configured, such as accuracy.
+
+```
+scores = model.evaluate(X, Y)
+```
+
+
+
+
+
 
 
 
