@@ -27,8 +27,7 @@ First I would recommend installing the following program(use google- they normal
   
   Environment simulation packages: 
   
-1) [OpenAI Gym]
-  ( https://gym.openai.com/docs/)
+1) [OpenAI Gym](https://gym.openai.com/docs/)
    
 2) OpenAI Retro
 
