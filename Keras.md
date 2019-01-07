@@ -4,12 +4,17 @@
 keras is a simplfied version of tensorflow, although you'll need to us mainly tensorflow its a good idea to start building Neural Networks(NN) with keras as it quite readable and easy to programme. Below I'll give you a quick tutorial on how to start building you NN along with the syntax you'll need to know.
 
 ## Steps
-1) Load Data.
-2) Define Model.
-3) Compile Model.
-4) Fit Model.
-5) Evaluate Model.
-6) Make Predictions
+1. Load Data
+
+2. Define Model
+
+3. Compile Model
+
+4. Fit Model
+
+5. Evaluate Model
+
+6. Make Predictions
 
 ## Load Data 
 ```
