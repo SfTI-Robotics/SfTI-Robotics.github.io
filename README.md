@@ -61,8 +61,6 @@ Once you're alright with the theory start going into Openai Gym and look at what
 
 [Cart Pole](./Cartpole.md)
 
-[Frozen Lake](./FrozenLake.md)
-
 [Mountain Car](./MountainCar.md)
 
 [Pendulum](./Pendulum.md)
