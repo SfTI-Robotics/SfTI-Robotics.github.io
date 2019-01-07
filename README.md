@@ -76,7 +76,9 @@ Once you're alright with the theory start going into Openai Gym and look at what
 - Cudnn
 - OpenAI Retro
 - MuJoCo
-- 
+- LinuxBrew/HomeBrew
+- pyTorch
+
 
 
 
