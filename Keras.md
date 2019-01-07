@@ -26,7 +26,7 @@ This is a very hard question. Often the best network structure is found through 
 
 The first thing to get right is to ensure the input layer has the right number of inputs.This can be specified when creating the first layer with the input_dim argument and setting it to 8 for the 8 input variables.
 
-*************
+****************************************************************************
 ### `Dense()`
 Fully connected layers are defined using the Dense class. 
 ```
@@ -75,19 +75,18 @@ Relu stands for Rectified Linear Unit.
 </p>
 </details>
 
+****************************************************************************
 
-*************
 
+### Types of Layers
 
-### Layers
-
-<details><summary> ## NN vs Layers(dense)</summary>
+<details><summary> NN vs Layers (dense) </summary>
 <p>
+  
 Tensorflow proposes on the one hand a low level API (`tf.`, `tf.nn.`...), and on the other hand, a higher level API (`tf.layers.`, `tf.losses.`,...).
 The goal of the higher level API is to provide functions that greatly simplify the design of the most common neural nets. The lower level API is there for people with special needs, or who wishes to keep a finer control of what is going on.
 
-</p>
-</details>
+If you wanted something closer to tensorflow with more customisable layers use lambda.
 
 ### `Lambda()`
 In Python anonymous functions are defined using the lambda keyword.
@@ -96,15 +95,31 @@ Keras employs a similar naming scheme to define anonymous/custom layers. Lambda 
 hidden_layer = lambda: Dense(num_hidden_neurons, activation=cntk.ops.relu)
 keras.layers.Lambda(function, output_shape=None,mask=None,arguments=None)
 ```
+</p>
+</details>
 
-## Models
-Is a class
+### Creating Model
 
-### `Sequential()`
+```
+model = Sequential()
+model.add(Dense(12, input_dim=8, activation='relu'))
+model.add(Dense(8, activation='relu'))
+model.add(Dense(1, activation='sigmoid'))
+```
+
+#### `Sequential()`
+<details><summary> Definition (dense)</summary>
+<p>
+  
 Inherits with model creates a linear stack of layers.
 ```
 unbound_model = Sequential([l1, l2])
 ```
+
+</p>
+</details>
+
+
 ## Math
 ### `reduce_mean()`
 Computes the mean of elements across dimensions of a tensor. Axis input is the dimensions given
