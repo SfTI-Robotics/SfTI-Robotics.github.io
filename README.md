@@ -55,6 +55,13 @@ Once you're alright with the theory start going into Openai Gym and look at what
 | [ROS](./ROS.md) |  | 
 | [Python](./Python.md) |  |
 
+## Additional Environments (Optional)
+
+- OpenAI Retro (Lots of examples! and also [here's a good tutorial](https://medium.freecodecamp.org/an-introduction-to-reinforcement-learning-4339519de419)
+- MuJoCo
+- pygame
+- VizDoom
+
 
 ## Further Useful Packages (Optional)
 
@@ -66,9 +73,4 @@ Once you're alright with the theory start going into Openai Gym and look at what
 - pyTorch
 - TKinter
 
-## Additional Environments (Optional)
 
-- OpenAI Retro
-- MuJoCo
-- pygame
-- VizDoom
