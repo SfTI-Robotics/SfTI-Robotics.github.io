@@ -18,3 +18,8 @@ include:
 theme: jekyll-theme-cayman
 
 show_downloads: true
+
+sidebar:
+  title: "Sample Title"
+  nav: sidebar-sample
+  
