@@ -9,9 +9,10 @@ First I would recommend installing the following program(use google- they normal
 
 1) Ubuntu 18.04:
   This can be install by:
-  - first splitting up your drive(disk mangement) into two partitions and the part you will use needs to     be atleast 30gb and shrink volume-> get free space make sure not more than 4.
-  - Then boot up in BIOS change boot order with Ubuntu first
-  - Use usb with burnt ubuntu copy and boot into it.
+  - first splitting up your drive(disk mangement) to make a free partition that is at least 15GB. Make sure not more than 4 partitions exist (HP restrictions).
+  - Then boot up in BIOS change boot order with Ubuntu being first
+  - Use USB with burnt ubuntu copy and boot into it.
+  - Follow the Ubuntu installation instructions
   
 2) Python 2.7 
   https://www.python.org/downloads/
