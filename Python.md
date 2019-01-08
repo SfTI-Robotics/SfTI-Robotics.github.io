@@ -40,7 +40,9 @@ Person has salary?: False
 </details>
 
 ### [`zip()`](https://www.programiz.com/python-programming/methods/built-in/zip)
-
+<details> 
+   <summary>  </summary>
+<p>
 Takes an iterator object and returns an iterator of tuple that are aggregated. 
 
 Example: 
@@ -67,7 +69,8 @@ print(resultSet)
 []
 {(2, 'two'), (3, 'three'), (1, 'one')}
 ```
-
+</p>
+</details>
 
 ### Collections — High-performance container datatypes¶
 
