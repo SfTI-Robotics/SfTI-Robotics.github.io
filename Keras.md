@@ -92,13 +92,13 @@ Relu stands for Rectified Linear Unit.
 <details><summary> See here </summary>
 <p>
 
-  Restricts data to a rangeeg:softmax, tanh, abs, sigmoid
+ Restricts data to a rangeeg:softmax, tanh, abs, sigmoid
   
 
-  Graphs of those functions
+ Graphs of those functions
   
 
-  Activation is also another function that can be called in dense or by it self
+ Activation is also another function that can be called in dense or by it self
   
 </p>
 </details>
