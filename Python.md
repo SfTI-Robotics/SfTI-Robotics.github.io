@@ -14,6 +14,7 @@ For all Built-in Methods for Python lists, see [this webpage](https://www.progra
 
 ### [`hasattr()`](https://www.programiz.com/python-programming/methods/built-in/hasattr) 
 <details> 
+    ### [`hasattr()`](https://www.programiz.com/python-programming/methods/built-in/hasattr) 
 <p>
 
 Checks if an object has an attribute by passing in the name to search for it. Returns a boolean.
