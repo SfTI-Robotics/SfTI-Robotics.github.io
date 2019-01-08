@@ -76,6 +76,6 @@ Once you're alright with the theory start going into Openai Gym and look at what
 - Cudnn
 - LinuxBrew/HomeBrew
 - pyTorch
-- TKinter
+- tKinter
 
 
