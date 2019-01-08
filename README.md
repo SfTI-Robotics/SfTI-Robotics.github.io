@@ -42,8 +42,18 @@ You're going to need to learn alot of information about RL this may take you a f
 
 Once you're alright with the theory start going into Openai Gym and look at what code other people have done.
 
-| ### What now?   | ## Scenario Comparison |
-| --------------- | ---------------------- |
+## Code Pages
+
+| Syntax Page   | Scenario Comparison |
+| ------------- | ------------------- |
+| [Nupmy](./Numpy.md) | [Cart Pole](./ScenarioComparsion/Cartpole.md) |
+| [TensorFlow](./Tensorflow.md) | [Mountain Car](./ScenarioComparsion/MountainCar.md) |
+| [Pandas](./Pandas.md) | [Pendulum](./ScenarioComparsion/Pendulum.md) |
+| [Keras](./Keras.md) | [Maze](./ScenarioComparsion/Maze.md) |
+| [Openai Gym](./Gym.md) |  |
+| [Gazebo](./Gazebo.md) |  |
+| [ROS](./ROS.md) |  | 
+| [Python](./Python.md) |  |
 
 
 ## Further Useful Packages (Optional)
