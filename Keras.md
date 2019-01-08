@@ -47,15 +47,15 @@ The input before that _12_ is actually the number of nodes in the second layer (
 <details><summary> See here </summary>
 <p>
 
- Initializations define the way to set the initial random weights of Keras layers.
+Initializations define the way to set the initial random weights of Keras layers.
   
- The keyword arguments used for passing initializers to layers will depend on the layer. Usually it is simply `kernel_initializer` and `bias_initializer`:
+The keyword arguments used for passing initializers to layers will depend on the layer. Usually it is simply `kernel_initializer` and `bias_initializer`:
   
- ```
- model.add(Dense(64,kernel_initializer='random_uniform',bias_initializer='zeros'))
- ```
+```
+model.add(Dense(64,kernel_initializer='random_uniform',bias_initializer='zeros'))
+```
   
- Types:
+Types:
   
 `keras.initializers.Initializer() `
  
