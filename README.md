@@ -1,19 +1,12 @@
 # Reinforcement Learning|National Science challenge
+<!--right-side-panel
+Example Navigation:
 
-<markdown-toolbar for="textarea_id">
-  <md-bold>bold</md-bold>
-  <md-header>header</md-header>
-  <md-italic>italic</md-italic>
-  <md-quote>quote</md-quote>
-  <md-code>code</md-code>
-  <md-link>link</md-link>
-  <md-unordered-list>unordered-list</md-unordered-list>
-  <md-ordered-list>ordered-list</md-ordered-list>
-  <md-task-list>task-list</md-task-list>
-  <md-mention>mention</md-mention>
-  <md-ref>ref</md-ref>
-</markdown-toolbar>
-<textarea id="textarea_id"></textarea>
+* [Home](index.html)
+  * [Installation](index.html#Installation)
+  * [Pre-defined section names](index.html#pre-defined-section-names-)
+* [Layout](layout.html)
+-->
 
 ## Welcome to the club
 
