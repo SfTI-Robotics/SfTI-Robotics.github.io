@@ -44,7 +44,6 @@ The first thing to get right is to ensure the input layer has the right number o
 The input before that _12_ is actually the number of nodes in the second layer (see diagram below for illustration)\
 
 #### `init()`
-<p>
 <details><summary>Cool Dropdown #1</summary><br>
 
 
