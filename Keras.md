@@ -44,8 +44,6 @@ The first thing to get right is to ensure the input layer has the right number o
 The input before that _12_ is actually the number of nodes in the second layer (see diagram below for illustration)\
 
 #### `init()`
-<details><summary>Cool Dropdown #1</summary><br>
-
 
 Initializations define the way to set the initial random weights of Keras layers.
   
@@ -85,7 +83,6 @@ keras.initializers.RandomNormal(mean=0.0, stddev=0.05, seed=None)
   
 Initializer that generates tensors with a uniform distribution.
 
-</details>
 
 
 Relu stands for Rectified Linear Unit.
