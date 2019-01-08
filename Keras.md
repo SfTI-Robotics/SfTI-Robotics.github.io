@@ -41,42 +41,52 @@ model.add(Dense(12, input_dim=8, init='uniform',activation='relu'))
 ```
 The first thing to get right is to ensure the input layer has the right number of inputs.This can be specified when creating the first layer with the input_dim argument and setting it to 8 for the 8 input variables.
 
-The input before that _12_ is actually the number of nodes in the second layer (see diagram below for illustration)
+The input before that _12_ is actually the number of nodes in the second layer (see diagram below for illustration)\
+
 #### `init()`
+<p>
+<details><summary>Cool Dropdown #1</summary><br>
+
 
 Initializations define the way to set the initial random weights of Keras layers.
   
-The keyword arguments used for passing initializers to layers will depend on the layer. Usually it is simply `kernel_initializer` and `bias_initializer`:
+The keyword arguments used for passing initializers to layers will depend on the layer. Usually it is simply kernel_initializer and bias_initializer:
   
-```
+```js
 model.add(Dense(64,kernel_initializer='random_uniform',bias_initializer='zeros'))
-```
+```s
   
 Types:
   
-`keras.initializers.Initializer() `
+```js
+keras.initializers.Initializer()
+```s
  
 Initializer base class: all initializers inherit from this class.
 
 
-`keras.initializers.Zeros()`
+keras.initializers.Zeros()
   
 Initializer that generates tensors initialized to 0.
 
-`Ones()`
+Ones()
   
 Initializer that generates tensors initialized to 1.
   
-
-`keras.initializers.Constant(value=0)`
+```js
+keras.initializers.Constant(value=0)
+```s
   
 Initializer that generates tensors initialized to a constant value.
   
 
-`keras.initializers.RandomNormal(mean=0.0, stddev=0.05, seed=None)`
+```js
+keras.initializers.RandomNormal(mean=0.0, stddev=0.05, seed=None)
+```s
   
 Initializer that generates tensors with a uniform distribution.
-  
+
+</details>
 
 
 Relu stands for Rectified Linear Unit.
