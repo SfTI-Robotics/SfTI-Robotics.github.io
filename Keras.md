@@ -52,15 +52,15 @@ Initializations define the way to set the initial random weights of Keras layers
   
 The keyword arguments used for passing initializers to layers will depend on the layer. Usually it is simply kernel_initializer and bias_initializer:
   
-```js
+```
 model.add(Dense(64,kernel_initializer='random_uniform',bias_initializer='zeros'))
-```s
+```
   
 Types:
   
-```js
+```
 keras.initializers.Initializer()
-```s
+```
  
 Initializer base class: all initializers inherit from this class.
 
@@ -73,16 +73,16 @@ Ones()
   
 Initializer that generates tensors initialized to 1.
   
-```js
+```
 keras.initializers.Constant(value=0)
-```s
+```
   
 Initializer that generates tensors initialized to a constant value.
   
 
-```js
+```
 keras.initializers.RandomNormal(mean=0.0, stddev=0.05, seed=None)
-```s
+```
   
 Initializer that generates tensors with a uniform distribution.
 
