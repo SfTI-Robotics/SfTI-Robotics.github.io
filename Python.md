@@ -36,7 +36,7 @@ Person has salary?: False
 
 ### [`zip()`](https://www.programiz.com/python-programming/methods/built-in/zip)
 
-take an iterator object and returns an iterator of tuple that are aggregated. 
+Takes an iterator object and returns an iterator of tuple that are aggregated. 
 
 Example: 
 ```
@@ -64,7 +64,7 @@ print(resultSet)
 ```
 
 
-### collections — High-performance container datatypes¶
+### Collections — High-performance container datatypes¶
 
 ##### Deque (pronouced 'deck') 
 Short for double-ended queue. They are sequence (list-like) containers with dynamic sizes that can be expanded or contracted on both ends (either its front or its back).
@@ -75,6 +75,6 @@ Short for double-ended queue. They are sequence (list-like) containers with dyna
 
 ### Other peculiar sightings 
 
-\ = code continued next line
+- `\` is used when code is continued on next line (to improve readability).
 
 ### SumTree
