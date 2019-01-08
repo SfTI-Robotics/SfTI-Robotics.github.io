@@ -44,9 +44,6 @@ The first thing to get right is to ensure the input layer has the right number o
 The input before that _12_ is actually the number of nodes in the second layer (see diagram below for illustration)
 #### `init()`
 
-<details><summary> See here </summary>
-<p>
-
 Initializations define the way to set the initial random weights of Keras layers.
   
 The keyword arguments used for passing initializers to layers will depend on the layer. Usually it is simply `kernel_initializer` and `bias_initializer`:
@@ -80,10 +77,6 @@ Initializer that generates tensors initialized to a constant value.
   
 Initializer that generates tensors with a uniform distribution.
   
-  
-  
-</p>
-</details>
 
 
 Relu stands for Rectified Linear Unit.
@@ -114,22 +107,15 @@ model.add(Dense(1, activation='sigmoid'))
 ```
 
 #### `Sequential()`
-<details><summary></summary>
-<p>
   
 Inherits with model creates a linear stack of layers.
 ```
 unbound_model = Sequential([l1, l2])
 ```
-</p>
-</details>
 
 ![alt text]( https://cloud.githubusercontent.com/assets/1584365/26314676/4f8eb83c-3f41-11e7-9183-2406c7a8759e.png "Logo Title Text 2")
 
 ### Types of Layers
-
-<details><summary> NN vs Layers (dense) </summary>
-<p>
   
 Tensorflow proposes on the one hand a low level API (`tf.`, `tf.nn.`...), and on the other hand, a higher level API (`tf.layers.`, `tf.losses.`,...).
 The goal of the higher level API is to provide functions that greatly simplify the design of the most common neural nets. The lower level API is there for people with special needs, or who wishes to keep a finer control of what is going on.
@@ -143,8 +129,6 @@ Keras employs a similar naming scheme to define anonymous/custom layers. Lambda 
 hidden_layer = lambda: Dense(num_hidden_neurons, activation=cntk.ops.relu)
 keras.layers.Lambda(function, output_shape=None,mask=None,arguments=None)
 ```
-</p>
-</details>
 
 ## Compile Model
 
@@ -161,20 +145,16 @@ We must specify the loss function to use to evaluate a set of weights, the optim
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 ```
 
-<details><summary> Another more likely loss function that you can use </summary>
-<p>
+ Another more likely loss function that you can use :
 
 #### `reduce_mean()`
 Computes the mean of elements across dimensions of a tensor. Axis input is the dimensions given
 ```
 loss = reduce_mean(square(model - q_target), axis=0)
 ```
-</p>
-</details>
 
 ### Optimizers
-<details><summary> </summary>
-<p>
+
 Keras has a library to call different optimisers on a network
   
 Importation from keras import optimizers
@@ -184,8 +164,6 @@ Implementaion example: stochastic gradient descent
 ``` 
 learner = sgd(model.parameters,lr,gradient_clipping_threshold_per_sample=10)
 ```
-</p>
-</details>
 
 ## Fit Model
 
