@@ -8,11 +8,12 @@ This website is mainly to help you get started and then focuses heavily on codin
 First I would recommend installing the following program(use google- they normally have instructions):
 
 1) Ubuntu 18.04:
-  This can be install by:
-  - first splitting up your drive(disk mangement) to make a free partition that is at least 15GB. Make sure not more than 4 partitions exist (HP restrictions).
-  - Then boot up in BIOS change boot order with Ubuntu being first
-  - Use USB with burnt ubuntu copy and boot into it.
-  - Follow the Ubuntu installation instructions
+  
+    This can be install by:
+     - first splitting up your drive(disk management) to make a free partition that is at least 15GB. Make sure not more than 4 partitions exist (HP restrictions).
+     - Then boot up in BIOS change boot order with Ubuntu being first
+     - Use USB with burnt ubuntu copy and boot into it.
+     - Follow the Ubuntu installation instructions
   
 2) Python 2.7 
   https://www.python.org/downloads/
