@@ -43,42 +43,42 @@ The first thing to get right is to ensure the input layer has the right number o
 
 The input before that _12_ is actually the number of nodes in the second layer (see diagram below for illustration)
 #### `init()`
+
 <details><summary> See here </summary>
 <p>
 
-  Initializations define the way to set the initial random weights of Keras layers.
+ Initializations define the way to set the initial random weights of Keras layers.
   
-  The keyword arguments used for passing initializers to layers will depend on the layer. Usually it is simply  `kernel_initializer` and `bias_initializer`:
+ The keyword arguments used for passing initializers to layers will depend on the layer. Usually it is simply `kernel_initializer` and `bias_initializer`:
   
-  ```
-  model.add(Dense(64,kernel_initializer='random_uniform',bias_initializer='zeros'))
-  ```
+ ```
+ model.add(Dense(64,kernel_initializer='random_uniform',bias_initializer='zeros'))
+ ```
   
-  Types:
+ Types:
   
- `keras.initializers.Initializer() `
+`keras.initializers.Initializer() `
  
-  Initializer base class: all initializers inherit from this class.
+Initializer base class: all initializers inherit from this class.
 
 
-  `keras.initializers.Zeros()`
+`keras.initializers.Zeros()`
   
-  Initializer that generates tensors initialized to 0.
+Initializer that generates tensors initialized to 0.
 
-
-  `Ones()`
+`Ones()`
   
-  Initializer that generates tensors initialized to 1.
-  
-
-  `keras.initializers.Constant(value=0)`
-  
-  Initializer that generates tensors initialized to a constant value.
+Initializer that generates tensors initialized to 1.
   
 
-  `keras.initializers.RandomNormal(mean=0.0, stddev=0.05, seed=None)`
+`keras.initializers.Constant(value=0)`
   
-  Initializer that generates tensors with a uniform distribution.
+Initializer that generates tensors initialized to a constant value.
+  
+
+`keras.initializers.RandomNormal(mean=0.0, stddev=0.05, seed=None)`
+  
+Initializer that generates tensors with a uniform distribution.
   
   
   
@@ -93,8 +93,10 @@ Relu stands for Rectified Linear Unit.
 <p>
 
   Restricts data to a rangeeg:softmax, tanh, abs, sigmoid
+  
 
   Graphs of those functions
+  
 
   Activation is also another function that can be called in dense or by it self
   
