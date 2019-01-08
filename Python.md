@@ -16,9 +16,53 @@ For all Built-in Methods for Python lists, see [this webpage](https://www.progra
 
 Checks if an object has an attribute by passing in the name to search for it. Returns a boolean.
 
+Example: 
+```
+#----- script ---------
 
+class Person:
+    age = 23
+    name = 'Adam'
 
-zip()
+person = Person()
+
+print('Person has age?:', hasattr(person, 'age'))
+print('Person has salary?:', hasattr(person, 'salary'))
+#----- shell output -----
+
+Person has age?: True
+Person has salary?: False
+```
+
+### [`zip()`](https://www.programiz.com/python-programming/methods/built-in/zip)
+
+take an iterator object and returns an iterator of tuple that are aggregated. 
+
+Example: 
+```
+#----- script ---------
+numberList = [1, 2, 3]
+strList = ['one', 'two', 'three']
+
+# No iterables are passed
+result = zip()
+
+# Converting itertor to list
+resultList = list(result)
+print(resultList)
+
+# Two iterables are passed
+result = zip(numberList, strList)
+
+# Converting itertor to set
+resultSet = set(result)
+print(resultSet)
+
+#----- shell output -----
+[]
+{(2, 'two'), (3, 'three'), (1, 'one')}
+```
+
 
 ### collections — High-performance container datatypes¶
 
