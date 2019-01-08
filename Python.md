@@ -12,7 +12,8 @@
 
 For all Built-in Methods for Python lists, see [this webpage](https://www.programiz.com/python-programming/list#built).
 
-### [`hasattr()`](https://www.programiz.com/python-programming/methods/built-in/hasattr)
+<details><summary> ### [`hasattr()`](https://www.programiz.com/python-programming/methods/built-in/hasattr)  </summary>
+<p>
 
 Checks if an object has an attribute by passing in the name to search for it. Returns a boolean.
 
@@ -33,6 +34,8 @@ print('Person has salary?:', hasattr(person, 'salary'))
 Person has age?: True
 Person has salary?: False
 ```
+</p>
+</details>
 
 ### [`zip()`](https://www.programiz.com/python-programming/methods/built-in/zip)
 
