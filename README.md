@@ -1,14 +1,5 @@
 # Reinforcement Learning|National Science challenge
 
-<!--right-side-panel
-Example Navigation:
-
-* [Home](./Keras.md)
-  * [Installation](./Keras.md)
-  * [Pre-defined section names](./Keras.md)
-* [Layout]
--->
-
 ## Welcome to the club
 
 This project aim for a robot arm to use reinforcement learning to complete different tasks you will be supervised by Tony and Henry if you have any questions ask them.
@@ -51,23 +42,7 @@ You're going to need to learn alot of information about RL this may take you a f
 
 Once you're alright with the theory start going into Openai Gym and look at what code other people have done.
 
-## Syntax Page
-
-[Nupmy](./Numpy.md)
-
-[Pandas](./Pandas.md)
-
-[TensorFlow](./Tensorflow.md)
-
-[Keras](./Keras.md)
-
-[Openai Gym](./Gym.md)
-
-[Gazebo](./Gazebo.md)
-
-[ROS](./ROS.md)
-
-## Scenario Comparison 
+| ## Syntax Page | ## Scenario Comparison |
 
 [Cart Pole](./ScenarioComparsion/Cartpole.md)
 
