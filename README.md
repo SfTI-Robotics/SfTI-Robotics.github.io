@@ -44,14 +44,8 @@ Once you're alright with the theory start going into Openai Gym and look at what
 
 | ## Syntax Page | ## Scenario Comparison |
 
-[Cart Pole](./ScenarioComparsion/Cartpole.md)
-
-[Mountain Car](./ScenarioComparsion/MountainCar.md)
-
-[Pendulum](./ScenarioComparsion/Pendulum.md)
-
-[Maze](./ScenarioComparsion/Maze.md)
-
+Markdown | Less | Pretty
+--- | --- | ---
 
 ## Further Useful Packages (Optional)
 
