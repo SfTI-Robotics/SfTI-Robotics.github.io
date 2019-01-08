@@ -89,8 +89,7 @@ Initializer that generates tensors with a uniform distribution.
 Relu stands for Rectified Linear Unit.
 
 #### `Activation()`
-<details><summary> See here </summary>
-<p>
+
 
  Restricts data to a rangeeg:softmax, tanh, abs, sigmoid
   
@@ -99,9 +98,7 @@ Relu stands for Rectified Linear Unit.
   
 
  Activation is also another function that can be called in dense or by it self
-  
-</p>
-</details>
+ 
 
 ****************************************************************************
 
