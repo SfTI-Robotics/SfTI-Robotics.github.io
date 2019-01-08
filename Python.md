@@ -13,8 +13,8 @@
 For all Built-in Methods for Python lists, see [this webpage](https://www.programiz.com/python-programming/list#built).
 
 ### [`hasattr()`](https://www.programiz.com/python-programming/methods/built-in/hasattr) 
-<details>
-    <p>
+<details> 
+<p>
 
 Checks if an object has an attribute by passing in the name to search for it. Returns a boolean.
 
