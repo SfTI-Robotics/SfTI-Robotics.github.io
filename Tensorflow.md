@@ -92,7 +92,7 @@ with tf.Session() as sess:
 
 ## Layers
 A trainable model modify the values in the graph to get new outputs with the same input. tf.layer add tranable parameters to a graph. 
-Layer package together both the variables and the operations that act on them. The densely-connected layer performs a weihte sum across all inputs for each output and applies an activation function. The weight and biases are managed by te layer object.
+Layer package together both the variables and the operations that act on them. The densely-connected layer performs a weihte sum across all inputs for each output and applies an activation function. The weight and biases are managed by the layer object.
 
 Process to create a dense layer are as below:
   1. Create layers
@@ -203,6 +203,10 @@ Create a Tensor with random values with a uniform distribution
 ```
 tf.random_uniform()
 ```
+Create a Tensor with random values from a truncated normal distribution.
+```
+tf.truncated_normal
+```
 Multiple matrices
 ```
 tf.matmul(matrix1, matrix2)
@@ -288,7 +292,7 @@ tf.reduce_mean(x, 1)  # [1.,  2.]
 # tf.layers.__
 dense(): adds an addition layer to your network. 
 
-tf.layers.dense 
+tf.layers.dense(): Creates a densely-connected layer for your neural network. 
 ```
 # layer 1: input = s
             e1 = tf.layers.dense(self.s, 20, tf.nn.relu, kernel_initializer=w_initializer,
@@ -315,3 +319,36 @@ with tf.variable_scope('l2'):
   b2 = tf.get_variable('b2', [1, self.n_actions], initializer=b_initializer, collections=c_names)
   self.q_eval = tf.matmul(l1, w2) + b2
 ```
+tf.layers.flatten(): Reshapes the tensor by flattening the input axis.
+```
+  x = tf.placeholder(shape=(None, 4, 4), dtype='float32')
+  y = flatten(x)
+  # now `y` has shape `(None, 16)`
+
+  x = tf.placeholder(shape=(None, 3, None), dtype='float32')
+  y = flatten(x)
+  # now `y` has shape `(None, None)
+```
+tf.layers.conv2d(): A 2 dimensional layer that consists of a set of “filters”. The filters take a subset of the input data at a time, but are applied across the full input (by sweeping over the input). The operations performed by this layer are still linear/matrix multiplications, but they go through an activation function at the output, which is usually a non-linear operation.
+
+```
+tf.layers.conv2d(
+    inputs,
+    filters,
+    activation=None,
+    kernel_initializer=None,
+    bias_initializer=tf.zeros_initializer(),...
+)
+```
+# tf.train._
+Namespace that contains different optimizers for training the model. 
+
+# tf.summary._
+Summary is a special TensorBoard operation that takes in a regular tenor and outputs the summarized data to your disk (i.e. in the event file).
+
+tf.summary.histogram(): Used to plot histogram of all the values of a non-scalar tensor (like weight or bias matrices of a neural network).
+
+tf.summary.merge_all(): Merge all summaries in your graph to run them at once inside your session. 
+
+
+
