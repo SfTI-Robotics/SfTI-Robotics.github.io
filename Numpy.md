@@ -148,3 +148,8 @@ Picking random numbers based on a normal distribution of chances for values betw
 ```
 np.random.randn(1, env.action_space.n)
 ```
+Return an array of random integers
+```
+>>> np.random.randint(2, size=10)
+array([1, 0, 0, 0, 1, 1, 0, 0, 1, 0])
+```
