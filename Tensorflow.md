@@ -346,7 +346,11 @@ Namespace that contains different optimizers for training the model.
 # tf.summary._
 Summary is a special TensorBoard operation that takes in a regular tenor and outputs the summarized data to your disk (i.e. in the event file).
 
-tf.summary.histogram(): Used to plot histogram of all the values of a non-scalar tensor (like weight or bias matrices of a neural network).
+tf.summary.scalar(): A type of entity understood by TensorBoard. Used to record the values of a scalar tensor.
+
+tf.summary.histogram(): A type of entities understood by TensorBoard. Used to plot histogram of all the values of a non-scalar tensor (like weight or bias matrices of a neural network).
+
+
 
 tf.summary.merge_all(): Merge all summaries in your graph to run them at once inside your session. 
 
