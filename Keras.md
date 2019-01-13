@@ -121,6 +121,8 @@ unbound_model = Sequential([l1, l2])
 
 ![alt text]( https://cloud.githubusercontent.com/assets/1584365/26314676/4f8eb83c-3f41-11e7-9183-2406c7a8759e.png "Logo Title Text 2")
 
+https://cdn-images-1.medium.com/max/1600/0*0qPwzal3qBIP0eFb
+
 ### Types of Layers
   
 Tensorflow proposes on the one hand a low level API (`tf.`, `tf.nn.`...), and on the other hand, a higher level API (`tf.layers.`, `tf.losses.`,...).
