@@ -1,5 +1,7 @@
 # Python
 
+If you would like a great introductory Python guide, check out [Daniel Seita's post](https://danieltakeshi.github.io/2013/07/05/ten-things-python-programmers-should-know/)
+
 ### List Notation
 
 [None] = any input 
