@@ -4,7 +4,7 @@
 The mountain car environment involves a left mountain and right mountain that has a flag at position 0.5(and is the goal
 ). The episode completes when the car reaches the flag but must complete this task in 200 time steps or it has failed. The agent starts in the midddle of the two mountains between a random position of  -0.6 to -0.4 with no velocity. If the car goes beyond the left mountainit also fails. The total reward it can accumalate is 1 which is given at the flag position only but recieves -1 for each  time step, until the goal position of 0.5 is reached. As with MountainCarContinuous v0, there is no penalty for climbing the left hill. The states that can be observed are its position from  -1.2 to 0.6 and velocity from -0.07 to 0.07. The actions the car can take is push left, right or no force.
 
-![Maze](/MountainCar.png)
+![MountainCar](./MountainCar.png)
 
 
 ## Steps per Episode Comparsion
