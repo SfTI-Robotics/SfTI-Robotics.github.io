@@ -45,7 +45,7 @@ def summary(summary_types, episode_count, step_summary, exTime_summary, reward_s
     else:
         reward_per_step_summary = []
 
-    if episode_count == summary_index: 
+    if episode_count % 3 == 0: 
         fig1 = plt.figure(figsize=(30, 15))
         i = 1
         for element in summary_types:
@@ -103,29 +103,29 @@ def summary(summary_types, episode_count, step_summary, exTime_summary, reward_s
         return
 
 
-    if episode_count == summary_index and episode_count > start_focus:
-        fig2 = plt.figure(figsize=(30, 15))
-        i = 1
-        for element in summary_types:
-            if element == 'sumiz_step':
-                ax1 = fig2.add_subplot(num_focus_axes, 1, i)
-                ax1.plot(range(start_focus, end_focus), step_summary[start_focus:end_focus])
-                ax1.plot(range(start_focus, end_focus), np.repeat(step_goal, end_focus - start_focus), 'r:')
-                ax1.set_title('Number of steps taken in each episode')
-                ax1.set_xlabel('Episode')
-                ax1.set_ylabel('Steps taken')
-                i += 1
+    # if episode_count == summary_index and episode_count > start_focus:
+    #     fig2 = plt.figure(figsize=(30, 15))
+    #     i = 1
+    #     for element in summary_types:
+    #         if element == 'sumiz_step':
+    #             ax1 = fig2.add_subplot(num_focus_axes, 1, i)
+    #             ax1.plot(range(start_focus, end_focus), step_summary[start_focus:end_focus])
+    #             ax1.plot(range(start_focus, end_focus), np.repeat(step_goal, end_focus - start_focus), 'r:')
+    #             ax1.set_title('Number of steps taken in each episode')
+    #             ax1.set_xlabel('Episode')
+    #             ax1.set_ylabel('Steps taken')
+    #             i += 1
             
-            if element == 'sumiz_time':
-                ax2 = fig2.add_subplot(num_focus_axes, 1, i)
-                ax2.plot(range(start_focus, end_focus), exTime_summary[start_focus:end_focus])
-                ax2.set_title('Execution time in each episode')
-                ax2.set_xlabel('Episode')
-                ax2.set_ylabel('Execution time (s)')
-                i += 1
+    #         if element == 'sumiz_time':
+    #             ax2 = fig2.add_subplot(num_focus_axes, 1, i)
+    #             ax2.plot(range(start_focus, end_focus), exTime_summary[start_focus:end_focus])
+    #             ax2.set_title('Execution time in each episode')
+    #             ax2.set_xlabel('Episode')
+    #             ax2.set_ylabel('Execution time (s)')
+    #             i += 1
 
-        plt.tight_layout()
-        fig2.savefig(SAVE_PATH + NAME +"_focused_summary.png")
+    #     plt.tight_layout()
+    #     fig2.savefig(SAVE_PATH + NAME +"_focused_summary.png")
 
         
 

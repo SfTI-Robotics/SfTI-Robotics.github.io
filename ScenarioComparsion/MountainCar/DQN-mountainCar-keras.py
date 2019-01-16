@@ -5,7 +5,11 @@ from keras.models import Sequential
 from keras.layers import Dense, Dropout
 from keras.optimizers import Adam
 from summary import *
-SAVE_PATH = home + "/UoA-RL.github.io/ScenarioComparsion/MountainCar/"
+import os
+from os.path import expanduser
+home = expanduser("~")
+
+SAVE_PATH = home + "/UoA-RL.github.io/ScenarioComparsion/MountainCar/" 
 NAME = "DQN Mountain car performance"
 from collections import deque
 import time
@@ -20,7 +24,7 @@ class DQN:
         self.epsilon = 1.0
         self.epsilon_min = 0.01
         self.epsilon_decay = 0.995
-        self.learning_rate = 0.005
+        self.learning_rate = 0.005  
         self.tau = .125
 
         self.model        = self.create_model()
@@ -89,17 +93,20 @@ def main():
     summary_types = ['sumiz_step' , 'sumiz_time', 'sumiz_reward', 'sumiz_reward_per_step']
     step_goal = 199
     reward_goal = 1
-    summary_index =5
+    summary_index = 5
     start_focus = 0
     end_focus = 1000
+    success = 0
     for trial in range(trials):
         cur_state = env.reset().reshape(1,2)
         startTime = time.time()
         episode_count =  trial
-        total_reward =[]
+        total_reward = 0
+        step_counter = 0
+        reward_counter=0
         for step in range(trial_len):
             env.render() 
-
+            step_counter += 1 
 
             action = dqn_agent.act(cur_state)
             new_state, reward, done, _ = env.step(action)
@@ -112,13 +119,13 @@ def main():
             dqn_agent.target_train() # iterates target model
 
             cur_state = new_state
-
-            step_summary.append(step)
-            total_reward.append(reward)
+            total_reward += reward
              
             
             if done:
                 break
+
+        step_summary.append(step_counter)
         reward_summary.append(total_reward)
         exTime_summary.append(time.time() - startTime)
         summary(summary_types, episode_count, step_summary, exTime_summary, reward_summary, step_goal, reward_goal, summary_index, start_focus, end_focus, NAME, SAVE_PATH)
@@ -129,7 +136,9 @@ def main():
         else:
             print("Completed in {} trials".format(trial))
             # dqn_agent.save_model("success.model")
-            break
+            success += 1
+            if success == 10:
+                break
 
 if __name__ == "__main__":
     main()
