@@ -6,17 +6,31 @@ The mountain car environment involves a left mountain and right mountain that ha
 
 ![MountainCar](./MountainCar.png)
 
+## Results
 
-## Steps per Episode Comparsion
-The difference between DQN and Q - learning algorithms is notified through the osciallations produced in the normalisation of the optimal policy in the later episodes. This due to the exploration and exploitation comparative. As the Q - learning algorithm explores and exploits at the same time on the same network while the DQN has a two simultaneous networks one of which allows the DQN to explore while the target newtork allows it to exploit and choose an optimal policy. 
+The results were graphed by running the code for both algorithms until 10 successful episode were completed this is indicated by the spikes in the graphs. Four graphs were computed with the last graph, rewards per step being redundant due to the nature of the environment. 
 
-### QL focus Graphs
+
+
+#### DQN focus Graphs 
+Episodes for 10 successes: 280
+
 ![Graph](MountainCar/archiveMountainCarDQN.png)
 
-### DQN focus Graphs 
-![Graph](MountainCar/double DQN Mountain car performance_ep258.png)
+#### Double DQN focus Graphs 
+Episodes for 10 successes: 58
+![Graph](/MountainCar/ArchiveDoubDQNMountainCar.png)
 
+
+### Steps per Episode Comparsion
+This is difficult to compare since the steps are capped at 200 steps so the only comparable thing is the frequency of successes. Double DQN had more successes towards the end while DQN's frequency was evenly spaced. It can be said that DQN displays random occurrences of successes, yet it does not learn from them. 
+
+### Execution Time Comparison
+The shortest time for DQN was 5 secs and for Double DQN was 2 secs, signifying that Double DQN takes less time to complete tasks successfully. 
+
+### Reward Comparison
+From the graphs, the highest reward for both algorithms were about the same, -125. 
 
 
 ## Conclusion
-The Q - learning provides a slight oscillation which is a negligible difference in the steps which are produced the runtimes are also quite similar seen in the graphs above there we can conclude it wouldn't provide much of a difference in the choosing of one algorithm over the other but for a slightly more normalised optimal policy generation the DQN could be chosen.
+Double DQN is superior it is able to have 10 successes in less episodes this is because the pattern in the graph shows that it is clearly learning and so there's a cluster of successes at the end where in DQNs they appear more spread out and appear at random. Since it learning it also runs the episodes alot quicker even if it uses the about same number of steps in an episode this makes it much more computationally and time efficient. It is also worth mentioning that DQN crashed my computer 3 times so i would recommend using double dqn.
