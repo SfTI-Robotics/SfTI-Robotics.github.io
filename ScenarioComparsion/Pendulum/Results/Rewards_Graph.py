@@ -21,7 +21,7 @@ env = gym.make('Pendulum-v0')
 env = env.unwrapped
 env.seed(1)
 MEMORY_SIZE = 3000
-ACTION_SPACE = 25   # why different ??
+ACTION_SPACE = 25  
 
 sess = tf.Session()
 with tf.variable_scope('double'):

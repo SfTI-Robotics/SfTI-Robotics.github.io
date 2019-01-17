@@ -121,11 +121,21 @@ class DuelingDQN:
 
     def choose_action(self, observation):
         observation = observation[np.newaxis, :]
+        
         if np.random.uniform() < self.epsilon:  # choosing action
             actions_value = self.sess.run(self.q_eval, feed_dict={self.s: observation})
             action = np.argmax(actions_value)
+
+            if not hasattr(self, 'q'):  # record action value it gets
+                self.q = []
+                self.running_q = 0
+            self.running_q = self.running_q*0.99 + 0.01 * np.max(actions_value)
+            self.q.append(self.running_q)
+
         else:
             action = np.random.randint(0, self.n_actions)
+
+
         return action
 
     def learn(self):
