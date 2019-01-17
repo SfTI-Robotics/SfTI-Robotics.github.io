@@ -11,11 +11,13 @@ gym: 0.8.0
 
 
 import gym
-from RL_brain import DoubleDQN
+from DoubleDQN import DoubleDQN
 import numpy as np
 import matplotlib.pyplot as plt
 import tensorflow as tf
 
+from summary import summary
+import time
 
 env = gym.make('Pendulum-v0')
 env = env.unwrapped
@@ -23,13 +25,18 @@ env.seed(1)
 MEMORY_SIZE = 3000
 ACTION_SPACE = 11
 
-sess = tf.Session()
-with tf.variable_scope('Natural_DQN'):
-    natural_DQN = DoubleDQN(
-        n_actions=ACTION_SPACE, n_features=3, memory_size=MEMORY_SIZE,
-        e_greedy_increment=0.001, double_q=False, sess=sess
-    )
+summary_types = ['sumiz_time', 'sumiz_reward']
+step_goal = 10000
+reward_goal = 0
+start_focus = 0
+end_focus = step_goal
+NAME = "DoubleDQN_Pendulum"
+SAVE_PATH = "/UoA-RL.github.io/ScenarioComparsion/Pendulum/5.1_Double_DQN/"
+start_time = time.time()
 
+results = summary(summary_types, step_goal, reward_goal, start_focus, end_focus, NAME, SAVE_PATH)
+
+sess = tf.Session()
 with tf.variable_scope('Double_DQN'):
     double_DQN = DoubleDQN(
         n_actions=ACTION_SPACE, n_features=3, memory_size=MEMORY_SIZE,
@@ -42,7 +49,7 @@ def train(RL):
     total_steps = 0
     observation = env.reset()
     while True:
-        # if total_steps - MEMORY_SIZE > 8000: env.render()
+        if total_steps - MEMORY_SIZE > 8000: env.render()
 
         action = RL.choose_action(observation)
 
@@ -63,14 +70,16 @@ def train(RL):
 
         observation = observation_
         total_steps += 1
+
+        results.summarize(total_steps, time_count = start_time - time.time(), reward_count = reward)
     return RL.q
 
-q_natural = train(natural_DQN)
 q_double = train(double_DQN)
 
-plt.plot(np.array(q_natural), c='r', label='natural')
+
+
 plt.plot(np.array(q_double), c='b', label='double')
-plt.legend(loc='best')
+
 plt.ylabel('Q eval')
 plt.xlabel('training steps')
 plt.grid()

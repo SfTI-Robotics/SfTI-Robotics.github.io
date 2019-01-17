@@ -56,15 +56,15 @@ class summary:
 
         # determines number of graph we want to plot in the figure
         for element in self.summary_types:
-            if element == 'sumiz_step':
-                self.num_main_axes += 1
+            # if element == 'sumiz_step':
+            #     self.num_main_axes += 1
             if element == 'sumiz_time':
                 self.num_main_axes += 1
             if element == 'sumiz_reward':
                 self.num_main_axes += 1
-            if element == 'sumiz_average_reward':
-                self.num_main_axes += 1
-                self.is_average_reward_axes = True
+            # if element == 'sumiz_average_reward':
+            #     self.num_main_axes += 1
+            #     self.is_average_reward_axes = True
 
         if not self.num_main_axes:
             self.to_summarize = False
@@ -110,14 +110,14 @@ class summary:
             fig1 = plt.figure(figsize=(30, 15)) # ploting normally takes ~0.5 seconds
             i = 1
             for element in self.summary_types:
-                if element == 'sumiz_step':
-                    ax1 = fig1.add_subplot(self.num_main_axes, 1, i)
-                    ax1.plot(range(len(self.step_summary)),self.step_summary)
-                    ax1.plot(range(len(self.step_summary)),np.repeat(self.step_goal, len(self.step_summary)), 'r:')
-                    ax1.set_title('Number of steps taken in each episode')
-                    ax1.set_xlabel('Episode')
-                    ax1.set_ylabel('Steps taken')
-                    i += 1
+                # if element == 'sumiz_step':
+                #     ax1 = fig1.add_subplot(self.num_main_axes, 1, i)
+                #     ax1.plot(range(len(self.step_summary)),self.step_summary)
+                #     ax1.plot(range(len(self.step_summary)),np.repeat(self.step_goal, len(self.step_summary)), 'r:')
+                #     ax1.set_title('Number of steps taken in each episode')
+                #     ax1.set_xlabel('Episode')
+                #     ax1.set_ylabel('Steps taken')
+                #     i += 1
                 
                 if element == 'sumiz_time':
                     ax2 = fig1.add_subplot(self.num_main_axes, 1, i)
@@ -136,14 +136,14 @@ class summary:
                     ax3.set_ylabel('Reward')
                     i += 1
 
-                if element == 'sumiz_average_reward':
-                    ax4 = fig1.add_subplot(self.num_main_axes, 1, i)
-                    ax4.plot(range(len(self.average_reward_summary)),self.average_reward_summary)
-                    ax4.plot(range(len(self.average_reward_summary)), np.repeat(self.average_reward_goal, len(self.average_reward_summary)), 'r:')
-                    ax4.set_title('Reward in each episode per step')
-                    ax4.set_xlabel('Episode')
-                    ax4.set_ylabel('Reward per step')
-                    i += 1
+                # if element == 'sumiz_average_reward':
+                #     ax4 = fig1.add_subplot(self.num_main_axes, 1, i)
+                #     ax4.plot(range(len(self.average_reward_summary)),self.average_reward_summary)
+                #     ax4.plot(range(len(self.average_reward_summary)), np.repeat(self.average_reward_goal, len(self.average_reward_summary)), 'r:')
+                #     ax4.set_title('Reward in each episode per step')
+                #     ax4.set_xlabel('Episode')
+                #     ax4.set_ylabel('Reward per step')
+                #     i += 1
 
             plt.tight_layout()
             fig1.savefig(home + self.save_path + self.general_filename + "_summary.png")
@@ -157,14 +157,14 @@ class summary:
             fig2 = plt.figure(figsize=(30, 15))
             i = 1
             for element in self.summary_types:
-                if element == 'sumiz_step':
-                    ax1 = fig2.add_subplot(self.num_focus_axes, 1, i)
-                    ax1.plot(range(self.start_focus, min(episode_count, self.end_focus)), self.step_summary[self.start_focus:min(episode_count, self.end_focus)])
-                    ax1.plot(range(self.start_focus, min(episode_count, self.end_focus)), np.repeat(self.step_goal, min(episode_count, self.end_focus) - self.start_focus), 'r:')
-                    ax1.set_title('Number of steps taken in each episode')
-                    ax1.set_xlabel('Episode')
-                    ax1.set_ylabel('Steps taken')
-                    i += 1
+                # if element == 'sumiz_step':
+                #     ax1 = fig2.add_subplot(self.num_focus_axes, 1, i)
+                #     ax1.plot(range(self.start_focus, min(episode_count, self.end_focus)), self.step_summary[self.start_focus:min(episode_count, self.end_focus)])
+                #     ax1.plot(range(self.start_focus, min(episode_count, self.end_focus)), np.repeat(self.step_goal, min(episode_count, self.end_focus) - self.start_focus), 'r:')
+                #     ax1.set_title('Number of steps taken in each episode')
+                #     ax1.set_xlabel('Episode')
+                #     ax1.set_ylabel('Steps taken')
+                #     i += 1
                 
                 if element == 'sumiz_time':
                     ax2 = fig2.add_subplot(self.num_focus_axes, 1, i)
