@@ -157,9 +157,9 @@ if __name__ == "__main__":
     step_summary = []
     reward_summary = []
     exTime_summary = []
-    summary_types = ['sumiz_step' , 'sumiz_time', 'sumiz_reward', 'sumiz_reward_per_step']
-    step_goal = 199
-    reward_goal = 1
+    summary_types = ['sumiz_step' , 'sumiz_time', 'sumiz_reward']
+    step_goal = 200
+    reward_goal = -100
     summary_index = 5
     start_focus = 0
     end_focus = 1000
@@ -206,8 +206,6 @@ if __name__ == "__main__":
 
                 break
 
-                print("episode = ", e, "cum reward", total_reward)
-
         step_summary.append(step_counter)
         reward_summary.append(total_reward)
         exTime_summary.append(time.time() - startTime)
@@ -216,7 +214,7 @@ if __name__ == "__main__":
         if step_counter >= 199:
             print("Failed to complete in trial {}".format(e))
         else: 
-            print("Completed in {} trials".format(e))
+            print("Completed in {} trials".format(e), ",     {} steps taken ".format(step_counter), ",     {} rewards gained ".format(total_reward))
             success += 1
             if success == 10:
                 break

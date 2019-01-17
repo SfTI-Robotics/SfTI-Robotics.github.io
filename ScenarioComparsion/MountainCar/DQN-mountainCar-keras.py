@@ -87,7 +87,7 @@ def main():
     step_summary = []
     reward_summary = []
     exTime_summary = []
-    summary_types = ['sumiz_step' , 'sumiz_time', 'sumiz_reward', 'sumiz_reward_per_step']
+    summary_types = ['sumiz_step' , 'sumiz_time', 'sumiz_reward']
     step_goal = 199
     reward_goal = 1
     summary_index = 5
