@@ -65,13 +65,14 @@ def train(RL):
         total_steps += 1
     return RL.q
 
-q_dueling = train(dueling_DQN)
-q_double = train(double_DQN)
+def Q_graphs():
+    q_dueling = train(dueling_DQN)
+    q_double = train(double_DQN)
 
-plt.plot(np.array(q_dueling), c='r', label='dueling')
-plt.plot(np.array(q_double), c='b', label='double')
-plt.legend(loc='best')
-plt.ylabel('Q eval')
-plt.xlabel('training steps')
-plt.grid()
-plt.show()
+    plt.plot(np.array(q_dueling), c='r', label='dueling')
+    plt.plot(np.array(q_double), c='b', label='double')
+    plt.legend(loc='best')
+    plt.ylabel('Q eval')
+    plt.xlabel('training steps')
+    plt.grid()
+    plt.show()

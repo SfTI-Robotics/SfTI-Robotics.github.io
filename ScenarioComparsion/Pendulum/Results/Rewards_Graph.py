@@ -64,24 +64,25 @@ def train(RL):
         total_steps += 1
     return RL.cost_his, acc_r
 
-c_double, r_double = train(double_DQN)
-c_dueling, r_dueling = train(dueling_DQN)
+def R_graphs():
+    c_double, r_double = train(double_DQN)
+    c_dueling, r_dueling = train(dueling_DQN)
 
-plt.figure(1)
-plt.plot(np.array(c_double), c='r', label='double')
-plt.plot(np.array(c_dueling), c='b', label='dueling')
-plt.legend(loc='best')
-plt.ylabel('cost')
-plt.xlabel('training steps')
-plt.grid()
+    plt.figure(1)
+    plt.plot(np.array(c_double), c='r', label='double')
+    plt.plot(np.array(c_dueling), c='b', label='dueling')
+    plt.legend(loc='best')
+    plt.ylabel('cost')
+    plt.xlabel('training steps')
+    plt.grid()
 
-plt.figure(2)
-plt.plot(np.array(r_double), c='r', label='double')
-plt.plot(np.array(r_dueling), c='b', label='dueling')
-plt.legend(loc='best')
-plt.ylabel('accumulated reward')
-plt.xlabel('training steps')
-plt.grid()
+    plt.figure(2)
+    plt.plot(np.array(r_double), c='r', label='double')
+    plt.plot(np.array(r_dueling), c='b', label='dueling')
+    plt.legend(loc='best')
+    plt.ylabel('accumulated reward')
+    plt.xlabel('training steps')
+    plt.grid()
 
-plt.show()
+    plt.show()
 
