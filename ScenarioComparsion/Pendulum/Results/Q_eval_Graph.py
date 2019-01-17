@@ -1,5 +1,5 @@
 """
-Double DQN & Natural DQN comparison,
+Double DQN & dueling DQN comparison,
 The Pendulum example.
 
 View more on my tutorial page: https://morvanzhou.github.io/tutorials/
@@ -12,6 +12,7 @@ gym: 0.8.0
 
 import gym
 from DoubleDQN import DoubleDQN
+from DuelingDQN import DuelingDQN
 import numpy as np
 import matplotlib.pyplot as plt
 import tensorflow as tf
@@ -24,11 +25,10 @@ MEMORY_SIZE = 3000
 ACTION_SPACE = 11
 
 sess = tf.Session()
-with tf.variable_scope('Natural_DQN'):
-    natural_DQN = DoubleDQN(
+with tf.variable_scope('Dueling_DQN'):
+    dueling_DQN = DuelingDQN(
         n_actions=ACTION_SPACE, n_features=3, memory_size=MEMORY_SIZE,
-        e_greedy_increment=0.001, double_q=False, sess=sess
-    )
+        e_greedy_increment=0.001, sess=sess, dueling=True, output_graph=True)
 
 with tf.variable_scope('Double_DQN'):
     double_DQN = DoubleDQN(
@@ -65,10 +65,10 @@ def train(RL):
         total_steps += 1
     return RL.q
 
-q_natural = train(natural_DQN)
+q_dueling = train(dueling_DQN)
 q_double = train(double_DQN)
 
-plt.plot(np.array(q_natural), c='r', label='natural')
+plt.plot(np.array(q_dueling), c='r', label='dueling')
 plt.plot(np.array(q_double), c='b', label='double')
 plt.legend(loc='best')
 plt.ylabel('Q eval')

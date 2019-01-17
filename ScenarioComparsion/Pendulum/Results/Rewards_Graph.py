@@ -1,5 +1,5 @@
 """
-Dueling DQN & Natural DQN comparison
+Dueling DQN & double DQN comparison
 
 View more on my tutorial page: https://morvanzhou.github.io/tutorials/
 
@@ -10,6 +10,7 @@ gym: 0.8.0
 
 
 import gym
+from DoubleDQN import DoubleDQN
 from DuelingDQN import DuelingDQN
 import numpy as np
 import matplotlib.pyplot as plt
@@ -23,10 +24,10 @@ MEMORY_SIZE = 3000
 ACTION_SPACE = 25   # why different ??
 
 sess = tf.Session()
-with tf.variable_scope('natural'):
-    natural_DQN = DuelingDQN(
+with tf.variable_scope('double'):
+    double_DQN = DoubleDQN(
         n_actions=ACTION_SPACE, n_features=3, memory_size=MEMORY_SIZE,
-        e_greedy_increment=0.001, sess=sess, dueling=False)
+        e_greedy_increment=0.001, double_q=True, sess=sess, output_graph=True)
 
 with tf.variable_scope('dueling'):
     dueling_DQN = DuelingDQN(
@@ -63,11 +64,11 @@ def train(RL):
         total_steps += 1
     return RL.cost_his, acc_r
 
-c_natural, r_natural = train(natural_DQN)
+c_double, r_double = train(double_DQN)
 c_dueling, r_dueling = train(dueling_DQN)
 
 plt.figure(1)
-plt.plot(np.array(c_natural), c='r', label='natural')
+plt.plot(np.array(c_double), c='r', label='double')
 plt.plot(np.array(c_dueling), c='b', label='dueling')
 plt.legend(loc='best')
 plt.ylabel('cost')
@@ -75,7 +76,7 @@ plt.xlabel('training steps')
 plt.grid()
 
 plt.figure(2)
-plt.plot(np.array(r_natural), c='r', label='natural')
+plt.plot(np.array(r_double), c='r', label='double')
 plt.plot(np.array(r_dueling), c='b', label='dueling')
 plt.legend(loc='best')
 plt.ylabel('accumulated reward')
