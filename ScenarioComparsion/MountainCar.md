@@ -32,7 +32,7 @@ This is difficult to compare since the steps are capped at 200 steps so the only
 The shortest time for DQN was 5 secs and for Double DQN was 2 secs, signifying that Double DQN takes less time to complete tasks successfully. 
 
 ### Reward Comparison
-From the graphs, the highest reward for both algorithms were about the same, -125. 
+From the graphs, the highest reward for both algorithms were about the same, -125. During one of the three trials for Double DQN, the reward reached above -100. This never occurred for the two (hard won) trials for DQN.
 
 
 ## Conclusion
