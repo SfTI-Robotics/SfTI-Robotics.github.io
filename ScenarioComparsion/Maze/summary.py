@@ -117,7 +117,7 @@ class summary:
 
         # generate summary graphs
         if episode_count % FREQUENCY == 0: 
-            fig1 = plt.figure(figsize=(30, 20)) # ploting normally takes ~0.5 seconds
+            fig1 = plt.figure(figsize=(20, 10)) # ploting normally takes ~0.5 seconds
             i = 1
             for element in self.summary_types:
                 if element == 'sumiz_step':
@@ -172,7 +172,7 @@ class summary:
 
         # generate index-focused summary graph
         if episode_count % FREQUENCY == 0 and episode_count > self.start_focus and episode_count < self.end_focus:
-            fig2 = plt.figure(figsize=(30, 20))
+            fig2 = plt.figure(figsize=(20, 10))
             i = 1
             for element in self.summary_types:
                 if element == 'sumiz_step':
