@@ -42,7 +42,7 @@ def train(RL):
     total_steps = 0
     observation = env.reset()
     while True:
-        # if total_steps-MEMORY_SIZE > 9000: env.render()
+        if total_steps-MEMORY_SIZE > 9000: env.render()
 
         action = RL.choose_action(observation)
 
@@ -83,6 +83,17 @@ def R_graphs():
     plt.ylabel('accumulated reward')
     plt.xlabel('training steps')
     plt.grid()
+
+    c_double_focus = c_double[:1800]
+    c_dueling_focus = c_dueling[:1800]
+
+    plt.figure(3)
+    plt.plot(np.array(c_double_focus), c='r', label='double')
+    plt.plot(np.array(c_dueling_focus), c='b', label='dueling')
+    plt.legend(loc='best')
+    plt.ylabel('cost')
+    plt.xlabel('training steps')
+    plt.grid()    
 
     plt.show()
 
