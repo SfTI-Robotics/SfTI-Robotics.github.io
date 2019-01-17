@@ -79,9 +79,6 @@ class DQN:
 
 def main():
     env     = gym.make("MountainCar-v0")
-    gamma   = 0.9
-    epsilon = .95
-
     trials  = 1000
     trial_len = 500
 
@@ -103,7 +100,7 @@ def main():
         episode_count =  trial
         total_reward = 0
         step_counter = 0
-        reward_counter=0
+        
         for step in range(trial_len):
             env.render() 
             step_counter += 1 
