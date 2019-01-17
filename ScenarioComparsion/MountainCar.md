@@ -11,10 +11,10 @@ The mountain car environment involves a left mountain and right mountain that ha
 The difference between DQN and Q - learning algorithms is notified through the osciallations produced in the normalisation of the optimal policy in the later episodes. This due to the exploration and exploitation comparative. As the Q - learning algorithm explores and exploits at the same time on the same network while the DQN has a two simultaneous networks one of which allows the DQN to explore while the target newtork allows it to exploit and choose an optimal policy. 
 
 ### QL focus Graphs
-![Graph](Maze/focus_QL.png)
+![Graph](MountainCar/archiveMountainCarDQN.png)
 
 ### DQN focus Graphs 
-![Graph](Maze/focus_DQN.png)
+![Graph](MountainCar/double DQN Mountain car performance_ep258.png)
 
 
 
