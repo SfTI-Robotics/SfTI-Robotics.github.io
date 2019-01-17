@@ -2,134 +2,194 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.gridspec
 import os
-from os.path import expanduser
+import time
+
 from PIL import Image
+
+from os.path import expanduser
 home = expanduser("~")
 
+# update frequency
+FREQUENCY = 5
 
-#the focus of this class is to take in particular types of data and then transform that data into the creation of the focused and unfocused graphs associated with that data.
-def summary(summary_types, episode_count, step_summary, exTime_summary, reward_summary, step_goal, reward_goal, summary_index, start_focus, end_focus, NAME, SAVE_PATH):
+class summary:
+    def __init__(
+            self,
+            # which summaries to display: ['sumiz_step', 'sumiz_time', 'sumiz_reward', 'sumiz_average_reward']
+            summary_types, 
+            # the optimal step count of the optimal policy 
+            step_goal, 
+            # the maximum reward for the optimal policy
+            reward_goal, 
+            # the 'focus' section graphs only between the start and end focus index. Somes useful for detail comparasion 
+            start_focus, 
+            end_focus, 
+            # desired name for file
+            NAME, 
+            # file path to save graph. i.e "/Desktop/Py/Scenario_Comparasion/Maze/Model/"
+            SAVE_PATH
+            ):
 
-    #initialize the number of main axis
-    num_main_axes = 0
+        self.summary_types = summary_types
+        self.step_goal = step_goal
+        self.reward_goal = reward_goal
+        self.start_focus = start_focus
+        self.end_focus = end_focus
+        self.general_filename = NAME
+        self.save_path = SAVE_PATH
+        self.to_summarize = True
 
-    is_summary_r_s = False
-    #looping through all the summary types in order to generate axis
-    for element in summary_types:
-        if element == 'sumiz_step':
-            num_main_axes += 1
-        if element == 'sumiz_time':
-            num_main_axes += 1
-        if element == 'sumiz_reward':
-            num_main_axes += 1
-        if element == 'sumiz_reward_per_step':
-            num_main_axes += 1
-            is_summary_r_s = True
+        self.step_summary = []
+        self.time_summary = []
+        self.reward_summary = []
+        self.average_reward_summary = []
+        # quick break
+        if not self.summary_types:
+            self.to_summarize = False
+            return
 
-    if not num_main_axes:
-        return
+        # initialize the number of main axis
+        self.num_main_axes = 0
 
-    found_zero = False
-
-    if len(step_summary) > 0 and len(reward_summary) > 0 and is_summary_r_s:
-        for arg in step_summary:
-            if arg == 0:
-                found_zero = True
-                num_main_axes -= 1
-                print("Step array contains zero(s). reward-per-step graph will be omitted.")
-                break
-        if found_zero:
-            reward_per_step_summary = []
-        else:
-            reward_per_step_summary = np.true_divide(reward_summary, step_summary)
-    else:
-        reward_per_step_summary = []
-
-    if episode_count == summary_index: 
-        fig1 = plt.figure(figsize=(30, 15))
-        i = 1
-        for element in summary_types:
-            if element == 'sumiz_step':
-                ax1 = fig1.add_subplot(num_main_axes, 1, i)
-                ax1.plot(range(len(step_summary)),step_summary)
-                ax1.plot(range(len(step_summary)),np.repeat(step_goal, len(step_summary)), 'r:')
-                ax1.set_title('Number of steps taken in each episode')
-                ax1.set_xlabel('Episode')
-                ax1.set_ylabel('Steps taken')
-                i += 1
-            
-            if element == 'sumiz_time':
-                ax2 = fig1.add_subplot(num_main_axes, 1, i)
-                ax2.plot(range(len(exTime_summary)),exTime_summary)
-                ax2.set_title('Execution time in each episode')
-                ax2.set_xlabel('Episode')
-                ax2.set_ylabel('Execution time (s)')
-                i += 1
-
-            if element == 'sumiz_reward':
-                ax3 = fig1.add_subplot(num_main_axes, 1, i)
-                ax3.plot(range(len(reward_summary)),reward_summary)
-                ax3.plot(range(len(reward_summary)), np.repeat(reward_goal, len(reward_summary)), 'r:')
-                ax3.set_title('Reward in each episode')
-                ax3.set_xlabel('Episode')
-                ax3.set_ylabel('Reward')
-                i += 1
-
-            if element == 'sumiz_reward_per_step' and found_zero == False:
-                if step_goal != 0:
-                    reward_per_step_goal = np.repeat(reward_goal/float(step_goal), len(reward_per_step_summary))
-                else:
-                    reward_per_step_goal = np.repeat(0, len(reward_per_step_summary))
-
-                ax4 = fig1.add_subplot(num_main_axes, 1, i)
-                ax4.plot(range(len(reward_per_step_summary)),reward_per_step_summary)
-                ax4.plot(range(len(reward_per_step_summary)), reward_per_step_goal, 'r:')
-                ax4.set_title('Reward in each episode per step')
-                ax4.set_xlabel('Episode')
-                ax4.set_ylabel('Reward per step')
-                i += 1
-
-        plt.tight_layout()
-        fig1.savefig(SAVE_PATH + NAME + "_summary.png")
-
-    num_focus_axes = 0
-    for element in summary_types:
-        if element == 'sumiz_step':
-            num_focus_axes += 1
-        if element == 'sumiz_time':
-            num_focus_axes += 1
-
-    if not num_focus_axes:
-        return
-
-
-    if episode_count == summary_index and episode_count > start_focus:
-        fig2 = plt.figure(figsize=(30, 15))
-        i = 1
-        for element in summary_types:
-            if element == 'sumiz_step':
-                ax1 = fig2.add_subplot(num_focus_axes, 1, i)
-                ax1.plot(range(start_focus, end_focus), step_summary[start_focus:end_focus])
-                ax1.plot(range(start_focus, end_focus), np.repeat(step_goal, end_focus - start_focus), 'r:')
-                ax1.set_title('Number of steps taken in each episode')
-                ax1.set_xlabel('Episode')
-                ax1.set_ylabel('Steps taken')
-                i += 1
-            
-            if element == 'sumiz_time':
-                ax2 = fig2.add_subplot(num_focus_axes, 1, i)
-                ax2.plot(range(start_focus, end_focus), exTime_summary[start_focus:end_focus])
-                ax2.set_title('Execution time in each episode')
-                ax2.set_xlabel('Episode')
-                ax2.set_ylabel('Execution time (s)')
-                i += 1
-
-        plt.tight_layout()
-        fig2.savefig(SAVE_PATH + NAME +"_focused_summary.png")
-
+        self.is_average_reward_axes = False
         
 
+        # determines number of graph we want to plot in the figure
+        for element in self.summary_types:
+            if element == 'sumiz_step':
+                self.num_main_axes += 1
+            if element == 'sumiz_time':
+                self.num_main_axes += 1
+            if element == 'sumiz_reward':
+                self.num_main_axes += 1
+            if element == 'sumiz_average_reward':
+                self.num_main_axes += 1
+                self.is_average_reward_axes = True
+
+        if not self.num_main_axes:
+            self.to_summarize = False
+            return
+
+        # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        filelist = [ f for f in os.listdir(home + self.save_path) if f.endswith(".png") ]
+        for f in filelist:
+            os.remove(os.path.join(home + self.save_path, f))
+        # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+        self.num_focus_axes = 0
+        for element in self.summary_types:
+            if element == 'sumiz_step':
+                self.num_focus_axes += 1
+            if element == 'sumiz_time':
+                self.num_focus_axes += 1
+
+        if self.step_goal != 0:
+            self.average_reward_goal = self.reward_goal/float(self.step_goal)
+        else:
+            self.average_reward_goal = 0
+
+    def summarize(
+        self,
+        # for the current iteration 
+        episode_count,
+        # an array that records steps taken in each episode. Index indicates episode
+        step_count = 1,
+        # an array that records the operation time for each episode
+        time_count = 0, 
+        # an array that records total reward collected in each episode 
+        reward_count = 0
+    ):
+        self.update(step_count, time_count, reward_count)
+
+        if not self.to_summarize:
+            return
 
 
+        # generate summary graphs
+        if episode_count % FREQUENCY == 0: 
+            fig1 = plt.figure(figsize=(30, 15)) # ploting normally takes ~0.5 seconds
+            i = 1
+            for element in self.summary_types:
+                if element == 'sumiz_step':
+                    ax1 = fig1.add_subplot(self.num_main_axes, 1, i)
+                    ax1.plot(range(len(self.step_summary)),self.step_summary)
+                    ax1.plot(range(len(self.step_summary)),np.repeat(self.step_goal, len(self.step_summary)), 'r:')
+                    ax1.set_title('Number of steps taken in each episode')
+                    ax1.set_xlabel('Episode')
+                    ax1.set_ylabel('Steps taken')
+                    i += 1
+                
+                if element == 'sumiz_time':
+                    ax2 = fig1.add_subplot(self.num_main_axes, 1, i)
+                    ax2.plot(range(len(self.time_summary)),self.time_summary)
+                    ax2.set_title('Execution time in each episode')
+                    ax2.set_xlabel('Episode')
+                    ax2.set_ylabel('Execution time (s)')
+                    i += 1
 
-# sumiz_step, sumiz_time, sumiz_reward, sumiz_reward_per_step
+                if element == 'sumiz_reward':
+                    ax3 = fig1.add_subplot(self.num_main_axes, 1, i)
+                    ax3.plot(range(len(self.reward_summary)),self.reward_summary)
+                    ax3.plot(range(len(self.reward_summary)), np.repeat(self.reward_goal, len(self.reward_summary)), 'r:')
+                    ax3.set_title('Reward in each episode')
+                    ax3.set_xlabel('Episode')
+                    ax3.set_ylabel('Reward')
+                    i += 1
+
+                if element == 'sumiz_average_reward':
+                    ax4 = fig1.add_subplot(self.num_main_axes, 1, i)
+                    ax4.plot(range(len(self.average_reward_summary)),self.average_reward_summary)
+                    ax4.plot(range(len(self.average_reward_summary)), np.repeat(self.average_reward_goal, len(self.average_reward_summary)), 'r:')
+                    ax4.set_title('Reward in each episode per step')
+                    ax4.set_xlabel('Episode')
+                    ax4.set_ylabel('Reward per step')
+                    i += 1
+
+            plt.tight_layout()
+            fig1.savefig(home + self.save_path + self.general_filename + "_summary.png")
+
+        if not self.num_focus_axes:
+            return
+
+
+        # generate index-focused summary graph
+        if episode_count % FREQUENCY == 0 and episode_count > self.start_focus and episode_count < self.end_focus:
+            fig2 = plt.figure(figsize=(30, 15))
+            i = 1
+            for element in self.summary_types:
+                if element == 'sumiz_step':
+                    ax1 = fig2.add_subplot(self.num_focus_axes, 1, i)
+                    ax1.plot(range(self.start_focus, min(episode_count, self.end_focus)), self.step_summary[self.start_focus:min(episode_count, self.end_focus)])
+                    ax1.plot(range(self.start_focus, min(episode_count, self.end_focus)), np.repeat(self.step_goal, min(episode_count, self.end_focus) - self.start_focus), 'r:')
+                    ax1.set_title('Number of steps taken in each episode')
+                    ax1.set_xlabel('Episode')
+                    ax1.set_ylabel('Steps taken')
+                    i += 1
+                
+                if element == 'sumiz_time':
+                    ax2 = fig2.add_subplot(self.num_focus_axes, 1, i)
+                    ax2.plot(range(self.start_focus, min(episode_count, self.end_focus)), self.time_summary[self.start_focus:min(episode_count, self.end_focus)])
+                    ax2.set_title('Execution time in each episode')
+                    ax2.set_xlabel('Episode')
+                    ax2.set_ylabel('Execution time (s)')
+                    i += 1
+
+            plt.tight_layout()
+            fig2.savefig(home + self.save_path + self.general_filename +"_focused_summary.png")
+
+    def update(self, step_count, time_count, reward_count):
+
+        self.step_summary.append(step_count)
+        self.time_summary.append(time_count)
+        self.reward_summary.append(reward_count)
+
+
+        # check for divide by zero error
+        if step_count == 0 or not self.is_average_reward_axes:
+            print("Step array contains zero(s). reward-per-step graph will be omitted.")
+            self.average_reward_summary.append(0)
+        else:
+            # find average reward in each episode 
+            self.average_reward_summary.append(reward_count / float(step_count))
+
+
