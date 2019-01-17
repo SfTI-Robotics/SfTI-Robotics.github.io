@@ -19,7 +19,7 @@ Episodes for 10 successes: 280
 
 #### Double DQN focus Graphs 
 Episodes for 10 successes: 58
-![Graph](/MountainCar/ArchiveDoubDQNMountainCar.png)
+![Graph](MountainCar/ArchiveDoubDQNMountainCar.png)
 
 
 ### Steps per Episode Comparsion
