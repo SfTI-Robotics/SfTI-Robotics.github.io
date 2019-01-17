@@ -16,23 +16,26 @@ class summary:
     def __init__(
             self,
             # which summaries to display: ['sumiz_step', 'sumiz_time', 'sumiz_reward', 'sumiz_average_reward']
-            summary_types, 
+            summary_types = [], 
             # the optimal step count of the optimal policy 
-            step_goal, 
+            step_goal = 0, 
             # the maximum reward for the optimal policy
-            reward_goal, 
+            reward_goal = 0, 
+            # maximum exploitation value
+            epsilon_goal = 0,
             # the 'focus' section graphs only between the start and end focus index. Somes useful for detail comparasion 
-            start_focus, 
-            end_focus, 
+            start_focus = 0, 
+            end_focus = 0, 
             # desired name for file
-            NAME, 
+            NAME = "default_image", 
             # file path to save graph. i.e "/Desktop/Py/Scenario_Comparasion/Maze/Model/"
-            SAVE_PATH
-            ):
+            SAVE_PATH = home
+    ):
 
         self.summary_types = summary_types
         self.step_goal = step_goal
         self.reward_goal = reward_goal
+        self.epsilon_goal = epsilon_goal
         self.start_focus = start_focus
         self.end_focus = end_focus
         self.general_filename = NAME
@@ -42,6 +45,7 @@ class summary:
         self.step_summary = []
         self.time_summary = []
         self.reward_summary = []
+        self.epsilon_summary = []
         self.average_reward_summary = []
         # quick break
         if not self.summary_types:
@@ -61,6 +65,8 @@ class summary:
             if element == 'sumiz_time':
                 self.num_main_axes += 1
             if element == 'sumiz_reward':
+                self.num_main_axes += 1
+            if element == 'sumiz_epsilon':
                 self.num_main_axes += 1
             if element == 'sumiz_average_reward':
                 self.num_main_axes += 1
@@ -82,6 +88,8 @@ class summary:
                 self.num_focus_axes += 1
             if element == 'sumiz_time':
                 self.num_focus_axes += 1
+            if element == 'sumiz_epsilon':
+                self.num_focus_axes += 1
 
         if self.step_goal != 0:
             self.average_reward_goal = self.reward_goal/float(self.step_goal)
@@ -97,9 +105,11 @@ class summary:
         # an array that records the operation time for each episode
         time_count = 0, 
         # an array that records total reward collected in each episode 
-        reward_count = 0
+        reward_count = 0,
+        # epsilon greedy value
+        epsilon_value = 0
     ):
-        self.update(step_count, time_count, reward_count)
+        self.update(step_count, time_count, reward_count, epsilon_value)
 
         if not self.to_summarize:
             return
@@ -107,7 +117,7 @@ class summary:
 
         # generate summary graphs
         if episode_count % FREQUENCY == 0: 
-            fig1 = plt.figure(figsize=(30, 15)) # ploting normally takes ~0.5 seconds
+            fig1 = plt.figure(figsize=(30, 20)) # ploting normally takes ~0.5 seconds
             i = 1
             for element in self.summary_types:
                 if element == 'sumiz_step':
@@ -136,25 +146,33 @@ class summary:
                     ax3.set_ylabel('Reward')
                     i += 1
 
-                if element == 'sumiz_average_reward':
+                if element == 'sumiz_epsilon':
                     ax4 = fig1.add_subplot(self.num_main_axes, 1, i)
-                    ax4.plot(range(len(self.average_reward_summary)),self.average_reward_summary)
-                    ax4.plot(range(len(self.average_reward_summary)), np.repeat(self.average_reward_goal, len(self.average_reward_summary)), 'r:')
-                    ax4.set_title('Reward in each episode per step')
+                    ax4.plot(range(len(self.epsilon_summary)),self.epsilon_summary)
+                    ax4.plot(range(len(self.epsilon_summary)), np.repeat(self.epsilon_goal, len(self.epsilon_summary)), 'r:')
+                    ax4.set_title('Epsilon Greedy')
                     ax4.set_xlabel('Episode')
-                    ax4.set_ylabel('Reward per step')
+                    ax4.set_ylabel('Epsilon')
+                    i += 1
+
+                if element == 'sumiz_average_reward':
+                    ax5 = fig1.add_subplot(self.num_main_axes, 1, i)
+                    ax5.plot(range(len(self.average_reward_summary)),self.average_reward_summary)
+                    ax5.plot(range(len(self.average_reward_summary)), np.repeat(self.average_reward_goal, len(self.average_reward_summary)), 'r:')
+                    ax5.set_title('Reward in each episode per step')
+                    ax5.set_xlabel('Episode')
+                    ax5.set_ylabel('Reward per step')
                     i += 1
 
             plt.tight_layout()
             fig1.savefig(home + self.save_path + self.general_filename + "_summary.png")
-
-        if not self.num_focus_axes:
+            plt.close(fig1)
+        if not self.num_focus_axes or self.start_focus == self.end_focus:
             return
-
 
         # generate index-focused summary graph
         if episode_count % FREQUENCY == 0 and episode_count > self.start_focus and episode_count < self.end_focus:
-            fig2 = plt.figure(figsize=(30, 15))
+            fig2 = plt.figure(figsize=(30, 20))
             i = 1
             for element in self.summary_types:
                 if element == 'sumiz_step':
@@ -174,14 +192,24 @@ class summary:
                     ax2.set_ylabel('Execution time (s)')
                     i += 1
 
+                if element == 'sumiz_epsilon':
+                    ax3 = fig2.add_subplot(self.num_focus_axes, 1, i)
+                    ax3.plot(range(self.start_focus, min(episode_count, self.end_focus)), self.epsilon_summary[self.start_focus:min(episode_count, self.end_focus)])
+                    ax3.plot(range(self.start_focus, min(episode_count, self.end_focus)), np.repeat(self.epsilon_goal, min(episode_count, self.end_focus) - self.start_focus), 'r:')
+                    ax3.set_title('Epsilon Greedy')
+                    ax3.set_xlabel('Episode')
+                    ax3.set_ylabel('Epsilon')
+                    i += 1
+
             plt.tight_layout()
             fig2.savefig(home + self.save_path + self.general_filename +"_focused_summary.png")
-
-    def update(self, step_count, time_count, reward_count):
+            plt.close(fig2)
+    def update(self, step_count, time_count, reward_count, epsilon_value):
 
         self.step_summary.append(step_count)
         self.time_summary.append(time_count)
         self.reward_summary.append(reward_count)
+        self.epsilon_summary.append(epsilon_value)
 
         if  not self.is_average_reward_axes:
             return
@@ -194,4 +222,13 @@ class summary:
             # find average reward in each episode 
             self.average_reward_summary.append(reward_count / float(step_count))
 
-
+    def display_parameters(self, intial_epsilon = None, max_epsilon = None, learning_rate = None, reward_decay = None, memory_size = None):
+        print('='*40)
+        print('{}{}{}'.format('='*11, ' Hyper-parameters ', '='*11))
+        print('='*40)
+        print('{}{}'.format(' Starting Epsilon: ', intial_epsilon))
+        print('{}{}'.format(' Maximum Epsilon: ', max_epsilon))
+        print('{}{}'.format(' Learning Rate (Alpha): ', learning_rate))
+        print('{}{}'.format(' Reward Decay (Gamma): ', reward_decay))
+        print('{}{}'.format(' Memory Size: ', memory_size))
+        print('='*40)

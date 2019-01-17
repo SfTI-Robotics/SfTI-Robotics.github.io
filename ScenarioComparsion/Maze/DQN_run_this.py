@@ -15,14 +15,17 @@ from DQN_modified import DeepQNetwork
 from summary import *
 
 NAME = "Maze_DQN"
-SAVE_PATH = "/Desktop/Py/Scenario_Comparasion/Maze/Model/" + "DQN_images"
-summary_types = ['sumiz_step', 'sumiz_time', 'sumiz_reward', 'sumiz_average_reward']
+SAVE_PATH = "/Desktop/Py/Scenario_Comparasion/Maze/Model/" + "DQN_images/"
+summary_types = ['sumiz_step', 'sumiz_reward', 'sumiz_time', 'sumiz_average_reward', 'sumiz_epislon']
 STEP_GOAL = 6
 REWARD_GOAL = 1
+EPSILON_GOAL = 0.9
 START_FOCUS_INDEX = 100
 END_FOCUS_INDEX = 200
 
 def run_maze():
+
+    record.display_parameters(intial_epsilon = 0.9, max_epsilon = 0.9, learning_rate = 0.01, reward_decay = 0.9, memory_size = 2000)
 
     step = 0
     for episode in tqdm(range(200)): # for episode
@@ -80,7 +83,8 @@ if __name__ == "__main__":
                       )
     record = summary(summary_types,
                     STEP_GOAL, 
-                    REWARD_GOAL, 
+                    REWARD_GOAL,
+                    EPSILON_GOAL, 
                     START_FOCUS_INDEX, 
                     END_FOCUS_INDEX, 
                     NAME, 

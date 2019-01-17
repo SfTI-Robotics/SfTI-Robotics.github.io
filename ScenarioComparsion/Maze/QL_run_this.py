@@ -23,16 +23,17 @@ from PIL import Image
 import time
 
 NAME = "Maze_QL"
-SAVE_PATH = "/Desktop/Py/Scenario_Comparasion/Maze/Model/" + "QL_images"
+SAVE_PATH = "/Desktop/Py/Scenario_Comparasion/Maze/Model/" + "QL_images/"
 STEP_GOAL = 6
 REWARD_GOAL = 1
+EPSILON_GOAL = 0.9
 START_FOCUS_INDEX = 100
 END_FOCUS_INDEX = 200
-summary_types = (['sumiz_step', 'sumiz_time', 'sumiz_reward', 'sumiz_average_reward'])
+summary_types = (['sumiz_step', 'sumiz_reward', 'sumiz_time', 'sumiz_average_reward'])
 
 def update():
 
-
+    record.display_parameters(intial_epsilon = 0.9, max_epsilon = 0.9, learning_rate = 0.01, reward_decay = 0.9)
 
     for episode in tqdm(range(200)):
         # initial observation
@@ -77,6 +78,7 @@ if __name__ == "__main__":
     record = summary(summary_types,
                     STEP_GOAL, 
                     REWARD_GOAL, 
+                    EPSILON_GOAL,
                     START_FOCUS_INDEX, 
                     END_FOCUS_INDEX, 
                     NAME, 
