@@ -18,11 +18,11 @@ The results were graphed by running the code for both algorithms until 10 succes
 #### DQN focus Graphs 
 Episodes for 10 successes: 280
 
-![Graph](MountainCar/archiveMountainCarDQN.png)
+![Graph](MountainCar/DQNMountainCar_trial1_ep280.png)
 
 #### Double DQN focus Graphs 
 Episodes for 10 successes: 58
-![Graph](MountainCar/ArchiveDoubDQNMountainCar.png)
+![Graph](MountainCar/DoubleDQNMountainCar_trial1_ep58.png)
 
 
 ### Steps per Episode Comparsion
