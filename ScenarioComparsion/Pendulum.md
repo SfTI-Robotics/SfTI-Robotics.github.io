@@ -13,18 +13,18 @@ The Pendulum environment was executed and compared the algorithms: **double and 
 ### Accumalative rewards vs steps
 The main point to compare here is the behaviour of the graphs at the end, which one is flatter and flattens first. This indicates that the pendulum is upright and stays upright by not moving this means our agent doesn't take an action and our reward increase becomes 0. We can see in the graph that duelling dqn flattens first and is the smoothest indicating our duelling algorithm learns the ability to makes the pendulum stay upright for longer even if it may take more actions initially to get to that point.
 
-![Graph](/Pendulum/Results/acc_r_trial4.png)
+![Graph](Pendulum/Results/acc_r_trial4.png)
 
 
 ### Q eval vs steps
 
 When the Q-value increases above 0, it indicates that there is an overestimation. From the execution trials, double DQN consistently starts with very high overestimations, whereas, dueling DQN decays extremely fast. Both algorithms have similar results after the around 7500 episodes. 
 
-![Graph](/Pendulum/Results/Q-eval_trial1.png)
+![Graph](Pendulum/Results/Q-eval_trial1.png)
 
 ### Cost vs steps
 
-![Graph](/Pendulum/Results/cost_trial4.png)
+![Graph](Pendulum/Results/cost_trial4.png)
 
 We can see duelling reaches our goal of zero first and tends to stay flatter with double having more jumps this indicates that duelling learns a lot faster than double.
 
