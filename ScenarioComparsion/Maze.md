@@ -11,7 +11,7 @@ The difference between DQN and Q - learning algorithms is notified through the o
 
 ### QL Summary Graph           |  DQN Summary Graph 
 
-<img src="Maze/Model/QL_images/Maze_QL_summary.png" width="400"> | <img src="Maze/Model/DQN_images/Maze_DQN_summary.pngg" width="400">
+<img src="Maze/Model/QL_images/Maze_QL_summary.png" width="400"> | <img src="Maze/Model/DQN_images/Maze_DQN_summary.png" width="400">
 
 ### QL focus Graphs
 ![Graph](Maze/Model/QL_images/Maze_QL_focused_summary.png)
