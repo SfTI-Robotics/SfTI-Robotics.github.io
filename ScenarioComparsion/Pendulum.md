@@ -23,10 +23,10 @@ When the Q-value increases above 0, it indicates that there is an overestimation
 ![Graph](Pendulum/Results/Q-eval_trial1.png)
 
 ### Cost vs steps
+We can see duelling reaches our goal of zero first and tends to stay flatter with double having more jumps this indicates that duelling learns a lot faster than double.
 
 ![Graph](Pendulum/Results/cost_trial4.png)
 
-We can see duelling reaches our goal of zero first and tends to stay flatter with double having more jumps this indicates that duelling learns a lot faster than double.
 
 ## Conclusions
 
