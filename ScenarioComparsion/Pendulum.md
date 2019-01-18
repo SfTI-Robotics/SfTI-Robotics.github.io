@@ -16,7 +16,7 @@ The main point to compare here is the behaviour of the graphs at the end, which 
 
 When the Q-value increases above 0, it indicates that there is an overestimation. From the execution trials, double DQN consistently starts with very high overestimations, whereas, dueling DQN decays extremely fast. Both algorithms have similar results after the around 7500 episodes. 
 
-![Graph](/Pendulum/Results/Q-eval_trial4.png)
+![Graph](/Pendulum/Results/Q-eval_trial1.png)
 
 ### Cost vs steps
 
