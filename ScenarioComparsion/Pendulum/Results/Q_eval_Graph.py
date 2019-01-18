@@ -66,11 +66,12 @@ def train(RL):
     return RL.q
 
 def Q_graphs():
-    q_dueling = train(dueling_DQN)
+    
     q_double = train(double_DQN)
+    q_dueling = train(dueling_DQN)
 
-    plt.plot(np.array(q_dueling), c='r', label='dueling')
-    plt.plot(np.array(q_double), c='b', label='double')
+    plt.plot(np.array(q_dueling), c='b', label='dueling')
+    plt.plot(np.array(q_double), c='r', label='double')
     plt.legend(loc='best')
     plt.ylabel('Q eval')
     plt.xlabel('training steps')
