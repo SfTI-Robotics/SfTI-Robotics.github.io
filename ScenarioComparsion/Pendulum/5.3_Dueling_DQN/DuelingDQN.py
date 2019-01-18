@@ -43,6 +43,7 @@ class DuelingDQN:
         self.epsilon = 0 if e_greedy_increment is not None else self.epsilon_max
 
         self.dueling = dueling      # decide to use dueling DQN or not
+       # self.q = q
 
         self.learn_step_counter = 0
         self.memory = np.zeros((self.memory_size, n_features*2+2))
@@ -121,9 +122,16 @@ class DuelingDQN:
 
     def choose_action(self, observation):
         observation = observation[np.newaxis, :]
+
         if np.random.uniform() < self.epsilon:  # choosing action
+            
             actions_value = self.sess.run(self.q_eval, feed_dict={self.s: observation})
             action = np.argmax(actions_value)
+            if not hasattr(self, 'q'):  # record action value it gets
+                self.q = []
+                self.running_q = 0
+            self.running_q = self.running_q*0.99 + 0.01 * np.max(actions_value)
+            self.q.append(self.running_q)
         else:
             action = np.random.randint(0, self.n_actions)
         return action
