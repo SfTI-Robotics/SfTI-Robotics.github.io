@@ -9,11 +9,8 @@ The maze environment involves a 4x4 grid space that involves an red rectangle ac
 ## Steps per Episode Comparsion
 The difference between DQN and Q - learning algorithms is notified through the osciallations produced in the normalisation of the optimal policy in the later episodes. This due to the exploration and exploitation comparative. As the Q - learning algorithm explores and exploits at the same time on the same network while the DQN has a two simultaneous networks one of which allows the DQN to explore while the target newtork allows it to exploit and choose an optimal policy. 
 
-### QL Summary Graph
-![Graph](Maze/Model/QL_images/Maze_QL_summary.png)
-
-### DQN Summary Graph 
-![Graph](Maze/Model/DQN_images/Maze_DQN_summary.png)
+### QL Summary Graph           |  DQN Summary Graph 
+![Graph](Maze/Model/QL_images/Maze_QL_summary.png =100x20)  ![Graph](Maze/Model/DQN_images/Maze_DQN_summary.png =100x20)
 
 ### QL focus Graphs
 ![Graph](Maze/Model/QL_images/Maze_QL_focused_summary.png)
