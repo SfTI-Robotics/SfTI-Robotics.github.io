@@ -24,4 +24,4 @@ The difference between DQN and Q - learning algorithms is notified through the o
 The Q - learning provides a slight oscillation which is a negligible difference in the steps which are produced the runtimes are also quite similar seen in the graphs above there we can conclude it wouldn't provide much of a difference in the choosing of one algorithm over the other but for a slightly more normalised optimal policy generation the DQN could be chosen.
 
 
-<img src="Maze/Model/QL_images/Maze_QL_summary.png" width="48">
+<img src="Maze/Model/QL_images/Maze_QL_summary.png" width="10">
