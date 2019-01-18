@@ -2,6 +2,10 @@
 
 Pendulum is a classic control environment which aims for the pole to remain upright vertically at 0 degrees. There are no episodic terminations, instead, only the steps and memory are taken into account. The reward gained for each action when there is no movement(i.e: pendulum is already upright) is 0, and for each time step, a reward of -1 is assigned. The lowest reward for each action is -16.2736044 since the pendulum can only move from -pi to pi. In essence, the goal is to remain at zero angle (vertical), with the least rotational velocity, and the least effort. Also note that there is no reward threshold to say that it has successfully achieved the goal.
 
+## Note
+
+We only use Double DQN and Duelling as we can't use DQN and simple Q learning algorithms in environments with continous actions spaces they can't handle the complexity
+
 ## Results
 
 The Pendulum environment was executed and compared the algorithms: **double and dueling DQN**. The graphs for the Q-evaluation value, cost and accumulated reward was graphed against the number of steps. The code was run for 18000 steps. 
