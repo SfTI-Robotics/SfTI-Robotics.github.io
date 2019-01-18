@@ -26,4 +26,4 @@ We can see duelling reaches our goal of zero first and tends to stay flatter wit
 
 ## Conclusions
 
-Duelling learns how to get to our goal faster and is able to remain upright longer 
+Duelling learns how to get to our goal faster and is able to remain upright longer, it also more accuratley estimates q values. Use Duelling but it doesn't take more memory 
