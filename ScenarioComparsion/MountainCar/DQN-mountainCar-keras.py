@@ -4,7 +4,7 @@ import random
 from keras.models import Sequential
 from keras.layers import Dense, Dropout
 from keras.optimizers import Adam
-from summary import *
+from summary import summary
 import os
 from os.path import expanduser
 home = expanduser("~")
@@ -87,7 +87,7 @@ def main():
     step_summary = []
     reward_summary = []
     exTime_summary = []
-    summary_types = ['sumiz_step' , 'sumiz_time', 'sumiz_reward']
+    summary_types = ['sumiz_step' , 'sumiz_time', 'sumiz_reward', 'sumiz_epsilon']
     step_goal = 199
     reward_goal = 1
     summary_index = 5
@@ -139,4 +139,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
     env.close()
