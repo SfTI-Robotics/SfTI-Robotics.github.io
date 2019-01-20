@@ -4,15 +4,25 @@ import random
 from keras.models import Sequential
 from keras.layers import Dense, Dropout
 from keras.optimizers import Adam
-from summary import summary
+from summary import *
 import os
 from os.path import expanduser
 home = expanduser("~")
+from tqdm import tqdm
+import matplotlib.pyplot as plt
+from PIL import Image
 
-SAVE_PATH = home + "/UoA-RL.github.io/ScenarioComparsion/MountainCar/" 
-NAME = "DQN Mountain car performance"
+
 from collections import deque
 import time
+NAME = "DQN_MountainCar"
+SAVE_PATH = "/UoA-RL.github.io/ScenarioComparsion/MountainCar/" 
+STEP_GOAL = 125
+REWARD_GOAL = -110
+EPSILON_GOAL = 0.9
+START_FOCUS_INDEX = 0
+END_FOCUS_INDEX = 0
+summary_types = ['sumiz_step', 'sumiz_reward', 'sumiz_time', 'sumiz_epsilon']
 
 
 class DQN:
@@ -84,27 +94,15 @@ def main():
 
     # updateTargetNetwork = 1000
     dqn_agent = DQN(env=env)
-    step_summary = []
-    reward_summary = []
-    exTime_summary = []
-    summary_types = ['sumiz_step' , 'sumiz_time', 'sumiz_reward', 'sumiz_epsilon']
-    step_goal = 199
-    reward_goal = 1
-    summary_index = 5
-    start_focus = 0
-    end_focus = 1000
+    
     success = 0
     for trial in range(trials):
         cur_state = env.reset().reshape(1,2)
         startTime = time.time()
-        episode_count =  trial
         total_reward = 0
-        step_counter = 0
-        
         for step in range(trial_len):
             env.render() 
-            step_counter += 1 
-
+            
             action = dqn_agent.act(cur_state)
             new_state, reward, done, _ = env.step(action)
 
@@ -122,10 +120,7 @@ def main():
             if done:
                 break
 
-        step_summary.append(step_counter)
-        reward_summary.append(total_reward)
-        exTime_summary.append(time.time() - startTime)
-        summary(summary_types, episode_count, step_summary, exTime_summary, reward_summary, step_goal, reward_goal, summary_index, start_focus, end_focus, NAME, SAVE_PATH)
+        results.summarize(trial, step, time.time() - startTime, total_reward, 1 - dqn_agent.epsilon)
         if step >= 199:
             print("Failed to complete in trial {}".format(trial))
             # if step % 10 == 0:
@@ -138,6 +133,15 @@ def main():
                 break
 
 if __name__ == "__main__":
-    main()
+    results = summary(summary_types,
+                    STEP_GOAL, 
+                    REWARD_GOAL, 
+                    EPSILON_GOAL,
+                    START_FOCUS_INDEX, 
+                    END_FOCUS_INDEX, 
+                    NAME, 
+                    SAVE_PATH
+                    )
 
+    main()
     env.close()
