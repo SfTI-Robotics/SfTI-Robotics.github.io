@@ -206,10 +206,10 @@ if __name__ == "__main__":
 
                 break
 
-        step_summary.append(step_counter)
+        step_summary.append()
         reward_summary.append(total_reward)
         exTime_summary.append(time.time() - startTime)
-        summary(summary_types, episode_count, step_summary, exTime_summary, reward_summary, step_goal, reward_goal, summary_index, start_focus, end_focus, NAME, SAVE_PATH)
+        summary(summary_types, episode_count, step_counter, exTime_summary, reward_summary, step_goal, reward_goal, summary_index, start_focus, end_focus, NAME, SAVE_PATH)
         
         if step_counter >= 199:
             print("Failed to complete in trial {}".format(e))

@@ -29,7 +29,7 @@ REWARD_GOAL = 1
 EPSILON_GOAL = 0.9
 START_FOCUS_INDEX = 100
 END_FOCUS_INDEX = 200
-summary_types = (['sumiz_step', 'sumiz_reward', 'sumiz_time', 'sumiz_average_reward'])
+summary_types = ['sumiz_step', 'sumiz_reward', 'sumiz_time', 'sumiz_epsilon']
 
 def update():
 
