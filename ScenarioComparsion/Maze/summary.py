@@ -12,10 +12,33 @@ home = expanduser("~")
 # update frequency
 FREQUENCY = 5
 
+EPISODE_MIN = 0
+EPISODE_MAX = 200
+
+STEP_MIN_M = 0
+STEP_MAX_M = 500
+
+TIME_MIN_M = 0
+TIME_MAX_M = 1
+
+REWARD_MIN_M = -2
+REWARD_MAX_M = 2
+
+STEP_MIN_F = 3
+STEP_MAX_F = 12
+
+TIME_MIN_F = 0
+TIME_MAX_F = 0.025
+
+REWARD_MIN_F = 0
+REWARD_MAX_F = 1
+
+
+ 
 class summary:
     def __init__(
             self,
-            # which summaries to display: ['sumiz_step', 'sumiz_time', 'sumiz_reward', 'sumiz_average_reward']
+            # which summaries to display: ['sumiz_step', 'sumiz_time', 'sumiz_reward', 'sumiz_average_reward', 'sumiz_epsilon']
             summary_types = [], 
             # the optimal step count of the optimal policy 
             step_goal = 0, 
@@ -77,9 +100,10 @@ class summary:
             return
 
         # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        filelist = [ f for f in os.listdir(home + self.save_path) if f.endswith(".png") ]
-        for f in filelist:
-            os.remove(os.path.join(home + self.save_path, f))
+        if len(os.listdir(home + self.save_path) ) != 0:
+            filelist = [ f for f in os.listdir(home + self.save_path) if f.endswith(".png") ]
+            for f in filelist:
+                os.remove(os.path.join(home + self.save_path, f))
         # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
         self.num_focus_axes = 0
@@ -117,11 +141,12 @@ class summary:
 
         # generate summary graphs
         if episode_count % FREQUENCY == 0: 
-            fig1 = plt.figure(figsize=(20, 10)) # ploting normally takes ~0.5 seconds
+            fig1 = plt.figure(figsize=(5, 10)) # ploting normally takes ~0.5 seconds
             i = 1
             for element in self.summary_types:
                 if element == 'sumiz_step':
                     ax1 = fig1.add_subplot(self.num_main_axes, 1, i)
+                    plt.axis([EPISODE_MIN,EPISODE_MAX,STEP_MIN_M,STEP_MAX_M])
                     ax1.plot(range(len(self.step_summary)),self.step_summary)
                     ax1.plot(range(len(self.step_summary)),np.repeat(self.step_goal, len(self.step_summary)), 'r:')
                     ax1.set_title('Number of steps taken in each episode')
@@ -131,6 +156,7 @@ class summary:
                 
                 if element == 'sumiz_time':
                     ax2 = fig1.add_subplot(self.num_main_axes, 1, i)
+                    plt.axis([EPISODE_MIN,EPISODE_MAX,TIME_MIN_M,TIME_MAX_M])
                     ax2.plot(range(len(self.time_summary)),self.time_summary)
                     ax2.set_title('Execution time in each episode')
                     ax2.set_xlabel('Episode')
@@ -139,6 +165,7 @@ class summary:
 
                 if element == 'sumiz_reward':
                     ax3 = fig1.add_subplot(self.num_main_axes, 1, i)
+                    plt.axis([EPISODE_MIN,EPISODE_MAX,REWARD_MIN_M,REWARD_MAX_M])
                     ax3.plot(range(len(self.reward_summary)),self.reward_summary)
                     ax3.plot(range(len(self.reward_summary)), np.repeat(self.reward_goal, len(self.reward_summary)), 'r:')
                     ax3.set_title('Reward in each episode')
@@ -172,11 +199,12 @@ class summary:
 
         # generate index-focused summary graph
         if episode_count % FREQUENCY == 0 and episode_count > self.start_focus and episode_count < self.end_focus:
-            fig2 = plt.figure(figsize=(20, 10))
+            fig2 = plt.figure(figsize=(5, 5))
             i = 1
             for element in self.summary_types:
                 if element == 'sumiz_step':
                     ax1 = fig2.add_subplot(self.num_focus_axes, 1, i)
+                    plt.axis([self.start_focus,self.end_focus,STEP_MIN_F,STEP_MAX_F])
                     ax1.plot(range(self.start_focus, min(episode_count, self.end_focus)), self.step_summary[self.start_focus:min(episode_count, self.end_focus)])
                     ax1.plot(range(self.start_focus, min(episode_count, self.end_focus)), np.repeat(self.step_goal, min(episode_count, self.end_focus) - self.start_focus), 'r:')
                     ax1.set_title('Number of steps taken in each episode')
@@ -186,6 +214,7 @@ class summary:
                 
                 if element == 'sumiz_time':
                     ax2 = fig2.add_subplot(self.num_focus_axes, 1, i)
+                    plt.axis([self.start_focus,self.end_focus,TIME_MIN_F,TIME_MAX_F])
                     ax2.plot(range(self.start_focus, min(episode_count, self.end_focus)), self.time_summary[self.start_focus:min(episode_count, self.end_focus)])
                     ax2.set_title('Execution time in each episode')
                     ax2.set_xlabel('Episode')
