@@ -10,12 +10,24 @@ from keras.models import Sequential
 
 from summary import *
 import os
-from os.path import expanduser
-home = expanduser("~")
 
-SAVE_PATH = home + "/UoA-RL.github.io/ScenarioComparsion/MountainCar/" 
-NAME = "double DQN Mountain car performance"
+
+
+from tqdm import tqdm
+import matplotlib.pyplot as plt
+from PIL import Image
 import time
+
+NAME = "double-DQN-Mountain-car-performance"
+SAVE_PATH = "/UoA-RL.github.io/ScenarioComparsion/MountainCar/" 
+STEP_GOAL = 125
+REWARD_GOAL = -110
+EPSILON_GOAL = 0.9
+START_FOCUS_INDEX = 0
+END_FOCUS_INDEX = 0
+summary_types = ['sumiz_step', 'sumiz_reward', 'sumiz_time', 'sumiz_epsilon']
+
+
 
 EPISODES = 1300
 
@@ -140,7 +152,15 @@ class DoubleDQNAgent:
         # calculates loss and does optimisation 
         self.model.fit(update_input, target, batch_size=self.batch_size,
                        epochs=1, verbose=0)
-
+record = summary(summary_types,
+                    STEP_GOAL, 
+                    REWARD_GOAL, 
+                    EPSILON_GOAL,
+                    START_FOCUS_INDEX, 
+                    END_FOCUS_INDEX, 
+                    NAME, 
+                    SAVE_PATH
+                    )
 
 if __name__ == "__main__":
     # In case of CartPole-v1, you can play until 500 time step
@@ -205,12 +225,18 @@ if __name__ == "__main__":
                 agent.update_target_model()
 
                 break
-
-        step_summary.append()
-        reward_summary.append(total_reward)
-        exTime_summary.append(time.time() - startTime)
-        summary(summary_types, episode_count, step_counter, exTime_summary, reward_summary, step_goal, reward_goal, summary_index, start_focus, end_focus, NAME, SAVE_PATH)
         
+        record.summarize(
+        episode_count,
+        # an array that records steps taken in each episode. Index indicates episode
+        step_counter,
+        # an array that records the operation time for each episode
+        startTime, 
+        # an array that records total reward collected in each episode 
+        total_reward,
+        # epsilon greedy value
+        1 - agent.epsilon
+    )
         if step_counter >= 199:
             print("Failed to complete in trial {}".format(e))
         else: 
