@@ -13,16 +13,24 @@ home = expanduser("~")
 FREQUENCY = 5
 
 EPISODE_MIN = 0
+<<<<<<< Updated upstream
 EPISODE_MAX = 500
+=======
+EPISODE_MAX =500
+>>>>>>> Stashed changes
 
 STEP_MIN_M = 0
 STEP_MAX_M = 200
 
 TIME_MIN_M = 0
+<<<<<<< Updated upstream
 TIME_MAX_M = 30
+=======
+TIME_MAX_M = 5
+>>>>>>> Stashed changes
 
 REWARD_MIN_M = -210
-REWARD_MAX_M = -90
+REWARD_MAX_M = -70
 
 STEP_MIN_F = 3
 STEP_MAX_F = 12

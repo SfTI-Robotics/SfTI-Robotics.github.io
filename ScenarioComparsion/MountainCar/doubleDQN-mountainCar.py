@@ -20,9 +20,9 @@ import time
 
 NAME = "double-DQN-Mountain-car-performance"
 SAVE_PATH = "/UoA-RL.github.io/ScenarioComparsion/MountainCar/" 
-STEP_GOAL = 125
+STEP_GOAL = 0
 REWARD_GOAL = -110
-EPSILON_GOAL = 0.9
+EPSILON_GOAL = 0.99
 START_FOCUS_INDEX = 0
 END_FOCUS_INDEX = 0
 summary_types = ['sumiz_step', 'sumiz_reward', 'sumiz_time', 'sumiz_epsilon']
@@ -231,7 +231,7 @@ if __name__ == "__main__":
         # an array that records steps taken in each episode. Index indicates episode
         step_counter,
         # an array that records the operation time for each episode
-        startTime, 
+        time.time() - startTime, 
         # an array that records total reward collected in each episode 
         total_reward,
         # epsilon greedy value

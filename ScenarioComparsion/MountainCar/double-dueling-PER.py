@@ -10,12 +10,19 @@ from SumTree import SumTree
 
 from summary import *
 import os
-from os.path import expanduser
-home = expanduser("~")
-
-SAVE_PATH = home + "/UoA-RL.github.io/ScenarioComparsion/MountainCar/" 
-NAME = "double, dueling, PER, DQN Mountain car performance"
+import matplotlib.pyplot as plt
+from PIL import Image
 import time
+
+SAVE_PATH = "/UoA-RL.github.io/ScenarioComparsion/MountainCar/" 
+NAME = "double-dueling-PER-DQN-Mountain-car-performance"
+import time
+STEP_GOAL = 0
+REWARD_GOAL = -110
+EPSILON_GOAL = 0.99
+START_FOCUS_INDEX = 0
+END_FOCUS_INDEX = 0
+summary_types = ['sumiz_step', 'sumiz_reward', 'sumiz_time', 'sumiz_epsilon']
 
 #-----------------------------------CONSTANTS-----------------------------------
 
@@ -34,6 +41,7 @@ REWARD_DISCOUNT = 0.9
 MAX_EPISODES = 1500
 MAX_TIMESTEPS = 5000
 TARGET_UPDATE_FREQ = 50 #this is in episodes, not timesteps
+
 
 #-----------------------------------VARIABLES-----------------------------------
 
@@ -410,7 +418,15 @@ class Replay_Memory:
         self.tree.update(idx, priority)
 
 #--------------------------------------MAIN-------------------------------------
-
+record = summary(summary_types,
+                    STEP_GOAL, 
+                    REWARD_GOAL, 
+                    EPSILON_GOAL,
+                    START_FOCUS_INDEX, 
+                    END_FOCUS_INDEX, 
+                    NAME, 
+                    SAVE_PATH
+                    )
 """
 The Main Loop of the algorithm
 """
@@ -462,8 +478,17 @@ def run():
         step_summary.append(step_counter)
         reward_summary.append(episode_reward)
         exTime_summary.append(time.time() - startTime)
-        summary(summary_types, episode, step_summary, exTime_summary, reward_summary, step_goal, reward_goal, summary_index, start_focus, end_focus, NAME, SAVE_PATH)
-        
+        record.summarize(
+        episode,
+        # an array that records steps taken in each episode. Index indicates episode
+        step_counter,
+        # an array that records the operation time for each episode
+        time.time() - startTime, 
+        # an array that records total reward collected in each episode 
+        episode_reward,
+        # epsilon greedy value
+        1 - rnd_action_prob
+    )
         if step_counter < 200:
             success += 1
             if success == 10:
@@ -472,3 +497,4 @@ def run():
 
 if __name__ == '__main__':
     run()
+    
