@@ -49,7 +49,7 @@ Once you're alright with the theory start going into Openai Gym and look at what
 
 ## Code Pages
 
-| Syntax Page   | Scenario Comparison |
+| Syntax Page| Scenario Comparison |
 | ------------- | ------------------- |
 | [Nupmy](./Numpy.md) | [Cart Pole](./ScenarioComparsion/Cartpole.md) |
 | [TensorFlow](./Tensorflow.md) | [Mountain Car](./ScenarioComparsion/MountainCar.md) |
