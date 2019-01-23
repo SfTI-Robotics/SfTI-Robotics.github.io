@@ -16,7 +16,7 @@ from summary import *
 
 NAME = "Maze_DQN"
 SAVE_PATH = "/Desktop/Py/Scenario_Comparasion/Maze/Model/" + "DQN_images/"
-summary_types = ['sumiz_step', 'sumiz_reward', 'sumiz_time', 'sumiz_average_reward', 'sumiz_epislon']
+summary_types = ['sumiz_step', 'sumiz_reward', 'sumiz_time', 'sumiz_average_reward']
 STEP_GOAL = 6
 REWARD_GOAL = 1
 EPSILON_GOAL = 0.9
