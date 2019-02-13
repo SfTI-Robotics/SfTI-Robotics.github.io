@@ -81,6 +81,32 @@ Short for double-ended queue. They are sequence (list-like) containers with dyna
 
 
 
+### Argparse
+
+command line user input arguments
+
+
+### Emumerate
+
+```
+for counter, value in enumerate(some_list):
+    print(counter, value)
+--------
+
+my_list = ['apple', 'banana', 'grapes', 'pear']
+for c, value in enumerate(my_list, 1):
+    print(c, value)
+
+# Output:
+# 1 apple
+# 2 banana
+# 3 grapes
+# 4 pear
+```
+
+- allows us to loop over something and have an automatic counter
+- accepts an optional argument which specifies the starting index
+- 
 
 
 ### Other peculiar sightings 
@@ -89,6 +115,3 @@ Short for double-ended queue. They are sequence (list-like) containers with dyna
 
 ### SumTree
 
-### Argparse
-
-command line user input arguments
