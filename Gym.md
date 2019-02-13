@@ -31,3 +31,8 @@ close(): prevents data leaks → ensures code runs every time without reopening 
 ```
 env.close() 
 ```
+## Wrappers
+Monitor(): 
+
+## Spaces
+
