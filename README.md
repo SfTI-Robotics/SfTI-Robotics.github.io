@@ -30,7 +30,9 @@ First I would recommend installing the following program(use google- they normal
    ```
    pip(3) install keras
    ```
-  
+6) scikit-image 
+
+
   Environment simulation packages: 
   
 1) [OpenAI Gym](https://gym.openai.com/docs/)
