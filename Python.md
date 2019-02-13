@@ -85,6 +85,21 @@ Short for double-ended queue. They are sequence (list-like) containers with dyna
 
 command line user input arguments
 
+> The argparse module makes it easy to write user-friendly command-line interfaces. The program defines what arguments it requires, and argparse will figure out how to parse those out of sys.argv. The argparse module also automatically generates help and usage messages and issues errors when users give the program invalid arguments. 
+
+```
+import argparse
+# initialise class object
+parser = argparse.ArgumentParser()
+# create an argument option 
+parser.add_argument('--foo', help='foo help')
+# retrieve user inputted data
+args = parser.parse_args()
+
+```
+
+*formatter_class*
+- RawTextHelpFormatter¶: give more control over how textual descriptions are displayed
 
 ### Emumerate
 
@@ -106,7 +121,7 @@ for c, value in enumerate(my_list, 1):
 
 - allows us to loop over something and have an automatic counter
 - accepts an optional argument which specifies the starting index
-- 
+
 
 
 ### Other peculiar sightings 
