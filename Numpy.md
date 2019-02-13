@@ -21,6 +21,8 @@ Create array of zeros, ones or nothing (really small numbers):
 np.zeros(size, type)
 np.ones(size, type)
 np.empty(size, type)
+
+np.zeros_like(given_array, type)
 ```
 
 Create array with evenly spaced numbers. E.g 2, 4, 6, 8:
@@ -132,6 +134,18 @@ np.split()		// split into even pieces
 np.array_split()	// for uneven splits. Uneven part goes to left-most matrix
 np.vsplit()
 ```
+
+Contiguous flattening:
+```
+np.ravel(array, order)
+```
+The elements of the array are read using this index order. By default, ‘C’ index order is used.
+- ‘C’ means to index the elements in row-major, C-style order, with the last axis index changing fastest, back to the first axis index changing slowest. 
+- ‘F’ means to index the elements in column-major, Fortran-style order, with the first index changing fastest, and the last index changing slowest. 
+- ‘A’ means to read the elements in Fortran-like index order if a is Fortran contiguous in memory, C-like order otherwise. - - ‘K’ means to read the elements in the order they occur in memory, except for reversing the data when strides are negative. 
+Note that the ‘C’ and ‘F’ options take no account of the memory layout of the underlying array, and only refer to the order of axis indexing. 
+
+
 # Random Functions
 DISCLAMER: There are two random packages , one with numpy.random which creates a random matrix and you have a standard random package which creates a random value
 
