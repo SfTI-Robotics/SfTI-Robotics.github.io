@@ -222,6 +222,27 @@ We are using a sigmoid activation function on the output layer(see layers above)
 
 _*Congrats you have graduated from the school of keras*_
 
+# Using Convolutional layers(You'll need this for openai retro)
+
+### Reshape
+```
+keras.layers.Reshape(target_shape)
+```
+Changing the dimensions of your state/tuple for processing or learning from images will be neccessary for your code to work 
+target_shape is height, width, depth, channels(use when stacking images)
+
+### conv2d
+```
+self.model.add(Conv2D(16, kernel_size=(8, 8), strides = (2, 2), padding='valid', activation = 'relu', input_shape=self.obs_space, data_format='channels_first')
+```
+
+First you should have a basic understanding of convolutional networks read the crash course section [here]()
+The convolutional network is used to do give the same output as a dense layer but this time the inputs is an array of numbers that amount to an image.
+
+
+
+
+
 
 
 
