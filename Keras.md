@@ -236,8 +236,16 @@ target_shape is height, width, depth, channels(use when stacking images)
 self.model.add(Conv2D(16, kernel_size=(8, 8), strides = (2, 2), padding='valid', activation = 'relu', input_shape=self.obs_space, data_format='channels_first')
 ```
 
-First you should have a basic understanding of convolutional networks read the crash course section [here]()
-The convolutional network is used to do give the same output as a dense layer but this time the inputs is an array of numbers that amount to an image.
+First you should have a basic understanding of convolutional networks read the crash course section [here](https://docs.google.com/document/d/1yo7i6JMEUSnohLU7v1tGZ1X10Php5aD5alysiK_MvBg/edit#heading=h.ooonjak5qubg)
+
+The convolutional network is to identify and classify objects in an image that will be needed, regardless of position in image to learn eg: in pong the two players and the ball.
+
+Fisrt input in the function is the filters which not what you think but is rather the number of tiles in the convolutional layer. Our traditional filter size is actually used the input kernel size and is 8x8 in this example.
+Next we have our strides that takes 2 tiles for each neural and the padding is on to make sure the convollutional 
+layer doesn't shrink. The neural networks use an relu activation function and lastly out input is the observation(image) that has the channels(rgb or b&w) described first in its shape.
+
+
+
 
 
 
