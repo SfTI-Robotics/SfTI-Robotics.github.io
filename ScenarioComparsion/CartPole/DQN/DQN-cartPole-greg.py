@@ -8,11 +8,12 @@ import numpy as np
 import time
 from summary import *
 import os
+import keras
 
 #  python module for array manipulation
 from collections import deque 
 from keras.models import Sequential
-from keras.layers import Dense
+from keras.layers import Dense, Lambda
 from keras.optimizers import Adam
 from tqdm import tqdm
 # from gym_recording.wrappers import TraceRecordingWrapper
@@ -42,7 +43,7 @@ SUMMARY_INDEX = 100
 start_focus = 0
 end_focus = 0
 NAME = 'CartPole-v1_DQN'
-SAVE_PATH = "/Desktop/Py/Scenario_Comparasion/CartPole/Model/" + "DQN_images/"
+SAVE_PATH = "/"
 
 class DQNSolver:
 
@@ -56,11 +57,21 @@ class DQNSolver:
 
         # create neural network by stacking the layers in a linear order
         self.model = Sequential()
-        self.model.add(Dense(24, input_shape=(observation_space,), activation="relu"))
-        self.model.add(Dense(24, activation="relu"))
-        self.model.add(Dense(self.action_space, activation="linear"))
-        # if weights are not specified, default is sample weight
-        self.model.compile(loss="mse", optimizer=Adam(lr=LEARNING_RATE))
+        # self.model.add(Dense(24, input_shape=(observation_space,), activation="relu"))
+        # self.model.add(Dense(24, activation="relu"))
+        # self.model.add(Dense(self.action_space, activation="linear"))
+        # # if weights are not specified, default is sample weight
+        # self.model.compile(loss="mse", optimizer=Adam(lr=LEARNING_RATE))
+        DQNSolver.build_network22(self)
+
+    def build_network22(self):
+        shape_image = self.observation_space
+        init = keras.initializers.RandomNormal(mean=0.0, stddev=0.05, seed=None)
+        #self.model.add(keras.layers.Lambda(lambda x: x / 255.0,input_shape = shape_image))
+        self.model.add(Dense(512, activation="relu", kernel_initializer='he_uniform' ))
+        self.model.add(Dense(24, activation="relu", kernel_initializer='he_uniform' ))
+        self.model.add(Dense(self.action_space, activation="linear", kernel_initializer ='he_uniform'))
+        self.model.compile(optimizer=keras.optimizers.RMSprop(lr=0.00025, rho = 0.95), loss="mse")
 
     # store transition
     def remember(self, state, action, reward, next_state, done):
@@ -81,21 +92,26 @@ class DQNSolver:
         if len(self.memory) < TRAIN_START:
             return
         batch = random.sample(self.memory, BATCH_SIZE)
-    
-       
-        # for state, action, reward, state_next, terminal in batch:
-        #     q_update = reward
-        #     if not terminal:
-        #         # bellman equation
-        #         q_update = (reward + GAMMA * np.amax(self.model.predict(state_next)[0]))
 
-        #     q_values = self.model.predict(state)
+        # ======================================================
+        # for state, action, reward, state_next, done in batch:
 
-        #     q_values[0][action] = q_update
-        #     # fit(x, y): trains the model for a given number of iterations (epochs) on a data set
-        #     # verbose: displays info
-        #     self.model.fit(state, q_values, verbose=0)
+        #     target = reward
+        #     if not done:
+        #         # resize array by increasing dimension
+        #         #state_next = np.expand_dims(state_next, axis= 0)
+        #         # bootstrapping the predicted reward as Q-value
+        #         target = reward + GAMMA * np.max(self.model.predict(state_next))
 
+        #     # resize array by increasing dimension
+        #     #state = np.expand_dims(state, axis=0)
+        #     target_f = self.model.predict(state)
+
+        #     target_f[0][action] = target
+        #     # print('target_f =', target_f)
+        #     self.model.fit(state, target_f,batch_size=BATCH_SIZE,epochs=1, verbose = 0)
+
+         # ======================================================
         update_input = np.zeros((BATCH_SIZE, self.observation_space))
         update_target = np.zeros((BATCH_SIZE, self.observation_space))
         action, reward, done = [], [], []
@@ -118,13 +134,37 @@ class DQNSolver:
                 # bellman equation
                 target[i][action[i]] = reward[i] + GAMMA * np.amax(target_next[i])
 
-        self.model.fit(update_input, target, batch_size=BATCH_SIZE,
-                       epochs=1, verbose=0)
+        self.model.fit(update_input, target, batch_size=BATCH_SIZE, epochs=1, verbose=0)
 
+         # ======================================================
+        # state_array = np.zeros((BATCH_SIZE, self.observation_space)) 
+        # next_state_array = np.zeros((BATCH_SIZE, self.observation_space))
+        # print("observation =", self.observation_space)
+        # out = np.zeros((BATCH_SIZE,2))
+        # # batch = random.sample(self.transitions, batch_size)
+        # i = 0
+        # for state, action, reward, state_next, terminal in batch:
+        #     state_array[i:i+1] = state
+        #     next_state_array[i:i+1] = state_next
+        #     target = reward
 
+        #     if terminal == False:
+        #         #state_next = np.expand_dims(state_next, axis=0)
+        #         target = reward + GAMMA * np.amax(self.model.predict(state_next)[0] )
+            
+        #     #state = np.expand_dims(state, axis=0)
+        #     out[i] = self.model.predict(state)
+        #     out[i][action] = target
+        #     i += 1
+
+        # self.model.fit(state_array,out,batch_size = BATCH_SIZE, epochs=1,verbose=1)
+
+         # ======================================================
+        print("finish replay")
         # update exploration rate
         self.exploration_rate *= EXPLORATION_DECAY
         self.exploration_rate = max(EXPLORATION_MIN, self.exploration_rate)
+        print('e =', 1 - self.exploration_rate)
 
 
 
