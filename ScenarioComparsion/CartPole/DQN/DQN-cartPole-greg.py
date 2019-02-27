@@ -210,7 +210,7 @@ def cartpole():
             
             if terminal:
                 avg_score = np.mean(episode_rewards)
-                print("Episode: " + str(run) + ", epsilon: " + str(1 - dqn_solver.exploration_rate) + ", steps: " + str(step), ",  average score =", avg_score)
+                print("Episode: " + str(run) + ", epsilon: " + "%.4f" % str(1 - dqn_solver.exploration_rate) + ", steps: " + str(step), ",  average score = ", "%.4f" % avg_score)
                 # score_logger.add_score(step, run)
                 break
             dqn_solver.experience_replay()
