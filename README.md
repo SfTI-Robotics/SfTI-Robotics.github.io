@@ -1,6 +1,9 @@
 # National Science challenge
 
-Welcome this organisation is the Github repo for the SFTI Robotics spearhead project. All code and documentation for this project will be stored and managed here. For those new to Github: https://guides.github.com/activities/hello-world/
+Welcome this organisation is the Github repo for the SFTI Robotics spearhead project: https://www.sftichallenge.govt.nz/research/adaptive-learning-robots-complement-human-workforce. All code and documentation for this project will be stored and managed here. 
+
+# How to Guides
+For those new to Github: https://guides.github.com/activities/hello-world/
 
 ## Base System Specifications
 
